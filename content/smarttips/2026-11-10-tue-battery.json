@@ -1,0 +1,53 @@
+{
+ "topic": "ថ្មទូរស័ព្ទ",
+ "scenes": [
+  {
+   "icon": "battery",
+   "main": "ថ្មអស់មុនល្ងាច?",
+   "sub": "កំហុសនៅ 3 Setting នេះ",
+   "accent": "yellow",
+   "glow": "red",
+   "seconds": 3
+  },
+  {
+   "icon": "timer",
+   "main": "3 Setting\nក្នុង 30 វិនាទី",
+   "sub": "ធ្វើតាមខ្ញុំ — មិនដល់ 1 នាទីទេ",
+   "seconds": 5
+  },
+  {
+   "icon": "moon",
+   "main": "បើក Dark Mode",
+   "sub": "អេក្រង់ OLED សន្សំថ្មបានច្រើន",
+   "number": 1,
+   "note": "Menu អាចខុសគ្នាតាមម៉ាកទូរស័ព្ទ",
+   "glow": "yellow",
+   "seconds": 9
+  },
+  {
+   "icon": "timer",
+   "main": "Screen timeout\nត្រឹម 30 វិនាទី",
+   "sub": "កុំទុក 5 នាទី",
+   "number": 2,
+   "note": "Menu អាចខុសគ្នាតាមម៉ាកទូរស័ព្ទ",
+   "seconds": 9
+  },
+  {
+   "icon": "apps",
+   "main": "បិទ App ដើរខាងក្រោយ",
+   "sub": "មើលក្នុង Battery ថា App ណាស៊ីថ្មច្រើន",
+   "number": 3,
+   "note": "Menu អាចខុសគ្នាតាមម៉ាកទូរស័ព្ទ",
+   "seconds": 9
+  },
+  {
+   "icon": "logo",
+   "main": "Save ទុក\nFollow Smart Tips KH",
+   "sub": "Tips ទូរស័ព្ទ រាល់ថ្ងៃ",
+   "accent": "yellow",
+   "glow": "yellow",
+   "pill": "+ Follow",
+   "seconds": 5
+  }
+ ]
+}

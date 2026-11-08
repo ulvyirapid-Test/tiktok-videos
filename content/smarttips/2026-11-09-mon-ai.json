@@ -1,0 +1,49 @@
+{
+ "topic": "AI ជាអ្វី?",
+ "scenes": [
+  {
+   "icon": "phone",
+   "main": "អ្នកប្រើ AI\nរាល់ថ្ងៃ!",
+   "sub": "ប៉ុន្តែប្រហែលមិនដឹងខ្លួនទេ",
+   "accent": "yellow",
+   "glow": "yellow",
+   "seconds": 3
+  },
+  {
+   "icon": "chip",
+   "main": "AI = កុំព្យូទ័រ\nដែលរៀនពីទិន្នន័យ",
+   "sub": "Artificial Intelligence\nគិត និងឆ្លើយបានដូចមនុស្ស",
+   "seconds": 7
+  },
+  {
+   "icon": "feed",
+   "main": "Facebook & TikTok\nណែនាំវីដេអូ",
+   "sub": "ដឹងថាអ្នកចូលចិត្តមើលអ្វី",
+   "number": 1,
+   "seconds": 7
+  },
+  {
+   "icon": "map",
+   "main": "Google Maps\nរកផ្លូវជៀសស្ទះ",
+   "sub": "ប្រាប់ផ្លូវដែលលឿនជាង",
+   "number": 2,
+   "seconds": 7
+  },
+  {
+   "icon": "chat",
+   "main": "ChatGPT, Claude,\nGemini សរសេរបាន",
+   "sub": "សរសេរ • បកប្រែ • ពន្យល់\nជាភាសាខ្មែរ",
+   "number": 3,
+   "seconds": 7
+  },
+  {
+   "icon": "logo",
+   "main": "Follow\nSmart Tips KH",
+   "sub": "រៀន AI រាល់ថ្ងៃ ពេញមួយសប្តាហ៍នេះ",
+   "accent": "yellow",
+   "glow": "yellow",
+   "pill": "+ Follow",
+   "seconds": 4
+  }
+ ]
+}

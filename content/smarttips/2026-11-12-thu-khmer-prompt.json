@@ -1,0 +1,51 @@
+{
+ "topic": "Prompt ខ្មែរ",
+ "scenes": [
+  {
+   "icon": "bad_chat",
+   "main": "AI សរសេរខ្មែរ\nដូចម៉ាស៊ីន?",
+   "sub": "ប្តូរ Prompt តែមួយនេះ!",
+   "accent": "yellow",
+   "glow": "red",
+   "seconds": 3
+  },
+  {
+   "icon": "short_prompt",
+   "main": "បញ្ហា: Prompt ខ្លីពេក",
+   "sub": "AI មិនដឹងផ្ញើទៅអ្នកណា ឬ Tone បែបណា",
+   "seconds": 7
+  },
+  {
+   "icon": "four_chips",
+   "main": "ប្រាប់ AI 4 យ៉ាង",
+   "sub": "អ្នកណា • រឿងអ្វី • Tone • ប្រវែង",
+   "number": 1,
+   "glow": "yellow",
+   "seconds": 10
+  },
+  {
+   "icon": "highlight_line",
+   "main": "«សរសេរដូចមនុស្ស\nខ្មែរនិយាយធម្មតា»",
+   "sub": "បន្ថែមប្រយោគនេះ — លទ្ធផលប្រែភ្លាម",
+   "number": 2,
+   "accent": "yellow",
+   "seconds": 8
+  },
+  {
+   "icon": "chat_before_after",
+   "main": "មុន  /  ក្រោយ",
+   "sub": "សារសុំច្បាប់ប្រធាន ធម្មជាតិ និងគួរសមជាង",
+   "number": 3,
+   "seconds": 12
+  },
+  {
+   "icon": "logo",
+   "main": "Prompt ពេញ\nនៅ Comment",
+   "sub": "Save ទុក • Follow Smart Tips KH",
+   "accent": "yellow",
+   "glow": "yellow",
+   "pill": "+ Follow",
+   "seconds": 5
+  }
+ ]
+}

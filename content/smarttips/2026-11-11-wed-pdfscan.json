@@ -1,0 +1,49 @@
+{
+ "topic": "App ឥតគិតថ្លៃ",
+ "scenes": [
+  {
+   "icon": "doc_before_after",
+   "main": "ឈប់ថតរូបឯកសារវៀចៗ!",
+   "sub": "ស្កេនជា PDF ក្នុង 10 វិនាទី",
+   "accent": "yellow",
+   "glow": "yellow",
+   "seconds": 3
+  },
+  {
+   "icon": "phone_over_paper",
+   "main": "មានស្រាប់\nក្នុងទូរស័ព្ទអ្នក",
+   "sub": "មិនបាច់ទាញ App ថ្មីទេ",
+   "seconds": 5
+  },
+  {
+   "icon": "plus_scan",
+   "main": "Android:\nGoogle Drive → + → Scan",
+   "sub": "កាត់គែម តម្រង់ឯកសារឲ្យស្វ័យប្រវត្តិ",
+   "number": 1,
+   "seconds": 12
+  },
+  {
+   "icon": "camera_scan",
+   "main": "iPhone:\nNotes → កាមេរ៉ា → Scan",
+   "sub": "ស្កេនច្រើនទំព័រក្នុងឯកសារតែមួយ",
+   "number": 2,
+   "seconds": 12
+  },
+  {
+   "icon": "send_pdf",
+   "main": "ផ្ញើជា PDF",
+   "sub": "តាម Telegram ឬ Email បានភ្លាម",
+   "number": 3,
+   "seconds": 4
+  },
+  {
+   "icon": "logo",
+   "main": "Follow Smart Tips KH",
+   "sub": "ស្អែក: Prompt សរសេរសារខ្មែរ",
+   "accent": "yellow",
+   "glow": "yellow",
+   "pill": "+ Follow",
+   "seconds": 4
+  }
+ ]
+}
