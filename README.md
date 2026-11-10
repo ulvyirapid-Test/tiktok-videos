@@ -15,3 +15,5 @@ Brand: Smart Tips KH (navy / yellow / cyan, lightbulb logo). One short per day, 
 - `python3 generator/smarttips/build_short.py SPEC.json videos/smarttips/NAME.mp4 SEED` — renders 1080×1920 video with original background music and writes `NAME_preview.png` (one frame per scene) for checking Khmer text; delete the preview before committing
 - Icons: see `ICONS` in `build_short.py` (generic shapes only — no company logos)
 - Rules: max 2 lines per `main`, ~22 Khmer chars per line; no ✓/✗ symbols (font lacks them); keep text left of the right 15% and above the bottom 20%
+- `generator/make_news_carousel.py content/X.json carousels/X ACCENT` — renders the same script as a 7-slide photo carousel (JPG)
+- `carousels/` — public JPG slides for TikTok photo posts
