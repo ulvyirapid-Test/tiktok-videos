@@ -1,0 +1,16 @@
+{
+  "series": "Build with me · Part 1",
+  "acc": "#A78BFA",
+  "title": "បង្កើត Bot ជូនដំណឹងការងារ (Part 1)",
+  "caption": "ខ្ញុំបង្កើត Telegram Bot ជូនដំណឹងការងារ ពី Google Sheet ដោយឱ្យ AI ជួយសរសេរកូដ 🤖 Part 1 = មើលថាវាធ្វើអ្វី។ Part 2 ខ្ញុំបង្ហាញជំហាននីមួយៗ។\n\nអ្នកចង់បាន Bot ជូនដំណឹងអំពីអ្វី? 👇\n#TelegramBot #AppsScript #GoogleSheetខ្មែរ #AIសម្រាប់ការងារ #Automation #TikTokខ្មែរ",
+  "scenes": [
+    {"type": "hook", "dur": 3.6, "badge": "PART 1", "lines": [{"t": "ខ្ញុំបង្កើត *Bot*\nជូនដំណឹងការងារ", "cls": "h1"}, {"t": "ដោយឱ្យ _AI_ សរសេរកូដ 🤖", "cls": "h3"}]},
+    {"type": "phone", "dur": 6.2, "title": "លទ្ធផល៖ ដំណឹងចូលទូរស័ព្ទ *ភ្លាមៗ*", "head": "Work Alert Bot", "gap": 1.1,
+     "msgs": [{"t": "🚚 ឡានលេខ ៣ ចេញពីឃ្លាំង", "time": "07:30"}, {"t": "✅ ដឹកដល់ហាង ១២/១២", "time": "11:05"}, {"t": "⚠️ ទំនិញ A នៅសល់ !២០ ប្រអប់!", "time": "14:20"}, {"t": "📊 របាយការណ៍ថ្ងៃនេះ រួចរាល់", "time": "17:00"}]},
+    {"type": "flow", "dur": 6.4, "title": "វាដំណើរការយ៉ាងម៉េច?", "stagger": 0.35,
+     "nodes": [{"icon": "📗", "t": "Google Sheet", "s": "បុគ្គលិកបញ្ចូលទិន្នន័យ"}, {"icon": "⚙️", "t": "Apps Script", "s": "កូដដែល *AI* សរសេរឱ្យ"}, {"icon": "🤖", "t": "Telegram Bot", "s": "ផ្ញើសារស្វ័យប្រវត្តិ"}, {"icon": "📱", "t": "ទូរស័ព្ទអ្នក", "s": "ដឹងភ្លាម មិនបាច់សួរ"}]},
+    {"type": "steps", "dur": 6.0, "title": "អ្វីដែលត្រូវធ្វើ ៣ ជំហាន", "stagger": 0.5,
+     "items": ["បង្កើត Bot ជាមួយ *@BotFather* យក Token", "ឱ្យ *AI* សរសេរ Apps Script", "ដាក់ *Trigger* ឱ្យរត់ស្វ័យប្រវត្តិ"]},
+    {"type": "cta", "dur": 4.6, "pre": "Part 2 មកដល់ឆាប់ៗ 👀\nFollow", "text": "ដើម្បីកុំឱ្យខកខាន", "ask": "ចង់បាន Bot ជូនដំណឹង\n_អំពីអ្វី_? 👇"}
+  ]
+}

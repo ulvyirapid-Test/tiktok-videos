@@ -17,3 +17,10 @@ Brand: Smart Tips KH (navy / yellow / cyan, lightbulb logo). One short per day, 
 - Rules: max 2 lines per `main`, ~22 Khmer chars per line; no ✓/✗ symbols (font lacks them); keep text left of the right 15% and above the bottom 20%
 - `generator/make_news_carousel.py content/X.json carousels/X ACCENT` — renders the same script as a 7-slide photo carousel (JPG)
 - `carousels/` — public JPG slides for TikTok photo posts
+
+## Work-Tips series ("AI សម្រាប់ការងារ")
+Animated shorts (chat typing, spreadsheet, phone alerts, flow, steps) rendered from JSON with `generator/worktips/engine.html`.
+- Video: `python3 generator/worktips/render.py content/worktips/SPEC.json videos/OUT.mp4 MUSIC_SEED`
+- Preview frames: `python3 generator/worktips/render.py content/worktips/SPEC.json --preview 0 5 12`
+- Carousel: `python3 generator/worktips/render_slides.py content/worktips/SPEC.json carousels/OUT_DIR` (spec uses `slides`)
+- Scene types: hook, compare, sheet, chat, phone, flow, steps, tip, prompt, cta. Markup: *cyan* _violet_ ~green~ !yellow!

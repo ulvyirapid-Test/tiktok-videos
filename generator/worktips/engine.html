@@ -1,0 +1,214 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family:K; src:url('../../fonts/KantumruyPro.ttf'); font-weight:100 900; }
+:root { --bg1:#070B1A; --bg2:#151036; --ink:#F4F6FF; --mut:#A8B0D3; --acc:#22D3EE; --acc2:#A78BFA; --ok:#4ADE80; --warn:#FBBF24; --bad:#F87171; --panel:rgba(255,255,255,.07); --line:rgba(255,255,255,.13); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:1080px; height:1920px; overflow:hidden; }
+body { font-family:K, "Noto Color Emoji", sans-serif; color:var(--ink); background:linear-gradient(180deg,var(--bg1),var(--bg2)); position:relative; }
+.glow { position:absolute; border-radius:50%; filter:blur(170px); }
+#g1 { width:900px; height:900px; left:-320px; top:-260px; background:var(--acc); opacity:.22; }
+#g2 { width:900px; height:900px; right:-360px; bottom:-200px; background:#7C3AED; opacity:.35; }
+#top { position:absolute; left:72px; right:72px; top:96px; display:flex; justify-content:space-between; align-items:center; font-size:32px; font-weight:700; color:var(--mut); }
+#series { color:var(--bg1); background:var(--acc); padding:6px 22px; border-radius:999px; font-size:28px; }
+#bar { position:absolute; left:72px; right:72px; top:160px; height:8px; border-radius:4px; background:rgba(255,255,255,.1); }
+#bar i { display:block; height:100%; border-radius:4px; background:linear-gradient(90deg,var(--acc),var(--acc2)); width:0; }
+.scene { position:absolute; left:72px; top:230px; width:860px; height:1250px; display:flex; flex-direction:column; justify-content:center; gap:40px; opacity:0; }
+.el { will-change:transform,opacity; }
+.label { font-size:40px; font-weight:700; color:var(--acc); letter-spacing:1px; }
+.h1 { font-size:104px; line-height:1.38; font-weight:800; }
+.h2 { font-size:76px; line-height:1.45; font-weight:800; }
+.h3 { font-size:54px; line-height:1.5; font-weight:700; }
+.p { font-size:46px; line-height:1.6; color:var(--mut); }
+.acc { color:var(--acc); } .acc2 { color:var(--acc2); } .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+.big-num { display:flex; align-items:center; gap:28px; font-size:120px; font-weight:800; }
+.strike { position:relative; color:var(--mut); }
+.strike::after { content:""; position:absolute; opacity:var(--so,0); left:-6px; right:var(--sr,100%); top:52%; height:12px; border-radius:6px; background:var(--bad); }
+.badge { align-self:flex-start; font-size:38px; font-weight:800; background:var(--acc2); color:#14102E; padding:10px 30px; border-radius:999px; }
+/* compare */
+.cmp { display:flex; gap:28px; }
+.col { flex:1; border-radius:36px; padding:40px 34px; background:var(--panel); border:3px solid var(--line); }
+.col.good { border-color:var(--ok); background:rgba(74,222,128,.08); }
+.col h4 { font-size:52px; margin-bottom:24px; }
+.col li { list-style:none; font-size:40px; line-height:1.55; margin-bottom:18px; color:var(--ink); }
+/* window chrome */
+.win { flex-shrink:0; border-radius:34px; background:#0F1530; border:3px solid var(--line); overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.45); }
+.win .tb { height:66px; display:flex; align-items:center; gap:14px; padding:0 26px; background:rgba(255,255,255,.05); font-size:30px; color:var(--mut); font-weight:700; }
+.dot { width:18px; height:18px; border-radius:50%; background:#F87171; } .dot:nth-child(2){background:#FBBF24} .dot:nth-child(3){background:#4ADE80}
+/* chat */
+.chat { padding:34px 30px 38px; display:flex; flex-direction:column; gap:26px; min-height:560px; }
+.msg { font-size:var(--msg,40px); line-height:1.6; padding:24px 30px; border-radius:30px; max-width:92%; white-space:pre-wrap; }
+.msg.u { align-self:flex-end; background:#2563EB; border-bottom-right-radius:8px; }
+.msg.a { align-self:flex-start; background:rgba(255,255,255,.08); border:2px solid var(--line); border-bottom-left-radius:8px; }
+.who { font-size:28px; font-weight:800; color:var(--acc); margin-bottom:6px; display:block; }
+.caret { display:inline-block; width:4px; height:42px; background:var(--ink); vertical-align:-8px; margin-left:4px; }
+.mono { font-family:K, sans-serif; font-size:40px; font-weight:700; color:#FDE68A; letter-spacing:.5px; }
+/* sheet */
+.fx { display:flex; align-items:center; gap:18px; padding:16px 22px; border-bottom:2px solid var(--line); font-size:36px; min-height:76px; }
+.fx b { color:var(--ok); font-style:italic; font-family:serif; font-size:40px; }
+table { border-collapse:collapse; width:100%; font-size:36px; }
+th { background:rgba(74,222,128,.14); color:#BBF7D0; font-weight:700; }
+th, td { border:2px solid rgba(255,255,255,.1); padding:16px 18px; text-align:left; white-space:nowrap; }
+td.hl { background:rgba(34,211,238,.18); }
+td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
+.rn { color:var(--mut); width:56px; text-align:center; font-size:28px; background:rgba(255,255,255,.04); }
+/* phone */
+.phone { align-self:center; width:600px; height:1000px; border-radius:70px; background:#0B1024; border:10px solid #2A3157; padding:80px 30px 30px; display:flex; flex-direction:column; gap:22px; position:relative; box-shadow:0 30px 90px rgba(0,0,0,.5); }
+.phone::before { content:""; position:absolute; top:24px; left:50%; width:160px; height:34px; margin-left:-80px; border-radius:20px; background:#000; }
+.ph-head { font-size:30px; color:var(--mut); text-align:center; font-weight:700; margin-bottom:6px; }
+.note { background:rgba(255,255,255,.09); border-radius:28px; padding:22px 24px; font-size:32px; line-height:1.5; }
+.note .nt { font-size:24px; color:var(--mut); font-weight:700; display:flex; justify-content:space-between; margin-bottom:6px; }
+/* flow */
+.flow { display:flex; flex-direction:column; gap:10px; }
+.node { display:flex; align-items:center; gap:30px; background:var(--panel); border:3px solid var(--line); border-radius:32px; padding:28px 34px; font-size:46px; font-weight:700; }
+.node .ic { font-size:64px; width:90px; text-align:center; }
+.node small { display:block; font-size:32px; font-weight:400; color:var(--mut); }
+.arr { text-align:center; font-size:52px; color:var(--acc2); line-height:1; height:56px; }
+/* steps */
+.steps { display:flex; flex-direction:column; gap:24px; }
+.step { display:flex; gap:28px; align-items:center; background:var(--panel); border-radius:30px; padding:26px 30px; font-size:44px; line-height:1.5; }
+.num { flex:none; width:84px; height:84px; border-radius:24px; background:var(--acc); color:var(--bg1); font-size:48px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+.card { background:var(--panel); border:3px solid var(--line); border-radius:40px; padding:46px 44px; }
+.handle-big { font-size:120px; font-weight:800; }
+</style></head>
+<body>
+<div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+<div id="top"><span>@ulvyi</span><span id="series"></span></div>
+<div id="bar"><i></i></div>
+<div id="stage"></div>
+<script>
+const SEG = new Intl.Segmenter('km', {granularity:'grapheme'});
+const graphemes = s => Array.from(SEG.segment(s), x => x.segment);
+const clamp = (x,a=0,b=1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+const back = x => { x = clamp(x); const c = 1.6; return 1 + (c+1)*Math.pow(x-1,3) + c*Math.pow(x-1,2); };
+const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// mini markup: *text* -> accent, _text_ -> accent2, ~text~ -> ok, !text! -> warn
+const mk = s => esc(s).replace(/\*(.+?)\*/g,'<span class=acc>$1</span>').replace(/_(.+?)_/g,'<span class=acc2>$1</span>').replace(/~(.+?)~/g,'<span class=ok>$1</span>').replace(/!(.+?)!/g,'<span class=warn>$1</span>').replace(/\n/g,'<br>');
+
+function pop(el, p, dy=40) { el.style.opacity = clamp(p*1.6); el.style.transform = `translateY(${(1-ease(p))*dy}px) scale(${0.94 + 0.06*back(p)})`; }
+function typeInto(el, full, p, caret) {
+  const g = graphemes(full), n = Math.round(g.length * clamp(p));
+  el.textContent = g.slice(0, n).join('');
+  if (caret && p > 0 && p < 1) el.appendChild(h('span','caret'));
+}
+
+const BUILD = {
+  hook(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.badge) { const b = h('div','badge el', esc(s.badge)); root.append(b); items.push(b); }
+    for (const l of s.lines) { const e = h('div', (l.cls||'h1') + ' el', mk(l.t)); root.append(e); items.push(e); }
+    if (s.from && s.to) {
+      const row = h('div','big-num el'); const a = h('span','strike', esc(s.from)); const ar = h('span','acc2','→'); const b = h('span','ok', esc(s.to));
+      row.append(a, ar, b); root.append(row); items.push(row); root._strike = a; root._to = b;
+    }
+    root._items = items; return root;
+  },
+  compare(s) {
+    const root = h('div','scene'); const t = h('div','h2 el', mk(s.title)); const cmp = h('div','cmp');
+    const mkcol = (c, good) => { const col = h('div','col el' + (good?' good':'')); col.append(h('h4', good?'ok':'bad', esc(c.title))); const ul = h('ul'); c.items.forEach(x => ul.append(h('li','el', mk(x)))); col.append(ul); return col; };
+    const L = mkcol(s.left,false), R = mkcol(s.right,true); cmp.append(L, R); root.append(t, cmp);
+    root._items = [t, L, ...L.querySelectorAll('li'), R, ...R.querySelectorAll('li')]; return root;
+  },
+  sheet(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','win el'); w.append(h('div','tb','<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;' + esc(s.file || 'Sheet')));
+    const fx = h('div','fx','<b>fx</b>'); const fxt = h('span','mono'); fx.append(fxt); w.append(fx);
+    const tb = h('table'); const tr0 = h('tr'); tr0.append(h('th','rn','')); s.cols.forEach(c => tr0.append(h('th','',esc(c)))); tb.append(tr0);
+    const rowsEl = [];
+    s.rows.forEach((r,i) => { const tr = h('tr'); tr.append(h('td','rn', String(i+2))); r.forEach((c,j) => { const td = h('td', (s.hlCol===j && s.hlVal===c)?'hl':'', esc(String(c))); tr.append(td); }); tb.append(tr); rowsEl.push(tr); });
+    let resTd = null;
+    if (s.result) { const tr = h('tr'); tr.append(h('td','rn', String(s.rows.length+2))); s.cols.forEach((c,j) => { const td = h('td','', j===0 ? esc(s.result.label) : ''); if (j===s.cols.length-1) resTd = td; tr.append(td); }); tb.append(tr); rowsEl.push(tr); }
+    w.append(tb); root.append(w); items.push(w);
+    if (s.note) { const n = h('div','p el', mk(s.note)); root.append(n); items.push(n); root._note = n; }
+    root._items = items; root._rows = rowsEl; root._fxt = fxt; root._res = resTd; return root;
+  },
+  chat(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','win el'); w.append(h('div','tb','<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;AI Chat'));
+    const c = h('div','chat'); if (s.small) c.style.setProperty('--msg', s.small + 'px'); const u = h('div','msg u'); const a = h('div','msg a'); const ab = h('span'); a.append(h('span','who','AI'), ab);
+    if (s.mono) ab.className = 'mono';
+    c.append(u, a); w.append(c); root.append(w); items.push(w);
+    root._items = items; root._u = u; root._a = a; root._ab = ab; return root;
+  },
+  phone(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const ph = h('div','phone el'); ph.append(h('div','ph-head', esc(s.head || 'Bot')));
+    const notes = s.msgs.map(m => { const n = h('div','note el'); n.append(h('div','nt', `<span>🤖 ${esc(s.head||'Bot')}</span><span>${esc(m.time||'now')}</span>`)); n.append(h('div','', mk(m.t))); ph.append(n); return n; });
+    root.append(ph); items.push(ph); root._items = items; root._notes = notes; return root;
+  },
+  flow(s) {
+    const root = h('div','scene'); const t = h('div','h3 el', mk(s.title)); root.append(t); const f = h('div','flow'); const items = [t];
+    s.nodes.forEach((n,i) => { if (i) { const a = h('div','arr el','↓'); f.append(a); items.push(a); } const nd = h('div','node el', `<span class=ic>${n.icon}</span><span>${mk(n.t)}${n.s?`<small>${mk(n.s)}</small>`:''}</span>`); f.append(nd); items.push(nd); });
+    root.append(f); root._items = items; return root;
+  },
+  steps(s) {
+    const root = h('div','scene'); const t = h('div','h2 el', mk(s.title)); root.append(t); const st = h('div','steps'); const items = [t];
+    s.items.forEach((x,i) => { const e = h('div','step el', `<div class=num>${'០១២៣៤៥៦៧៨៩'[i+1]}</div><div>${mk(x)}</div>`); st.append(e); items.push(e); });
+    root.append(st); root._items = items; return root;
+  },
+  tip(s) {
+    const root = h('div','scene'); const items = [];
+    const l = h('div','label el', esc(s.label || 'គន្លឹះ 💡')); const c = h('div','card el'); c.append(h('div','h2', mk(s.text))); if (s.sub) c.append(h('div','p', mk(s.sub)));
+    root.append(l, c); items.push(l, c); if (s.foot) { const f = h('div','h3 el', mk(s.foot)); root.append(f); items.push(f); }
+    root._items = items; return root;
+  },
+  prompt(s) {
+    const root = h('div','scene'); const n = h('div','big-num el', `<span class=num style="width:130px;height:130px;font-size:76px;border-radius:36px">${'០១២៣៤៥៦៧៨៩'[s.n]}</span><span class=h2>${mk(s.use)}</span>`);
+    const c = h('div','card el'); c.append(h('div','label', 'Prompt 📋')); c.append(h('div','h3', '«' + mk(s.text) + '»'));
+    const f = h('div','p el', mk(s.when)); root.append(n, c, f); root._items = [n, c, f]; return root;
+  },
+  cta(s) {
+    const root = h('div','scene'); const a = h('div','h2 el', mk(s.pre || 'Follow')); const b = h('div','handle-big acc el','@ulvyi'); const c = h('div','p el', mk(s.text || 'AI សម្រាប់ការងារ\nរៀងរាល់សប្តាហ៍ 🚀'));
+    root.append(a,b,c); const items = [a,b,c]; if (s.ask) { const d = h('div','card el'); d.append(h('div','h3', mk(s.ask))); root.append(d); items.push(d); }
+    root._items = items; return root;
+  },
+};
+
+const UPDATE = {
+  base(root, s, lt) { const st = s.stagger ?? 0.28, d0 = s.delay ?? 0.05; root._items.forEach((e,i) => pop(e, (lt - d0 - i*st) / 0.45)); },
+  hook(root, s, lt) {
+    root._items.forEach((e,i) => pop(e, s.from ? 1 : (lt + 0.6 - i*0.3) / 0.4));  // hook readable from frame 0
+    if (root._strike) { const p = ease((lt - 0.7) / 0.4); root._strike.style.setProperty('--sr', `${(1-p)*100}%`); root._strike.style.setProperty('--so', p > 0 ? 1 : 0); const q = clamp((lt - 1.0)/0.3); root._to.style.opacity = 0.25 + 0.75*q; root._to.style.display = 'inline-block'; root._to.style.transform = `scale(${0.85 + 0.15*back(q)})`; }
+  },
+  sheet(root, s, lt) {
+    UPDATE.base(root, s, lt);
+    root._rows.forEach((r,i) => r.style.opacity = clamp((lt - 0.3 - i*0.12) / 0.25));
+    if (s.formula) typeInto(root._fxt, s.formula, (lt - (s.fAt ?? 1.2)) / (s.fDur ?? 1.6), true);
+    if (root._res) { const p = clamp((lt - (s.rAt ?? 3.2)) / 0.3); root._res.textContent = p > 0 ? s.result.value : ''; root._res.className = p > 0 ? 'res' : ''; root._res.style.transform = `scale(${0.8 + 0.2*back(p)})`; }
+  },
+  chat(root, s, lt) {
+    UPDATE.base(root, s, lt);
+    const uA = s.uAt ?? 0.5, uD = s.uDur ?? 2.2, aA = s.aAt ?? (uA + uD + 0.5), aD = s.aDur ?? 3.2;
+    typeInto(root._u, s.user, (lt - uA) / uD, true); root._u.style.opacity = lt > uA ? 1 : 0;
+    root._a.style.opacity = lt > aA - 0.3 ? 1 : 0;
+    if (lt < aA) root._ab.textContent = lt > aA - 0.3 ? '•••' : '';
+    else typeInto(root._ab, s.ai, (lt - aA) / aD, true);
+  },
+  phone(root, s, lt) { UPDATE.base(root, s, lt); root._notes.forEach((n,i) => pop(n, (lt - 0.8 - i*(s.gap ?? 1.0)) / 0.4, -60)); },
+};
+
+window.setup = function (spec) {
+  document.documentElement.style.setProperty('--acc', spec.acc || '#22D3EE');
+  document.getElementById('series').textContent = spec.series || '';
+  if (!spec.series) document.getElementById('series').style.display = 'none';
+  const stage = document.getElementById('stage'); let t0 = 0;
+  window.SC = spec.scenes.map(s => { const el = BUILD[s.type](s); stage.append(el); const o = { s, el, t0, t1: t0 + s.dur }; t0 += s.dur; return o; });
+  window.TOTAL = t0; return t0;
+};
+window.draw = function (t) {
+  document.querySelector('#bar i').style.width = `${clamp(t / window.TOTAL) * 100}%`;
+  for (const o of window.SC) {
+    const lt = t - o.t0, on = t >= o.t0 - 0.001 && t < o.t1;
+    if (!on) { o.el.style.opacity = 0; continue; }
+    const fin = o.t0 === 0 ? 1 : clamp(lt / 0.3), fout = clamp((o.t1 - t) / 0.25);
+    o.el.style.opacity = Math.min(fin, fout);
+    o.el.style.transform = `translateX(${(1 - ease(fin)) * 60}px)`;
+    (UPDATE[o.s.type] || UPDATE.base)(o.el, o.s, lt);
+  }
+};
+</script></body></html>

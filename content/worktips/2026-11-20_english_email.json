@@ -1,0 +1,56 @@
+{
+  "series": "AI សម្រាប់ការងារ",
+  "acc": "#FBBF24",
+  "title": "សរសេរ Email អង់គ្លេស ដោយ AI",
+  "caption": "សរសេរ Email អង់គ្លេសមិនកើត? សរសេរជាខ្មែរ ហើយឱ្យ AI បកប្រែជា Email អាជីព ✉️ គន្លឹះ៖ ប្រាប់អ្នកទទួល + គោលបំណង + សម្លេង។\n\nអ្នកសរសេរ Email អង់គ្លេសញឹកញាប់ទេ? 👇\n#ChatGPTខ្មែរ #រៀនអង់គ្លេស #Email #AIសម្រាប់ការងារ #រៀនAI #TikTokខ្មែរ",
+  "scenes": [
+    {
+      "type": "hook",
+      "dur": 3.4,
+      "lines": [
+        {
+          "t": "សរសេរ *Email*\nអង់គ្លេសមិនកើត? 😰",
+          "cls": "h1"
+        },
+        {
+          "t": "សរសេរជា _ខ្មែរ_ បានហើយ!",
+          "cls": "h2"
+        }
+      ]
+    },
+    {
+      "type": "chat",
+      "dur": 12.6,
+      "title": "ខ្មែរ → Email អាជីព",
+      "user": "សរសេរ email ជាអង់គ្លេស ប្រាប់ supplier ថាទំនិញមកយឺត ២ ថ្ងៃ សុំឱ្យដឹកលើកក្រោយមុនថ្ងៃសុក្រ សម្លេងគួរសម",
+      "ai": "Subject: Request for On-Time Delivery\n\nDear Supplier,\nOur last order arrived two days late. Could you please deliver the next order before Friday?\nThank you for your support.\nBest regards",
+      "uAt": 0.6,
+      "uDur": 3.0,
+      "aDur": 4.6,
+      "small": 36
+    },
+    {
+      "type": "steps",
+      "dur": 6.0,
+      "title": "Prompt ល្អ ត្រូវមាន ៣ ចំណុច",
+      "stagger": 0.5,
+      "items": [
+        "*អ្នកទទួល* — ប្រធាន, អតិថិជន, Supplier",
+        "*គោលបំណង* — សុំ, ប្រាប់, ពន្យល់",
+        "*សម្លេង* — គួរសម ឬ តឹងរ៉ឹង"
+      ]
+    },
+    {
+      "type": "tip",
+      "dur": 4.8,
+      "label": "គន្លឹះពិសេស 💡",
+      "text": "បន្ថែម៖ «*ពន្យល់ជាខ្មែរផង*»",
+      "sub": "ផ្ញើ Email បាន + រៀនអង់គ្លេសផង 📚"
+    },
+    {
+      "type": "cta",
+      "dur": 4.2,
+      "ask": "អ្នកសរសេរ Email អង់គ្លេស\n_ញឹកញាប់_ ទេ? 👇"
+    }
+  ]
+}
