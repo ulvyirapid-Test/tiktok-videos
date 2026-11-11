@@ -73,6 +73,8 @@ td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .avatar { display:flex; align-items:center; gap:26px; }
 .av { flex:none; border-radius:50%; border:6px solid var(--acc); background-image:url('../../assets/creator.jpg'); background-repeat:no-repeat; box-shadow:0 12px 40px rgba(0,0,0,.45); }
 .avatar .nm { font-size:44px; font-weight:800; } .avatar .sb { font-size:32px; color:var(--mut); }
+.avsvg { flex:none; border-radius:50%; border:6px solid var(--acc); box-shadow:0 14px 44px rgba(0,0,0,.45); overflow:hidden; }
+.avsvg svg { width:100%; height:100%; display:block; }
 .photo { align-self:flex-start; width:380px; height:380px; border-radius:44px; border:6px solid var(--acc); background-image:url("../../assets/creator.jpg"); background-repeat:no-repeat; background-size:485px 485px; background-position:-76px -9px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
 </style></head>
 <body>
@@ -98,11 +100,60 @@ function typeInto(el, full, p, caret) {
   if (caret && p > 0 && p < 1) el.appendChild(h('span','caret'));
 }
 
-function avatarEl(size) { const e = h('div','av'); const k = size / 460; e.style.width = e.style.height = size + 'px'; e.style.backgroundSize = `${957*k}px ${957*k}px`; e.style.backgroundPosition = `${-345*k}px ${-20*k}px`; return e; }
+const AV_SVG = `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<defs><clipPath id="CLIP"><circle cx="200" cy="200" r="196"/></clipPath>
+<linearGradient id="BG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#312E81"/></linearGradient></defs>
+<g clip-path="url(#CLIP)">
+<circle cx="200" cy="200" r="200" fill="url(#BG)"/>
+<g class="body">
+ <path d="M40,420 C45,340 90,300 165,288 L235,288 C310,300 355,340 360,420 Z" fill="#111827"/>
+ <path d="M165,288 L200,330 L178,296 Z M235,288 L200,330 L222,296 Z" fill="#1F2937" stroke="#374151" stroke-width="3"/>
+ <path d="M168,292 L200,372 L232,292" fill="none" stroke="#2563EB" stroke-width="9" stroke-linejoin="round"/>
+ <rect x="191" y="366" width="18" height="26" rx="4" fill="#9CA3AF"/>
+ <text x="262" y="352" font-size="17" font-weight="800" fill="#E5E7EB" font-family="sans-serif" transform="rotate(-6 262 352)">AI</text>
+ <rect x="176" y="236" width="48" height="62" rx="18" fill="#C98F6B"/>
+</g>
+<g class="arm">
+ <path d="M318,420 L336,300" stroke="#111827" stroke-width="46" stroke-linecap="round"/>
+ <g class="hand"><circle cx="340" cy="268" r="25" fill="#DDA982"/>
+ <path d="M326,252 l-6,-22 M338,246 l-2,-25 M350,248 l3,-23 M360,258 l9,-17" stroke="#DDA982" stroke-width="11" stroke-linecap="round"/></g>
+</g>
+<g class="head">
+ <ellipse cx="122" cy="190" rx="14" ry="22" fill="#D29C76"/><ellipse cx="278" cy="190" rx="14" ry="22" fill="#D29C76"/>
+ <ellipse cx="200" cy="182" rx="78" ry="90" fill="#DDA982"/>
+ <path d="M118,178 C104,98 160,58 212,66 C266,58 304,104 284,182 C280,148 268,128 246,116 C222,130 182,132 150,122 C134,138 124,156 118,178 Z" fill="#0F0F12"/>
+ <path d="M132,112 C136,62 196,34 250,46 C276,54 292,76 290,108 C278,88 254,76 228,78 C196,80 160,92 132,112 Z" fill="#0F0F12"/><path d="M196,58 C214,40 246,38 262,50" stroke="#2A2A33" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <path d="M140,150 Q164,140 188,149" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M212,149 Q236,140 260,150" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <g class="eyes"><ellipse cx="166" cy="184" rx="7" ry="8" fill="#1B1B1F"/><ellipse cx="234" cy="184" rx="7" ry="8" fill="#1B1B1F"/>
+ <circle cx="168" cy="181" r="2.2" fill="#fff"/><circle cx="236" cy="181" r="2.2" fill="#fff"/></g>
+ <rect x="138" y="164" width="56" height="40" rx="12" fill="rgba(147,197,253,.18)" stroke="#6B7280" stroke-width="3"/>
+ <rect x="206" y="164" width="56" height="40" rx="12" fill="rgba(147,197,253,.18)" stroke="#6B7280" stroke-width="3"/>
+ <path d="M140,170 Q140,163 150,163 L184,163 Q193,163 193,171 M207,171 Q207,163 216,163 L250,163 Q260,163 260,170" stroke="#0F0F12" stroke-width="9" fill="none" stroke-linecap="round"/>
+ <path d="M193,170 Q200,165 207,170" stroke="#0F0F12" stroke-width="5" fill="none"/>
+ <path d="M138,172 L124,176 M262,172 L276,176" stroke="#0F0F12" stroke-width="5"/>
+ <path d="M200,196 Q194,214 204,218" stroke="#B57A57" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <path class="lips" d="M180,236 Q200,247 220,236" stroke="#7A3B2E" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <ellipse class="mouth" cx="200" cy="241" rx="15" ry="0" fill="#5B1F1A"/>
+ <ellipse cx="200" cy="262" rx="9" ry="4" fill="#2A1A14" opacity=".55"/>
+</g></g></svg>`;
+let AVN = 0;
+function avatarEl(size) { const e = h('div','avsvg'); e.style.width = e.style.height = size + 'px'; e.innerHTML = AV_SVG.replace(/CLIP/g, 'clip' + AVN).replace(/"BG"/g, '"bg' + AVN + '"').replace(/url\(#BG\)/g, 'url(#bg' + AVN + ')'); AVN++; return e; }
+function animateAvatar(el, t, talk) {
+  const head = el.querySelector('.head'), eyes = el.querySelector('.eyes'), mouth = el.querySelector('.mouth'), arm = el.querySelector('.arm'), body = el.querySelector('.body');
+  const bob = Math.sin(t * 2.4) * 4, tilt = Math.sin(t * 1.3) * 3;
+  head.setAttribute('transform', `translate(0 ${bob}) rotate(${tilt} 200 260)`);
+  body.setAttribute('transform', `translate(0 ${bob * 0.4})`);
+  const blink = (t % 3.2) < 0.13 ? 0.12 : 1;
+  eyes.setAttribute('transform', `translate(0 ${184 * (1 - blink)}) scale(1 ${blink})`);
+  const open = talk ? Math.max(0, Math.sin(t * 16)) * (Math.sin(t * 1.9) > -0.4 ? 1 : 0) : 0;
+  mouth.setAttribute('ry', (open * 10).toFixed(1));
+  arm.setAttribute('transform', `rotate(${(Math.sin(t * 9) * 16).toFixed(1)} 318 420)`);
+}
 const BUILD = {
   hook(s) {
     const root = h('div','scene'); const items = [];
-    if (window.AVATAR) { const a = h('div','avatar el'); a.append(avatarEl(170)); a.append(h('div','', `<div class=nm>@ulvyi</div><div class=sb>${esc(window.SERIES || 'AI សម្រាប់ការងារ')}</div>`)); root.append(a); items.push(a); }
+    if (window.AVATAR) { const a = h('div','avatar el'); a.append(avatarEl(240)); a.append(h('div','', `<div class=nm>@ulvyi</div><div class=sb>${esc(window.SERIES || 'AI សម្រាប់ការងារ')}</div>`)); root.append(a); items.push(a); }
     if (s.badge) { const b = h('div','badge el', esc(s.badge)); root.append(b); items.push(b); }
     for (const l of s.lines) { const e = h('div', (l.cls||'h1') + ' el', mk(l.t)); root.append(e); items.push(e); }
     if (s.from && s.to) {
@@ -169,7 +220,7 @@ const BUILD = {
     const f = h('div','p el', mk(s.when)); root.append(n, c, f); root._items = [n, c, f]; return root;
   },
   cta(s) {
-    const root = h('div','scene'); const ph = window.AVATAR ? h('div','photo el') : null; const a = h('div','h2 el', mk(s.pre || 'Follow')); const b = h('div','handle-big acc el','@ulvyi'); const c = h('div','p el', mk(s.text || 'AI សម្រាប់ការងារ\nរៀងរាល់សប្តាហ៍ 🚀'));
+    const root = h('div','scene'); const ph = window.AVATAR ? (() => { const w = h('div','el'); w.style.alignSelf = 'flex-start'; w.append(avatarEl(380)); return w; })() : null; const a = h('div','h2 el', mk(s.pre || 'Follow')); const b = h('div','handle-big acc el','@ulvyi'); const c = h('div','p el', mk(s.text || 'AI សម្រាប់ការងារ\nរៀងរាល់សប្តាហ៍ 🚀'));
     if (ph) root.append(ph); root.append(a,b,c); const items = ph ? [ph,a,b,c] : [a,b,c]; if (s.ask) { const d = h('div','card el'); d.append(h('div','h3', mk(s.ask))); root.append(d); items.push(d); }
     root._items = items; return root;
   },
@@ -216,6 +267,7 @@ window.draw = function (t) {
     o.el.style.opacity = Math.min(fin, fout);
     o.el.style.transform = `translateX(${(1 - ease(fin)) * 60}px)`;
     (UPDATE[o.s.type] || UPDATE.base)(o.el, o.s, lt);
+    o.el.querySelectorAll('.avsvg').forEach(a => animateAvatar(a, t, lt < 2.6));
   }
 };
 </script></body></html>
