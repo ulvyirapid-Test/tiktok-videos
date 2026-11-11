@@ -1,3 +1,4 @@
 *.png
 __pycache__/
 content/worktips/_preview/
+assets/creator.jpg
