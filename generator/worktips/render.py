@@ -29,6 +29,36 @@ async def frames(spec, times, out_dir):
         await b.close()
         return total, paths
 
+VOFF = 0.35  # voice starts this many seconds into each scene (matches engine.html)
+
+def synth_voices(spec, tmp):
+    """Generate one Khmer TTS clip per scene that has `speak`; stretch scene durations to fit the voice."""
+    import edge_tts
+    os.environ.setdefault("SSL_CERT_FILE", "/root/.ccr/ca-bundle.crt")
+    proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+    voice, rate = spec.get("voice", "km-KH-PisethNeural"), spec.get("rate", "+0%")
+    clips, t0 = [], 0.0
+    for i, s in enumerate(spec["scenes"]):
+        if s.get("speak"):
+            path = os.path.join(tmp, f"v{i:02d}.mp3")
+            asyncio.run(edge_tts.Communicate(s["speak"], voice, rate=rate, proxy=proxy).save(path))
+            d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path]).decode())
+            s["talk"] = round(d, 2)
+            s["dur"] = round(max(s["dur"], VOFF + d + 1.1), 2)
+            clips.append((t0 + VOFF, path))
+        t0 += s["dur"]
+    return clips
+
+def mix_audio(clips, music, total, out):
+    """Voice clips at full volume, music ducked underneath."""
+    args, parts = ["ffmpeg", "-y", "-v", "error", "-i", music], []
+    for k, (start, path) in enumerate(clips, 1):
+        args += ["-i", path]; ms = int(start * 1000)
+        parts.append(f"[{k}:a]aresample=44100,adelay={ms}|{ms},volume=1.6[v{k}]")
+    vl = "".join(f"[v{k}]" for k in range(1, len(clips) + 1))
+    fc = ";".join(parts + [f"[0:a]volume=0.22[m]", f"[m]{vl}amix=inputs={len(clips)+1}:normalize=0:duration=first,atrim=0:{total:.2f}[a]"])
+    subprocess.run(args + ["-filter_complex", fc, "-map", "[a]", "-ac", "2", out], check=True)
+
 def main():
     spec = json.load(open(sys.argv[1]))
     if sys.argv[2] == "--preview":
@@ -37,9 +67,12 @@ def main():
         print("\n".join(paths)); return
     out_mp4, seed = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 0
     tmp = tempfile.mkdtemp()
+    clips = synth_voices(spec, tmp) if any(s.get("speak") for s in spec["scenes"]) else []
     total, _ = asyncio.run(frames(spec, None, tmp))
     from music import make_music
-    make_music(os.path.join(tmp, "m.wav"), total, seed=seed)
+    make_music(os.path.join(tmp, "music.wav"), total, seed=seed)
+    if clips: mix_audio(clips, os.path.join(tmp, "music.wav"), total, os.path.join(tmp, "m.wav"))
+    else: shutil.move(os.path.join(tmp, "music.wav"), os.path.join(tmp, "m.wav"))
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-framerate", str(FPS), "-i", os.path.join(tmp, "f%05d.jpg"), "-i", os.path.join(tmp, "m.wav"),
                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
                     "-c:a", "aac", "-b:a", "128k", "-shortest", "-movflags", "+faststart", out_mp4], check=True)

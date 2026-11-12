@@ -143,6 +143,8 @@ const AV_SVG = `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
 </g></g></svg>`;
 let AVN = 0;
 function avatarEl(size) { const e = h('div','avsvg'); e.style.width = e.style.height = size + 'px'; e.innerHTML = AV_SVG.replace(/CLIP/g, 'clip' + AVN).replace(/"BG"/g, '"bg' + AVN + '"').replace(/url\(#BG\)/g, 'url(#bg' + AVN + ')'); AVN++; return e; }
+const VOFF = 0.35;
+function talkNow(sc, lt, fallback) { return sc.talk != null ? (lt > VOFF && lt < VOFF + sc.talk) : fallback; }
 function animateAvatar(el, t, talk) {
   const head = el.querySelector('.head'), eyes = el.querySelector('.eyes'), mouth = el.querySelector('.mouth'), arm = el.querySelector('.arm'), body = el.querySelector('.body');
   const bob = Math.sin(t * 2.4) * 4, tilt = Math.sin(t * 1.3) * 3;
@@ -273,14 +275,14 @@ window.draw = function (t) {
     o.el.style.opacity = Math.min(fin, fout);
     o.el.style.transform = `translateX(${(1 - ease(fin)) * 60}px)`;
     (UPDATE[o.s.type] || UPDATE.base)(o.el, o.s, lt);
-    o.el.querySelectorAll('.avsvg').forEach(a => animateAvatar(a, t, lt < 2.6));
+    o.el.querySelectorAll('.avsvg').forEach(a => animateAvatar(a, t, talkNow(o.s, lt, lt < 2.6)));
     const say = document.getElementById('say');
     if (o.s.say) {
       const bub = say.querySelector('.bub'); if (bub.dataset.k !== String(o.t0)) { bub.innerHTML = mk(o.s.say); bub.dataset.k = String(o.t0); }
       const talkFor = Math.min(o.s.dur - 0.8, 1.0 + o.s.say.length / 22);
       say.style.opacity = Math.min(clamp((lt - 0.25) / 0.3), fout);
       say.style.transform = `translateY(${(1 - ease(clamp((lt - 0.25) / 0.3))) * 30}px)`;
-      say.querySelectorAll('.avsvg').forEach(a => animateAvatar(a, t, lt < talkFor));
+      say.querySelectorAll('.avsvg').forEach(a => animateAvatar(a, t, talkNow(o.s, lt, lt < talkFor)));
     } else say.style.opacity = 0;
   }
 };
