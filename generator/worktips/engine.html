@@ -87,7 +87,7 @@ td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .stem { position:absolute; left:50%; margin-left:-22px; width:44px; height:90px; top:260px; background:#94A3B8; border-radius:8px; }
 .ct { position:absolute; top:380px; width:180px; height:22px; border-radius:11px; background:#FBBF24; }
 .wire { position:absolute; top:388px; height:6px; background:rgba(255,255,255,.25); }
-.dot { position:absolute; top:376px; width:30px; height:30px; border-radius:50%; background:#FDE047; box-shadow:0 0 30px #FDE047; }
+.cdot { position:absolute; top:376px; width:30px; height:30px; border-radius:50%; background:#FDE047; box-shadow:0 0 30px #FDE047; }
 .state { position:absolute; left:0; right:0; bottom:40px; text-align:center; font-size:58px; font-weight:800; }
 .mx { position:absolute; left:40px; right:40px; top:60px; display:grid; grid-template-columns:repeat(8,1fr); gap:14px; }
 .mk { height:96px; border-radius:18px; background:rgba(255,255,255,.08); border:2px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:800; color:var(--mut); }
@@ -306,7 +306,7 @@ const BUILD = {
   },
   keyswitch(s) {
     const root = h('div','scene'); const t = h('div','h3 el', mk(s.title)); const st = h('div','stage el');
-    st.innerHTML = `<div class=cap>${esc(s.key||'A')}</div><div class=stem></div><div class=wire style="left:40px;width:240px"></div><div class=wire style="right:40px;width:240px"></div><div class="ct cl" style="left:250px"></div><div class="ct cr" style="right:250px"></div><div class=dot style="left:40px;opacity:0"></div><div class=state></div>`;
+    st.innerHTML = `<div class=cap>${esc(s.key||'A')}</div><div class=stem></div><div class=wire style="left:40px;width:240px"></div><div class=wire style="right:40px;width:240px"></div><div class="ct cl" style="left:250px"></div><div class="ct cr" style="right:250px"></div><div class=cdot style="left:40px;opacity:0"></div><div class=state></div>`;
     root.append(t, st); root._items = [t, st]; root._st = st; return root;
   },
   matrix(s) {
@@ -365,7 +365,7 @@ const BUILD = {
       <svg width="860" height="720" style="position:absolute;left:0;top:0"><path class=w0 d="M220,345 L330,345" stroke="#FDE047" stroke-width="8"/><path class=w1 d="M550,300 C620,300 620,170 690,170" stroke="rgba(255,255,255,.3)" stroke-width="7" fill="none"/><path class=w2 d="M550,345 L690,345" stroke="rgba(255,255,255,.3)" stroke-width="7" fill="none"/><path class=w3 d="M550,390 C620,390 620,520 690,520" stroke="rgba(255,255,255,.3)" stroke-width="7" fill="none"/></svg>
       ${['12V','5V','3.3V'].map((v,i) => `<div class=box style="left:690px;top:${120 + i*175}px;width:140px;height:100px;background:rgba(255,255,255,.08);border:3px solid var(--line);font-size:40px;color:#FDE047">${v}</div>`).join('')}
       <div class=state style="font-size:42px">${mk(s.label || '')}</div>`;
-    const dots = [0,1,2,3].map(() => { const d = h('div','dot'); d.style.top = '0'; d.style.width = d.style.height = '26px'; st.append(d); return d; });
+    const dots = [0,1,2,3].map(() => { const d = h('div','cdot'); d.style.top = '0'; d.style.width = d.style.height = '26px'; st.append(d); return d; });
     root.append(t, st); root._items = [t, st]; root._st = st; root._dots = dots; return root;
   },
   board(s) {
@@ -375,7 +375,7 @@ const BUILD = {
       <svg width="860" height="720" style="position:absolute;left:0;top:0">${[['M430,390 L430,500'],['M530,290 L600,290'],['M330,250 L250,225'],['M600,420 L520,420 L520,500']].map(([d],i) => `<path class=tr${i} d="${d}" stroke="#A7F3D0" stroke-width="6" fill="none" opacity=".7"/>`).join('')}</svg>
       ${Object.entries(P).map(([k,[x,y,w,hh]]) => `<div class=sock data-k="${k}" style="left:${x}px;top:${y}px;width:${w}px;height:${hh}px">${k}</div>`).join('')}
       <div class=state style="font-size:40px;bottom:14px">${mk(s.label || '')}</div>`;
-    const pulses = [0,1,2,3].map(() => { const d = h('div','dot'); d.style.width = d.style.height = '22px'; d.style.background = '#FDE047'; st.append(d); return d; });
+    const pulses = [0,1,2,3].map(() => { const d = h('div','cdot'); d.style.width = d.style.height = '22px'; d.style.background = '#FDE047'; st.append(d); return d; });
     root.append(t, st); root._items = [t, st]; root._st = st; root._p = pulses; root._socks = [...st.querySelectorAll('.sock')]; return root;
   },
   cycle(s) {
@@ -469,7 +469,7 @@ const UPDATE = {
     st.querySelector('.cap').style.transform = `translateY(${on?46:0}px)`; st.querySelector('.cap').style.boxShadow = on ? '0 4px 0 #64748B, 0 10px 20px rgba(0,0,0,.4)' : '';
     st.querySelector('.stem').style.transform = `translateY(${on?46:0}px)`;
     st.querySelector('.cl').style.transform = `translateX(${on?50:0}px)`; st.querySelector('.cr').style.transform = `translateX(${on?-50:0}px)`;
-    const d = st.querySelector('.dot'); d.style.opacity = on ? 1 : 0; d.style.left = `${40 + 750 * clamp((ph - 0.5) / 1.6)}px`;
+    const d = st.querySelector('.cdot'); d.style.opacity = on ? 1 : 0; d.style.left = `${40 + 750 * clamp((ph - 0.5) / 1.6)}px`;
     const lab = st.querySelector('.state'); lab.innerHTML = on ? '<span class=warn>1</span> · មានចរន្ត ⚡' : '<span style="color:#A8B0D3">0</span> · គ្មានចរន្ត';
   },
   matrix(root, s, lt) {
