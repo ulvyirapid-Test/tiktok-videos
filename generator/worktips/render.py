@@ -29,22 +29,48 @@ async def frames(spec, times, out_dir):
         await b.close()
         return total, paths
 
-VOFF = 0.35  # voice starts this many seconds into each scene (matches engine.html)
+VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.html)
+TAIL = 0.55  # pause after each narration line before the next scene
+
+# English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
+PRON = [("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("BotFather", "បត ហ្វាដឺ"),
+        ("Telegram", "តេឡេក្រាម"), ("Excel", "អ៊ិចសែល"), ("Prompt", "ផ្រមត៍"), ("Caption", "ខេបសិន"),
+        ("Comment", "ខមមិន"), ("Follow", "ហ្វលឡូ"), ("Email", "អ៊ីមែល"), ("email", "អ៊ីមែល"), ("Copy", "ខូពី"),
+        ("Paste", "ផេស"), ("Enter", "អិនទ័រ"), ("Token", "តូខិន"), ("Trigger", "ទ្រីហ្គ័រ"), ("Part 2", "ភាគទីពីរ"),
+        ("Control", "ខុនត្រូល"), ("SUMIF", "សាំ អ៊ីហ្វ"), ("VLOOKUP", "វី លុកអាប់"), ("COUNTIF", "ខោន អ៊ីហ្វ"),
+        ("Bot", "បត"), ("Sheet", "ស៊ីត"), ("AI", "អេអាយ"), ("IF", "អ៊ីហ្វ")]
+
+def khmerize(text):
+    import re
+    for en, km in PRON:
+        text = re.sub(r"(?<![A-Za-z])" + re.escape(en) + r"(?![A-Za-z])", km, text)
+    return text
+
+def anim_floor(s):
+    """Minimum scene length so on-screen animations finish."""
+    if s["type"] == "chat":
+        ua, ud, ad = s.get("uAt", 0.5), s.get("uDur", 2.2), s.get("aDur", 3.2)
+        return ua + ud + 0.5 + ad + 1.0
+    if s["type"] in ("steps", "flow"):
+        n = len(s.get("items", s.get("nodes", [])))
+        return 1.0 + n * s.get("stagger", 0.3) * (2 if s["type"] == "flow" else 1) + 1.0
+    if s["type"] == "phone": return 1.5 + len(s["msgs"]) * s.get("gap", 1.0)
+    return 3.0
 
 def synth_voices(spec, tmp):
     """Generate one Khmer TTS clip per scene that has `speak`; stretch scene durations to fit the voice."""
     import edge_tts
     os.environ.setdefault("SSL_CERT_FILE", "/root/.ccr/ca-bundle.crt")
     proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
-    voice, rate = spec.get("voice", "km-KH-PisethNeural"), spec.get("rate", "+0%")
+    voice, rate = spec.get("voice", "km-KH-PisethNeural"), spec.get("rate", "-5%")
     clips, t0 = [], 0.0
     for i, s in enumerate(spec["scenes"]):
         if s.get("speak"):
             path = os.path.join(tmp, f"v{i:02d}.mp3")
-            asyncio.run(edge_tts.Communicate(s["speak"], voice, rate=rate, proxy=proxy).save(path))
+            asyncio.run(edge_tts.Communicate(khmerize(s["speak"]), voice, rate=rate, proxy=proxy).save(path))
             d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path]).decode())
             s["talk"] = round(d, 2)
-            s["dur"] = round(max(s["dur"], VOFF + d + 1.1), 2)
+            s["dur"] = round(max(anim_floor(s), VOFF + d + TAIL), 2)
             clips.append((t0 + VOFF, path))
         t0 += s["dur"]
     return clips

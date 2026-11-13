@@ -143,7 +143,7 @@ const AV_SVG = `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
 </g></g></svg>`;
 let AVN = 0;
 function avatarEl(size) { const e = h('div','avsvg'); e.style.width = e.style.height = size + 'px'; e.innerHTML = AV_SVG.replace(/CLIP/g, 'clip' + AVN).replace(/"BG"/g, '"bg' + AVN + '"').replace(/url\(#BG\)/g, 'url(#bg' + AVN + ')'); AVN++; return e; }
-const VOFF = 0.35;
+const VOFF = 0.15;
 function talkNow(sc, lt, fallback) { return sc.talk != null ? (lt > VOFF && lt < VOFF + sc.talk) : fallback; }
 function animateAvatar(el, t, talk) {
   const head = el.querySelector('.head'), eyes = el.querySelector('.eyes'), mouth = el.querySelector('.mouth'), arm = el.querySelector('.arm'), body = el.querySelector('.body');
