@@ -1,0 +1,503 @@
+{
+ "series": "Telegram Bot · ភាគ ២",
+ "acc": "#38BDF8",
+ "avatar": true,
+ "voice": "km-KH-PisethNeural",
+ "title": "បង្កើត Telegram Bot មួយជំហានម្តងៗ (ភាគ ២)",
+ "caption": "បង្កើត Telegram Bot ជូនដំណឹងការងារ ៦ ជំហាន 🤖 BotFather → Chat ID → Apps Script → AI សរសេរកូដ → Run → Trigger ⏰ Save ទុកធ្វើតាម 📌\nComment \"BOT\" បើចង់បានវីដេអូបន្ទាប់ 👇\n#TelegramBot #AppsScript #GoogleSheetខ្មែរ #AIសម្រាប់ការងារ #Automation #TikTokខ្មែរ",
+ "scenes": [
+  {
+   "type": "hook",
+   "bg": "tg",
+   "dur": 4,
+   "badge": "ភាគ ២",
+   "notify": {
+    "bot": "SHD Alert",
+    "time": "now",
+    "t": "✅ ឡាន ៣ ដឹកដល់ ហាង ១២"
+   },
+   "lines": [
+    {
+     "t": "បង្កើត *Telegram Bot*\nមួយជំហានម្តងៗ 🛠️",
+     "cls": "h2"
+    },
+    {
+     "t": "Google Sheet + AI · _៦ ជំហាន_",
+     "cls": "h3"
+    }
+   ],
+   "speak": "ភាគមុន យើងឃើញហើយថា Bot ជូនដំណឹងការងារ ធ្វើអ្វីបានខ្លះ។ ថ្ងៃនេះ តោះបង្កើតវាជាមួយគ្នា មួយជំហានម្តងៗ។ សូម Save វីដេអូនេះទុក ដើម្បីងាយធ្វើតាម។"
+  },
+  {
+   "type": "tg",
+   "bg": "tg",
+   "dur": 4,
+   "title": "១. បង្កើត Bot ជាមួយ *@BotFather*",
+   "name": "BotFather ✔",
+   "sub": "bot",
+   "icon": "🧔",
+   "h": 700,
+   "msgs": [
+    {
+     "me": true,
+     "t": "/newbot",
+     "time": "08:00"
+    },
+    {
+     "t": "Alright, a new bot. How are we going to call it? Please choose a name for your bot.",
+     "time": "08:00"
+    },
+    {
+     "me": true,
+     "t": "SHD Alert",
+     "time": "08:01"
+    },
+    {
+     "t": "Good. Now let's choose a username for your bot. It must end in `bot`.",
+     "time": "08:01"
+    },
+    {
+     "me": true,
+     "t": "`shd_alert_bot`",
+     "time": "08:01"
+    },
+    {
+     "t": "Done! Congratulations on your new bot…\nUse this token to access the HTTP API:\n`7712345678:AAH-•••••••••••`",
+     "time": "08:01",
+     "hl": true
+    }
+   ],
+   "say": "Username ត្រូវ*បញ្ចប់ដោយ bot* · ចុងក្រោយបាន *Token*",
+   "speak": "ជំហានទីមួយ។ បើក Telegram ហើយស្វែងរក BotFather ដែលមានសញ្ញាធីកពណ៌ខៀវ។ វាយពាក្យបញ្ជា newbot។ BotFather សួររកឈ្មោះ Bot យើងដាក់ SHD Alert។ បន្ទាប់មក វាសួររក username ដែលត្រូវតែបញ្ចប់ដោយពាក្យ Bot។ ចុងក្រោយ BotFather ផ្ញើលេខកូដវែងមួយមកឱ្យ ដែលហៅថា Token។"
+  },
+  {
+   "type": "tip",
+   "bg": "alert",
+   "dur": 4,
+   "label": "🔐 ប្រយ័ត្ន",
+   "text": "Token = *សោផ្ទះ* 🔑",
+   "sub": "កុំផ្ញើឱ្យអ្នកដទៃ · កុំបង្ហោះលើ Social\nបើបែកធ្លាយ → `/revoke` ក្នុង BotFather",
+   "say": "អ្នកណាមាន Token អាច*បញ្ជា Bot* របស់អ្នកបាន",
+   "speak": "Token នេះ ដូចជាសោផ្ទះ។ អ្នកណាមាន Token អាចបញ្ជា Bot របស់អ្នកបាន។ ដូច្នេះ កុំផ្ញើឱ្យអ្នកដទៃ ហើយកុំបង្ហោះលើបណ្តាញសង្គម។ បើបែកធ្លាយ ចូលទៅ BotFather ហើយប្រើពាក្យបញ្ជា revoke ដើម្បីបិទ Token ចាស់ ហើយយក Token ថ្មី។"
+  },
+  {
+   "type": "tg",
+   "bg": "tg",
+   "dur": 4,
+   "title": "២. បញ្ចូល Bot ក្នុងក្រុម → វាយ *start*",
+   "name": "ក្រុមដឹកជញ្ជូន",
+   "sub": "13 members",
+   "icon": "🚚",
+   "h": 520,
+   "msgs": [
+    {
+     "who": "Telegram",
+     "c": "#94A3B8",
+     "t": "អ្នកបានបញ្ចូល SHD Alert ទៅក្នុងក្រុម",
+     "time": "08:05"
+    },
+    {
+     "me": true,
+     "t": "`/start@shd_alert_bot`",
+     "time": "08:05",
+     "hl": true
+    }
+   ],
+   "say": "Bot *មិនអាចផ្ញើមុន*បានទេ — ត្រូវ Start ឬបញ្ចូលក្នុងក្រុមសិន",
+   "speak": "ជំហានទីពីរ គឺរក Chat ID ដែលជាលេខអាសយដ្ឋាន ប្រាប់ Bot ថាត្រូវផ្ញើសារទៅណា។ ចំណាំថា Bot មិនអាចផ្ញើសារទៅនរណាម្នាក់មុនបានទេ។ បើចង់ឱ្យវាផ្ញើមកខ្លួនឯង ចុច Start លើ Bot។ បើចង់ឱ្យវាផ្ញើទៅក្រុម បញ្ចូល Bot ទៅក្នុងក្រុម ហើយវាយ start ភ្ជាប់ជាមួយឈ្មោះ Bot ដូចក្នុងរូប។"
+  },
+  {
+   "type": "code",
+   "bg": "code",
+   "dur": 4,
+   "title": "បើកតំណ *getUpdates* ក្នុង Browser 🔎",
+   "url": "api.telegram.org/bot<TOKEN>/getUpdates",
+   "size": 25,
+   "tDur": 1.6,
+   "lines": [
+    "{\"ok\":true,\"result\":[{",
+    "  \"update_id\": 81234567,",
+    "  \"message\": {",
+    "    \"from\": {\"first_name\": \"Ravy\"},",
+    "    \"chat\": {",
+    "      \"id\": -4012345678,",
+    "      \"title\": \"ក្រុមដឹកជញ្ជូន\",",
+    "      \"type\": \"group\"",
+    "    },",
+    "    \"text\": \"/start@shd_alert_bot\"",
+    "}}]}"
+   ],
+   "hl": [
+    5
+   ],
+   "toast": "✔ Chat ID = -4012345678 · ក្រុម = *លេខដក*",
+   "toastAt": 0.7,
+   "say": "លេខក្បែរ *id* ក្នុង *chat* = Chat ID",
+   "speak": "បន្ទាប់មក បើក Browser ហើយវាយតំណដូចក្នុងរូប ដោយដាក់ Token របស់អ្នកជំនួសពាក្យដែលនៅចន្លោះសញ្ញា។ Telegram នឹងបង្ហាញទិន្នន័យមួយ។ រកពាក្យ chat ហើយមើលលេខនៅក្បែរពាក្យ id។ នោះហើយជា Chat ID។ Chat ID របស់ក្រុម ជាលេខដក។ បើមិនឃើញអ្វីសោះ សូមវាយ start ក្នុងក្រុមម្តងទៀត ហើយបើកតំណនោះឡើងវិញ។"
+  },
+  {
+   "type": "menu",
+   "bg": "excel",
+   "dur": 4,
+   "title": "៣. បើក *Apps Script* ពី Sheet",
+   "file": "Delivery - Google Sheets",
+   "fs": 23,
+   "bar": [
+    "File",
+    "Edit",
+    "View",
+    "Insert",
+    "Format",
+    "Data",
+    "Tools",
+    "Extensions",
+    "Help"
+   ],
+   "open": "Extensions",
+   "items": [
+    "Add-ons",
+    "Macros",
+    "Apps Script",
+    "AppSheet"
+   ],
+   "pick": "Apps Script",
+   "cols": [
+    "ឡាន",
+    "ហាង",
+    "ស្ថានភាព"
+   ],
+   "rows": [
+    [
+     "១",
+     "ហាង ៥",
+     "ដឹកដល់"
+    ],
+    [
+     "២",
+     "ហាង ៨",
+     "កំពុងដឹក"
+    ]
+   ],
+   "tabs": [
+    "Delivery"
+   ],
+   "h": 700,
+   "result": {
+    "icon": "📜",
+    "t": "ផ្ទាំងសរសេរកូដ *Code.gs*",
+    "s": "Apps Script Editor"
+   },
+   "say": "Sheet ឈ្មោះ *Delivery* · Extensions → *Apps Script*",
+   "speak": "ជំហានទីបី។ រៀបចំ Google Sheet មួយ ដាក់ឈ្មោះ Sheet ថា Delivery ហើយមានបីជួរឈរ គឺ ឡាន ហាង និងស្ថានភាព។ បន្ទាប់មក ចុចម៉ឺនុយ Extensions ហើយជ្រើស Apps Script។ ផ្ទាំងសរសេរកូដនឹងបើកឡើង។"
+  },
+  {
+   "type": "chat",
+   "bg": "ai",
+   "dur": 4,
+   "title": "៤. ឱ្យ *AI* សរសេរកូដ ✍️",
+   "small": 29,
+   "uAt": 0.5,
+   "uDur": 6.5,
+   "aDur": 3.0,
+   "user": "សរសេរ Google Apps Script សម្រាប់ Sheet ឈ្មោះ Delivery (A=ឡាន, B=ហាង, C=ស្ថានភាព)។ ពេលខ្ញុំវាយស្ថានភាពក្នុងជួរឈរ C ឱ្យផ្ញើសារទៅ Telegram តាម sendMessage។ ដាក់ BOT_TOKEN និង CHAT_ID នៅខាងលើ។ មាន function testSend សម្រាប់សាកល្បង និង notifyOnEdit សម្រាប់ installable trigger On edit។",
+   "ai": "បាទ! នេះជាកូដ Apps Script 👇\n① ដាក់ Token និង Chat ID\n② Run testSend ដើម្បីសាកល្បង\n③ ដាក់ Trigger On edit លើ notifyOnEdit",
+   "say": "ប្រាប់ AI ឱ្យ*ច្បាស់*៖ Sheet · ជួរឈរ · សារ · Trigger",
+   "speak": "ជំហានទីបួន។ បើក AI ដូចជា ChatGPT ឬ Claude ហើយប្រាប់វាឱ្យច្បាស់ ថា Sheet ឈ្មោះអ្វី ជួរឈរនីមួយៗមានអ្វី ចង់ឱ្យផ្ញើសារពេលណា ហើយត្រូវប្រើ installable trigger។ ប្រាប់វាផងដែរ ឱ្យសរសេរ function មួយសម្រាប់សាកល្បង។ ពេល Prompt ច្បាស់ AI នឹងសរសេរកូដដែលប្រើបានភ្លាម។"
+  },
+  {
+   "type": "code",
+   "bg": "code",
+   "dur": 4,
+   "title": "៥. បិទភ្ជាប់កូដ → *Save* 💾",
+   "file": "Code.gs",
+   "size": 22,
+   "tDur": 2.0,
+   "lines": [
+    "const BOT_TOKEN = '7712345678:AAH…'; // ពី BotFather",
+    "const CHAT_ID = '-4012345678';      // ពី getUpdates",
+    "",
+    "function send(text) {",
+    "  UrlFetchApp.fetch('https://api.telegram.org/bot'",
+    "    + BOT_TOKEN + '/sendMessage', {",
+    "    method: 'post',",
+    "    payload: { chat_id: CHAT_ID, text: text }",
+    "  });",
+    "}",
+    "function testSend() { send('✅ Bot ដំណើរការហើយ!'); }",
+    "",
+    "function notifyOnEdit(e) {",
+    "  const r = e.range, sh = r.getSheet();",
+    "  if (sh.getName() !== 'Delivery' ||",
+    "      r.getColumn() !== 3 || r.getRow() < 2) return;",
+    "  const [truck, shop, status] =",
+    "    sh.getRange(r.getRow(), 1, 1, 3).getValues()[0];",
+    "  if (status) send('🚚 ឡាន ' + truck + ' · ' + shop + ': ' + status);",
+    "}"
+   ],
+   "hl": [
+    0,
+    1
+   ],
+   "toast": "💾 Saved · ដាក់ *Token* និង *Chat ID* របស់អ្នក",
+   "toastAt": 0.45,
+   "say": "ដាក់ *Token* + *Chat ID* នៅ ២ ជួរខាងលើ",
+   "speak": "ជំហានទីប្រាំ។ ចម្លងកូដពី AI មកបិទភ្ជាប់ក្នុង Apps Script ជំនួសកូដចាស់។ ដាក់ Token និង Chat ID របស់អ្នក នៅពីរជួរខាងលើ ហើយចុច Save។ កូដនេះមានបីផ្នែក។ send សម្រាប់ផ្ញើសារ។ testSend សម្រាប់សាកល្បង។ ហើយ notifyOnEdit ផ្ញើសារ ពេលអ្នកវាយស្ថានភាព ក្នុងជួរឈរទីបី។"
+  },
+  {
+   "type": "screens",
+   "bg": "google",
+   "dur": 4,
+   "title": "Run *testSend* → ចុច*អនុញ្ញាត*",
+   "h": 800,
+   "cards": [
+    {
+     "brand": "Apps Script",
+     "h": "Authorization required",
+     "km": "ត្រូវការការអនុញ្ញាតពីអ្នក",
+     "p": "This project requires your permission to access your data.",
+     "btns": [
+      {
+       "t": "Cancel"
+      },
+      {
+       "t": "Review permissions",
+       "p": true,
+       "go": true
+      }
+     ]
+    },
+    {
+     "brand": "Google",
+     "h": "Choose an account",
+     "km": "ជ្រើសគណនីរបស់អ្នក",
+     "p": "👤  your.name@gmail.com",
+     "btns": [
+      {
+       "t": "your.name@gmail.com",
+       "p": true,
+       "go": true
+      }
+     ]
+    },
+    {
+     "h": "Google hasn’t verified this app",
+     "warn": true,
+     "km": "ធម្មតាទេ ព្រោះជាកូដរបស់អ្នកផ្ទាល់",
+     "p": "The app is requesting access to sensitive info in your Google Account.",
+     "btns": [
+      {
+       "t": "Advanced",
+       "lk": true,
+       "go": true
+      },
+      {
+       "t": "BACK TO SAFETY",
+       "p": true
+      }
+     ]
+    },
+    {
+     "h": "Google hasn’t verified this app",
+     "warn": true,
+     "km": "ចុច *Go to … (unsafe)*",
+     "p": "Continue only if you understand the risks and trust the developer.",
+     "btns": [
+      {
+       "t": "Go to Untitled project (unsafe)",
+       "lk": true,
+       "go": true
+      }
+     ]
+    },
+    {
+     "h": "Untitled project wants access to your Google Account",
+     "km": "ចុច *Allow* (ឬ Continue)",
+     "p": "• See, edit… your spreadsheets\n• Connect to an external service",
+     "btns": [
+      {
+       "t": "Cancel"
+      },
+      {
+       "t": "Allow",
+       "p": true,
+       "go": true
+      }
+     ]
+    }
+   ],
+   "say": "សារព្រមាន*ធម្មតា* — ព្រោះជាកូដរបស់អ្នកផ្ទាល់",
+   "speak": "ជ្រើស testSend នៅលើរបារខាងលើ ហើយចុច Run។ លើកដំបូង Google សុំការអនុញ្ញាត។ ចុច Review permissions ហើយជ្រើសគណនីរបស់អ្នក។ បើឃើញសារព្រមាន ថា Google មិនទាន់ផ្ទៀងផ្ទាត់កម្មវិធីនេះ កុំភ័យ ព្រោះនេះជាកូដរបស់អ្នកផ្ទាល់។ ចុច Advanced រួចចុច Go to project។ ចុងក្រោយ ចុច Allow ដើម្បីអនុញ្ញាតឱ្យកូដ ផ្ញើសារចេញទៅ Telegram បាន។"
+  },
+  {
+   "type": "tg",
+   "bg": "tg",
+   "dur": 4,
+   "title": "សារសាកល្បង *ចូលហើយ* 🎉",
+   "name": "ក្រុមដឹកជញ្ជូន",
+   "sub": "13 members",
+   "icon": "🚚",
+   "h": 440,
+   "msgs": [
+    {
+     "me": true,
+     "t": "`/start@shd_alert_bot`",
+     "time": "08:05"
+    },
+    {
+     "who": "SHD Alert",
+     "c": "#7DD3FC",
+     "t": "✅ Bot ដំណើរការហើយ!",
+     "time": "08:12",
+     "hl": true
+    }
+   ],
+   "say": "ឃើញសារនេះ = Token និង Chat ID *ត្រឹមត្រូវ*",
+   "speak": "បន្ទាប់ពីចុច Allow testSend ដំណើរការ ហើយសារសាកល្បងចូលក្នុងក្រុមភ្លាម។ បើឃើញសារនេះ មានន័យថា Token និង Chat ID ត្រឹមត្រូវហើយ។ បើមិនឃើញ សូមពិនិត្យ Token និង Chat ID ម្តងទៀត។"
+  },
+  {
+   "type": "menu",
+   "bg": "clock",
+   "dur": 4,
+   "title": "៦. ដាក់ *Trigger* ⏰",
+   "file": "Apps Script",
+   "h": 640,
+   "side": [
+    "ⓘ  Overview",
+    "‹›  Editor",
+    "⏰  Triggers",
+    "☰  Executions",
+    "⚙  Project Settings"
+   ],
+   "pick": "⏰  Triggers",
+   "result": {
+    "icon": "⏰",
+    "t": "Triggers → *+ Add Trigger*",
+    "s": "ប៊ូតុងខាងក្រោម ស្តាំដៃ"
+   },
+   "say": "រូប*នាឡិកា* ⏰ ខាងឆ្វេង → Add Trigger",
+   "speak": "ជំហានទីប្រាំមួយ ជាជំហានសំខាន់ជាងគេ។ ចុចរូបនាឡិកា Triggers នៅខាងឆ្វេង ហើយចុចប៊ូតុង Add Trigger នៅខាងក្រោម ផ្នែកខាងស្តាំ។"
+  },
+  {
+   "type": "form",
+   "bg": "clock",
+   "dur": 4,
+   "title": "កំណត់ Trigger ឱ្យ*ត្រឹមត្រូវ*",
+   "file": "Add Trigger",
+   "head": "Add Trigger for Untitled project",
+   "fields": [
+    {
+     "l": "Choose which function to run",
+     "v": "*notifyOnEdit*"
+    },
+    {
+     "l": "Choose which deployment should run",
+     "v": "Head"
+    },
+    {
+     "l": "Select event source",
+     "v": "*From spreadsheet*"
+    },
+    {
+     "l": "Select event type",
+     "v": "*On edit*"
+    }
+   ],
+   "btn": "Save",
+   "say": "onEdit ធម្មតា *ផ្ញើទៅក្រៅមិនបាន* → ត្រូវដាក់ Trigger នេះ",
+   "speak": "ជ្រើស function notifyOnEdit។ ប្រភព From spreadsheet ហើយប្រភេទ On edit រួចចុច Save។ ហេតុអ្វីត្រូវធ្វើបែបនេះ? ព្រោះ function ដែលមានឈ្មោះ onEdit ធម្មតា មិនមានសិទ្ធិផ្ញើសារចេញទៅក្រៅទេ។ Trigger ដែលយើងដាក់ដោយខ្លួនឯង ដំណើរការក្នុងនាមយើង ដូច្នេះវាផ្ញើទៅ Telegram បាន។"
+  },
+  {
+   "type": "sync",
+   "bg": "excel",
+   "dur": 4,
+   "title": "សាកល្បង៖ វាយ → *សារចូលភ្លាម* 🔔",
+   "file": "Delivery - Google Sheets",
+   "cols": [
+    "ឡាន",
+    "ហាង",
+    "ស្ថានភាព"
+   ],
+   "rows": [
+    [
+     "១",
+     "ហាង ៥",
+     "ដឹកដល់"
+    ],
+    [
+     "២",
+     "ហាង ៨",
+     "កំពុងដឹក"
+    ]
+   ],
+   "add": [
+    "៣",
+    "ហាង ១២",
+    "ដឹកដល់ ✅"
+   ],
+   "bot": "SHD Alert",
+   "time": "now",
+   "msg": "🚚 ឡាន ៣ · ហាង ១២: ដឹកដល់ ✅",
+   "say": "វាយក្នុង*ជួរឈរ C* → Telegram រោទ៍*ភ្លាម*",
+   "speak": "ឥឡូវ សាកល្បង។ វាយលេខឡាន វាយឈ្មោះហាង ហើយវាយស្ថានភាពក្នុងជួរឈរទីបី។ ពេលចុច Enter សារលោតមកក្នុង Telegram ភ្លាមៗ។ Bot របស់អ្នករួចរាល់ហើយ។"
+  },
+  {
+   "type": "tip",
+   "bg": "board",
+   "dur": 4,
+   "label": "គន្លឹះបន្ថែម 💡",
+   "text": "ចង់បាន*របាយការណ៍*\nរាល់ល្ងាច?",
+   "sub": "ប្រើ Trigger ប្រភេទ *Time-driven*\nឧ. រៀងរាល់ថ្ងៃ ចន្លោះម៉ោង ៥–៦ ល្ងាច",
+   "say": "Time-driven = រត់*តាមម៉ោង*ដោយខ្លួនឯង",
+   "speak": "គន្លឹះបន្ថែម៖ បើចង់ឱ្យ Bot ផ្ញើរបាយការណ៍សង្ខេបរៀងរាល់ល្ងាច ប្រើ Trigger ប្រភេទ Time-driven។ ចំណាំថា Google ឱ្យជ្រើសពេលជាចន្លោះមួយម៉ោង ឧទាហរណ៍ ចន្លោះម៉ោងប្រាំ ដល់ម៉ោងប្រាំមួយល្ងាច។"
+  },
+  {
+   "type": "grid",
+   "bg": "navy",
+   "dur": 4,
+   "title": "សង្ខេប ៦ ជំហាន ✨",
+   "items": [
+    {
+     "icon": "🧔",
+     "t": "BotFather",
+     "s": "យក Token"
+    },
+    {
+     "icon": "🆔",
+     "t": "Chat ID",
+     "s": "getUpdates"
+    },
+    {
+     "icon": "📜",
+     "t": "Apps Script",
+     "s": "Extensions"
+    },
+    {
+     "icon": "🧠",
+     "t": "AI",
+     "s": "សរសេរកូដ"
+    },
+    {
+     "icon": "▶️",
+     "t": "Run",
+     "s": "testSend → Allow"
+    },
+    {
+     "icon": "⏰",
+     "t": "Trigger",
+     "s": "On edit"
+    }
+   ],
+   "say": "៦ ជំហាន · ប្រហែល *២០ នាទី*",
+   "speak": "សង្ខេប៖ បង្កើត Bot ជាមួយ BotFather យក Chat ID តាម getUpdates បើក Apps Script ឱ្យ AI សរសេរកូដ Run testSend ហើយចុច Allow ចុងក្រោយ ដាក់ Trigger On edit។"
+  },
+  {
+   "type": "cta",
+   "bg": "navy",
+   "dur": 5,
+   "pre": "Save ទុកធ្វើតាម 📌\nFollow",
+   "text": "AI សម្រាប់ការងារ 🚀",
+   "ask": "Comment *BOT*\nបើចង់បានវីដេអូបន្ទាប់ 👇",
+   "speak": "បើវីដេអូនេះមានប្រយោជន៍ សូម Save ទុក ចុច Follow ហើយ Comment ពាក្យ Bot បើអ្នកចង់ឱ្យខ្ញុំធ្វើវីដេអូ Bot ផ្សេងទៀត។"
+  }
+ ]
+}

@@ -33,7 +33,14 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("Caps Lock", "ខេបស៍ ឡុក"), ("GHz", "ជីហ្គាហឺត"), ("UEFI", "យូ អ៊ី អេហ្វ អាយ"), ("BIOS", "បាយអូស"), ("POST", "ផូស"),
+PRON = [("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("installable trigger", "ឥនស្តលអេបិល ទ្រីហ្គ័រ"), ("From spreadsheet", "ហ្វ្រំ ស្ព្រេតស៊ីត"), ("Go to project", "ហ្គោ ធូ ប្រូជេក"),
+        ("Review permissions", "រីវីវ ភើមីសិន"), ("Time-driven", "តាម ដ្រីវិន"), ("Add Trigger", "អែត ទ្រីហ្គ័រ"), ("On edit", "អន អេឌីត"),
+        ("notifyOnEdit", "ណូទីហ្វាយ អន អេឌីត"), ("onEdit", "អន អេឌីត"), ("testSend", "តេស សេន"), ("send", "សេន"), ("getUpdates", "ហ្គេត អាប់ដេត"),
+        ("Chat ID", "ឆាត អាយឌី"), ("SHD Alert", "អេស អេច ឌី អាឡឺត"), ("SHD", "អេស អេច ឌី"), ("ChatGPT", "ឆាត ជីភីធី"), ("Claude", "ក្លត"),
+        ("Extensions", "អ៊ិចស្ទេនសិន"), ("Triggers", "ទ្រីហ្គ័រ"), ("Advanced", "អាតវ៉ាន់"), ("Allow", "អាឡៅ"), ("Run", "រ៉ាន់"),
+        ("Start", "ស្តាត"), ("start", "ស្តាត"), ("newbot", "ញូបត"), ("revoke", "រីវូក"), ("username", "យូសឺណេម"), ("Browser", "ប្រោស័រ"),
+        ("function", "ហ្វាំងសិន"), ("Delivery", "ដេលីវើរី"), ("Refresh", "រីហ្វ្រេស"), ("Google", "ហ្គូហ្គល"), ("chat", "ឆាត"), ("id", "អាយឌី"),
+        ("Caps Lock", "ខេបស៍ ឡុក"), ("GHz", "ជីហ្គាហឺត"), ("UEFI", "យូ អ៊ី អេហ្វ អាយ"), ("BIOS", "បាយអូស"), ("POST", "ផូស"),
         ("PSU", "ភី អេស យូ"), ("SSD", "អេស អេស ឌី"), ("HDD", "អេច ឌី ឌី"), ("ROM", "រ៉ូម"), ("Cores", "ខរ"), ("Core", "ខរ"),
         ("Flash", "ហ្វ្លាស"), ("Save", "សេវ"), ("Icon", "អាយខុន"), ("Taskbar", "ថាសបា"), ("Desktop", "ដេសថប"), ("Motherboard", "ម៉ាទ័របត"), ("Controller", "ខុនត្រូលល័រ"), ("Keyboard", "ឃីបត"),
         ("Layout", "ឡេអៅ"), ("Unicode", "យូនីកូដ"), ("Windows", "វីនដូ"), ("Monitor", "ម៉ូនីទ័រ"), ("Binary", "បាយណារី"),

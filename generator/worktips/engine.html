@@ -147,6 +147,57 @@ td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .rrow .nm { width:170px; } .rrow .tr { flex:1; height:56px; border-radius:28px; background:rgba(255,255,255,.08); overflow:hidden; } .rrow .tr i { display:block; height:100%; border-radius:28px; }
 .dotgrid { display:grid; gap:7px; }
 .dg { width:18px; height:18px; border-radius:5px; background:rgba(255,255,255,.1); }
+
+/* ---- telegram / tools scenes ---- */
+.mono2 { font-family:"DejaVu Sans Mono", K, monospace; color:#FDE68A; font-size:.88em; word-break:break-all; }
+.tgw { position:relative; border-radius:34px; overflow:hidden; background:#0E1621; border:3px solid rgba(255,255,255,.12); box-shadow:0 30px 80px rgba(0,0,0,.45); flex-shrink:0; }
+.tgh { display:flex; align-items:center; gap:20px; padding:16px 26px; background:#17212B; }
+.tgh .ic { width:76px; height:76px; border-radius:50%; background:linear-gradient(135deg,#38BDF8,#2563EB); display:flex; align-items:center; justify-content:center; font-size:42px; flex:none; }
+.tgh .nm { font-size:36px; font-weight:800; } .tgh .sb { font-size:26px; color:#7D8E9E; }
+.tgb { position:relative; height:var(--tgh,720px); overflow:hidden; }
+.tgin { position:absolute; left:0; right:0; top:0; padding:24px 22px; display:flex; flex-direction:column; gap:18px; }
+.tm { max-width:86%; padding:14px 22px 10px; border-radius:26px; font-size:32px; line-height:1.5; white-space:pre-wrap; word-break:break-word; opacity:0; }
+.tm.me { align-self:flex-end; background:#2B5278; border-bottom-right-radius:8px; }
+.tm.them { align-self:flex-start; background:#182533; border-bottom-left-radius:8px; }
+.tm .wh { display:block; font-size:26px; font-weight:800; margin-bottom:2px; }
+.tm .tt { display:block; text-align:right; font-size:21px; color:#7D8E9E; margin-top:2px; }
+.tm.hl { box-shadow:0 0 0 4px var(--acc), 0 0 40px var(--acc); }
+.tm .btn { display:block; margin-top:10px; text-align:center; background:rgba(255,255,255,.08); border-radius:14px; padding:8px; color:#7DD3FC; font-weight:700; }
+.code { padding:22px 24px 90px; font-family:"DejaVu Sans Mono", K, monospace; font-size:var(--cs,25px); line-height:1.55; color:#E2E8F0; white-space:pre-wrap; word-break:break-all; }
+.code .ln { display:block; min-height:1.55em; border-radius:8px; padding:0 8px; }
+.code .ln.c { color:#64748B; } .code .ln.hl { background:rgba(250,204,21,.2); box-shadow:inset 5px 0 0 #FACC15; }
+.urlb { flex:1; margin-left:10px; background:rgba(255,255,255,.08); border-radius:999px; padding:6px 22px; font-size:24px; color:#E2E8F0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:"DejaVu Sans Mono", K, monospace; }
+.toast { position:absolute; left:22px; right:22px; bottom:20px; padding:16px 22px; border-radius:18px; background:#14532D; border:2px solid #22C55E; color:#BBF7D0; font-size:30px; font-weight:800; opacity:0; }
+.mbar { display:flex; gap:2px; padding:12px 14px; font-size:27px; color:#CBD5E1; border-bottom:2px solid var(--line); white-space:nowrap; }
+.mbar span { padding:6px 9px; border-radius:10px; } .mbar span.on { background:rgba(255,255,255,.16); color:#fff; }
+.dd { position:absolute; min-width:330px; background:#1E293B; border:2px solid var(--line); border-radius:18px; padding:10px 0; box-shadow:0 20px 50px rgba(0,0,0,.5); opacity:0; z-index:3; }
+.dd div { padding:14px 26px; font-size:32px; white-space:nowrap; } .dd div.on { background:rgba(56,189,248,.28); color:#fff; }
+.sidel { position:absolute; left:0; top:66px; bottom:0; width:300px; background:rgba(255,255,255,.04); border-right:2px solid var(--line); padding-top:18px; }
+.sidel div { padding:16px 22px; font-size:30px; white-space:nowrap; border-radius:0 999px 999px 0; margin-right:14px; } .sidel div.on { background:rgba(56,189,248,.28); color:#fff; }
+.faint { position:absolute; left:20px; right:20px; bottom:20px; border-radius:16px; background-image:linear-gradient(rgba(255,255,255,.06) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.06) 2px, transparent 2px); background-size:120px 48px; }
+.res { position:absolute; left:0; right:0; top:66px; bottom:0; background:#0B1020; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; opacity:0; font-size:44px; font-weight:800; text-align:center; z-index:4; }
+.res .big { font-size:120px; }
+.cur { position:absolute; left:0; top:0; width:58px; height:58px; z-index:9; pointer-events:none; filter:drop-shadow(0 4px 8px rgba(0,0,0,.6)); }
+.ring { position:absolute; width:90px; height:90px; margin:-45px 0 0 -45px; border-radius:50%; border:6px solid #FDE047; opacity:0; z-index:8; }
+.fm { padding:28px 34px 34px; } .fm h6 { font-size:38px; font-weight:800; margin-bottom:22px; }
+.fr { margin-bottom:20px; opacity:.3; } .fr .fl { font-size:26px; color:var(--mut); margin-bottom:8px; }
+.fr .fv { font-size:32px; font-weight:700; padding:14px 20px; border-radius:14px; border:2px solid var(--line); background:rgba(255,255,255,.05); display:flex; justify-content:space-between; }
+.fr.on { opacity:1; } .fr.on .fv { border-color:var(--acc); box-shadow:0 0 22px rgba(56,189,248,.35); }
+.btns { display:flex; justify-content:flex-end; gap:20px; margin-top:16px; }
+.fbtn { padding:14px 42px; border-radius:16px; font-size:32px; font-weight:800; background:#2563EB; color:#fff; } .fbtn.ghost { background:transparent; color:var(--mut); }
+.scr { position:relative; height:var(--scrh,760px); }
+.gcard { position:absolute; left:0; right:0; top:0; background:#fff; color:#202124; border-radius:30px; padding:40px 40px 36px; box-shadow:0 30px 80px rgba(0,0,0,.5); opacity:0; }
+.gcard .gb { font-size:30px; font-weight:800; color:#5F6368; margin-bottom:18px; } .gcard .gb b { color:#4285F4; }
+.gcard h6 { font-size:40px; font-weight:800; margin-bottom:16px; line-height:1.35; } .gcard h6.w { color:#C5221F; }
+.gcard p { font-size:30px; line-height:1.5; color:#3C4043; margin-bottom:20px; white-space:pre-wrap; }
+.gcard .gbt { display:flex; justify-content:flex-end; gap:22px; flex-wrap:wrap; align-items:center; }
+.gcard .gbt span { font-size:30px; font-weight:800; padding:12px 28px; border-radius:12px; color:#1A73E8; }
+.gcard .gbt span.p { background:#1A73E8; color:#fff; } .gcard .gbt span.lk { text-decoration:underline; padding:12px 6px; }
+.gcard .km { display:block; font-size:28px; color:#7C3AED; font-weight:700; margin-top:-8px; margin-bottom:18px; }
+.ntf { align-self:stretch; display:flex; align-items:center; gap:20px; background:rgba(23,33,43,.95); border:3px solid var(--acc); border-radius:30px; padding:18px 24px; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+.ntf .ic { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,#38BDF8,#2563EB); display:flex; align-items:center; justify-content:center; font-size:40px; flex:none; }
+.ntf .nm { font-size:28px; color:#7DD3FC; font-weight:800; } .ntf .tx { font-size:34px; font-weight:700; }
+.sy table { font-size:32px; } .sy td.typ { background:rgba(56,189,248,.16); }
 </style></head>
 <body>
 <div id="bgs"></div><div class="glow" id="g1"></div><div class="glow" id="g2"></div><div id="rain"></div>
@@ -162,8 +213,9 @@ const back = x => { x = clamp(x); const c = 1.6; return 1 + (c+1)*Math.pow(x-1,3
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 // mini markup: *text* -> accent, _text_ -> accent2, ~text~ -> ok, !text! -> warn
-const mk = s => esc(s).replace(/\*(.+?)\*/g,'<span class=acc>$1</span>').replace(/_(.+?)_/g,'<span class=acc2>$1</span>').replace(/~(.+?)~/g,'<span class=ok>$1</span>').replace(/!(.+?)!/g,'<span class=warn>$1</span>').replace(/\n/g,'<br>');
+const mk0 = s => esc(s).replace(/\*(.+?)\*/g,'<span class=acc>$1</span>').replace(/_(.+?)_/g,'<span class=acc2>$1</span>').replace(/~(.+?)~/g,'<span class=ok>$1</span>').replace(/!(.+?)!/g,'<span class=warn>$1</span>').replace(/\n/g,'<br>');
 
+const mk = s => s.split('`').map((p,i) => i % 2 ? `<span class=mono2>${esc(p)}</span>` : mk0(p)).join('');
 function pop(el, p, dy=40) { el.style.opacity = clamp(p*1.6); el.style.transform = `translateY(${(1-ease(p))*dy}px) scale(${0.94 + 0.06*back(p)})`; }
 function typeInto(el, full, p, caret) {
   const g = graphemes(full), n = Math.round(g.length * clamp(p));
@@ -234,11 +286,32 @@ const THEMES = {
   storage: { g:'linear-gradient(180deg,#181006,#33210A)', c1:'#D97706', c2:'#7C2D12', acc:'#F59E0B', pat:'repeating-linear-gradient(180deg, transparent 0 220px, rgba(245,158,11,.14) 220px 236px)', ps:'' },
   gpu:     { g:'linear-gradient(180deg,#1A0420,#3B0A45)', c1:'#EC4899', c2:'#8B5CF6', acc:'#F472B6', pat:'radial-gradient(circle, rgba(244,114,182,.22) 4px, transparent 5px), radial-gradient(circle, rgba(139,92,246,.22) 4px, transparent 5px)', ps:'60px 60px, 60px 60px' },
   excel:   { g:'linear-gradient(180deg,#03140A,#0A3320)', c1:'#16A34A', c2:'#22D3EE', acc:'#4ADE80', pat:'linear-gradient(rgba(255,255,255,.05) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.05) 2px, transparent 2px)', ps:'120px 48px' },
+  tg:      { g:'linear-gradient(180deg,#04111D,#0B2E4A)', c1:'#229ED9', c2:'#38BDF8', acc:'#38BDF8', pat:'radial-gradient(circle, rgba(56,189,248,.16) 3px, transparent 4px)', ps:'70px 70px' },
+  alert:   { g:'linear-gradient(180deg,#1A0505,#3F0B0B)', c1:'#EF4444', c2:'#F59E0B', acc:'#F87171', pat:'repeating-linear-gradient(45deg, rgba(248,113,113,.07) 0 14px, transparent 14px 90px)', ps:'' },
+  code:    { g:'linear-gradient(180deg,#07090E,#1A1F2B)', c1:'#FACC15', c2:'#22D3EE', acc:'#FACC15', pat:'repeating-linear-gradient(180deg, rgba(250,204,21,.06) 0 4px, transparent 4px 46px)', ps:'' },
+  ai:      { g:'linear-gradient(180deg,#0E0820,#2B1458)', c1:'#A855F7', c2:'#EC4899', acc:'#C084FC', pat:'radial-gradient(circle, rgba(236,72,153,.18) 3px, transparent 4px), radial-gradient(circle, rgba(168,85,247,.18) 3px, transparent 4px)', ps:'54px 54px, 80px 80px' },
+  clock:   { g:'linear-gradient(180deg,#170C02,#3A2205)', c1:'#F97316', c2:'#FBBF24', acc:'#FB923C', pat:'repeating-radial-gradient(circle at 80% 20%, rgba(251,146,60,.09) 0 8px, transparent 8px 70px)', ps:'' },
+  google:  { g:'linear-gradient(180deg,#0A1022,#16233F)', c1:'#4285F4', c2:'#34A853', acc:'#60A5FA', pat:'linear-gradient(90deg, rgba(66,133,244,.08) 0 25%, rgba(234,67,53,.08) 25% 50%, rgba(251,188,5,.08) 50% 75%, rgba(52,168,83,.08) 75%)', ps:'100% 10px' },
 };
+
+const CUR_SVG = '<svg viewBox="0 0 24 24" width="58" height="58"><path d="M3 2 L3 20 L8 15 L11.5 22 L14.5 20.6 L11 14 L18 14 Z" fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+function rel(el, anc) { let x = 0, y = 0; while (el && el !== anc) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; } return {x, y}; }
+function center(el, anc) { const p = rel(el, anc); return {x: p.x + el.offsetWidth / 2, y: p.y + el.offsetHeight / 2}; }
+function addCursor(anc) { const c = h('div','cur', CUR_SVG); const r = h('div','ring'); anc.append(r, c); return {c, r}; }
+// keys: [{t, x, y, click?}] ; cursor tip at (x,y)
+function driveCursor(cu, keys, lt) {
+  let x = keys[0].x, y = keys[0].y;
+  for (let i = 1; i < keys.length; i++) { const a = keys[i-1], b = keys[i]; if (lt >= b.t) { x = b.x; y = b.y; continue; } if (lt > a.t) { const q = ease((lt - a.t) / (b.t - a.t)); x = a.x + (b.x - a.x) * q; y = a.y + (b.y - a.y) * q; } break; }
+  cu.c.style.transform = `translate(${x - 6}px, ${y - 4}px)`; cu.c.style.opacity = lt > keys[0].t ? 1 : 0;
+  let ring = 0; keys.forEach(k => { if (k.click && lt > k.t && lt < k.t + 0.5) ring = (lt - k.t) / 0.5; });
+  cu.r.style.left = x + 'px'; cu.r.style.top = y + 'px'; cu.r.style.opacity = ring ? 1 - ring : 0; cu.r.style.transform = `scale(${0.4 + ring})`;
+}
+const SPAN = (s, f = 0.85, lo = 3) => Math.max(lo, (s.talk || 4) * f);
 const BUILD = {
   hook(s) {
     const root = h('div','scene'); const items = [];
     if (window.AVATAR) { const a = h('div','avatar el'); a.append(avatarEl(240)); a.append(h('div','', `<div class=nm>@ulvyi</div><div class=sb>${esc(window.SERIES || 'AI សម្រាប់ការងារ')}</div>`)); root.append(a); items.push(a); }
+    if (s.notify) { const n = h('div','ntf el', `<div class=ic>🤖</div><div><div class=nm>${esc(s.notify.bot || 'Bot')} · ${esc(s.notify.time || 'now')}</div><div class=tx>${mk(s.notify.t)}</div></div>`); root.append(n); root._ntf = n; }
     if (s.badge) { const b = h('div','badge el', esc(s.badge)); root.append(b); items.push(b); }
     for (const l of s.lines) { const e = h('div', (l.cls||'h1') + ' el', mk(l.t)); root.append(e); items.push(e); }
     if (s.from && s.to) {
@@ -411,6 +484,71 @@ const BUILD = {
     R.innerHTML = `<div style="font-size:40px;font-weight:800;margin-bottom:24px">🎨 GPU</div><div class=dotgrid style="grid-template-columns:repeat(18,18px);justify-content:center">${'<div class=dg></div>'.repeat(18*16)}</div><div style="font-size:30px;color:var(--mut);margin-top:22px">${mk(s.r || 'អ្នកធ្វើការរាប់ពាន់នាក់')}</div>`;
     st.append(L, R); root.append(t, st); root._items = [t, st]; root._cores = [...L.querySelectorAll('.core')]; root._dg = [...R.querySelectorAll('.dg')]; return root;
   },
+
+  tg(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','tgw el'); w.append(h('div','tgh', `<div class=ic>${s.icon || '🤖'}</div><div><div class=nm>${esc(s.name || 'Bot')}</div><div class=sb>${esc(s.sub || 'bot')}</div></div>`));
+    const b = h('div','tgb'); if (s.h) b.style.setProperty('--tgh', s.h + 'px'); const inn = h('div','tgin'); b.append(inn); w.append(b);
+    const msgs = s.msgs.map(m => { const e = h('div', 'tm ' + (m.me ? 'me' : 'them')); e.innerHTML = (m.who ? `<span class=wh style="color:${m.c || '#7DD3FC'}">${esc(m.who)}</span>` : '') + mk(m.t) + (m.btn ? `<span class=btn>${esc(m.btn)}</span>` : '') + `<span class=tt>${esc(m.time || '')}${m.me ? ' ✓✓' : ''}</span>`; inn.append(e); return e; });
+    root.append(w); items.push(w); root._items = items; root._msgs = msgs; root._inn = inn; root._b = b; return root;
+  },
+  code(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','win el'); w.style.position = 'relative';
+    w.append(h('div','tb', s.url ? `<span class=dot></span><span class=dot></span><span class=dot></span><span class=urlb>🔒 ${esc(s.url)}</span>` : `<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;${esc(s.file || 'Code.gs')}`));
+    const c = h('div','code'); if (s.size) c.style.setProperty('--cs', s.size + 'px');
+    const lines = s.lines.map((l,i) => { const e = h('span', 'ln' + (/^\s*\/\//.test(l) ? ' c' : '')); c.append(e); return e; });
+    w.append(c); if (s.toast) { const t = h('div','toast', mk(s.toast)); w.append(t); root._toast = t; }
+    root.append(w); items.push(w); root._items = items; root._lines = lines; return root;
+  },
+  menu(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','win el'); w.style.position = 'relative'; w.style.height = (s.h || 760) + 'px';
+    w.append(h('div','tb', `<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;${esc(s.file || 'Google Sheets')}`));
+    let openEl = null, pickEl = null, dd = null;
+    if (s.bar) {
+      const mb = h('div','mbar'); s.bar.forEach(x => { const e = h('span','', esc(x)); mb.append(e); if (x === s.open) openEl = e; }); w.append(mb);
+      dd = h('div','dd'); s.items.forEach(x => { const e = h('div','', esc(x)); dd.append(e); if (x === s.pick) pickEl = e; }); w.append(dd);
+      if (s.fs) mb.style.fontSize = s.fs + 'px';
+      if (s.cols) { const tb = h('table'); tb.style.fontSize = '30px'; const tr0 = h('tr'); tr0.append(h('th','rn','')); s.cols.forEach(c => tr0.append(h('th','',esc(c)))); tb.append(tr0); (s.rows||[]).forEach((r,i) => { const tr = h('tr'); tr.append(h('td','rn', String(i+2))); r.forEach(c => tr.append(h('td','', esc(String(c))))); tb.append(tr); }); const tabs = h('div',''); tabs.style.cssText = 'position:absolute;left:0;right:0;bottom:0;padding:12px 20px;font-size:26px;color:var(--mut);border-top:2px solid var(--line)'; tabs.innerHTML = (s.tabs || []).map((x,i) => `<span style="padding:6px 16px;border-radius:10px;${i===0?'background:rgba(74,222,128,.2);color:#BBF7D0':''}">${esc(x)}</span>`).join(' '); w.append(tb, tabs); }
+      else { const f = h('div','faint'); f.style.top = '150px'; w.append(f); }
+    } else {
+      const sd = h('div','sidel'); s.side.forEach(x => { const e = h('div','', esc(x)); sd.append(e); if (x === s.pick) pickEl = e; }); w.append(sd);
+      const f = h('div','faint'); f.style.left = '320px'; f.style.top = '90px'; f.style.backgroundSize = '100% 46px'; f.style.backgroundImage = 'linear-gradient(rgba(255,255,255,.07) 0 14px, transparent 14px)'; w.append(f);
+    }
+    if (s.result) { const r = h('div','res', `<div class=big>${s.result.icon || ''}</div><div>${mk(s.result.t)}</div>${s.result.s ? `<div class=p>${mk(s.result.s)}</div>` : ''}`); w.append(r); root._res = r; }
+    root._cu = addCursor(w); root.append(w); items.push(w); root._items = items; root._w = w; root._open = openEl; root._pick = pickEl; root._dd = dd; return root;
+  },
+  form(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','win el'); w.style.position = 'relative'; w.append(h('div','tb', `<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;${esc(s.file || 'Apps Script')}`));
+    const f = h('div','fm'); f.append(h('h6','', mk(s.head || ''))); const rows = s.fields.map(x => { const r = h('div','fr', `<div class=fl>${mk(x.l)}</div><div class=fv><span>${mk(x.v)}</span><span>▾</span></div>`); f.append(r); return r; });
+    const bt = h('div','btns', `<span class="fbtn ghost">Cancel</span>`); const btn = h('span','fbtn', esc(s.btn || 'Save')); bt.append(btn); f.append(bt); w.append(f);
+    root._cu = addCursor(w); root.append(w); items.push(w); root._items = items; root._rows = rows; root._btn = btn; root._w = w; return root;
+  },
+  screens(s) {
+    const root = h('div','scene'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const st = h('div','scr el'); if (s.h) st.style.setProperty('--scrh', s.h + 'px');
+    const cards = s.cards.map(c => { const e = h('div','gcard'); let tgt = null;
+      e.innerHTML = `<div class=gb><b>G</b> ${esc(c.brand || 'Google')}</div><h6 class="${c.warn ? 'w' : ''}">${esc(c.h)}</h6>${c.km ? `<span class=km>${mk(c.km)}</span>` : ''}${c.p ? `<p>${esc(c.p)}</p>` : ''}`;
+      const bt = h('div','gbt'); (c.btns || []).forEach(b => { const x = h('span', b.p ? 'p' : (b.lk ? 'lk' : ''), esc(b.t)); bt.append(x); if (b.go) tgt = x; }); e.append(bt); st.append(e); return {e, tgt}; });
+    root._cu = addCursor(st); root.append(st); items.push(st); root._items = items; root._cards = cards; root._st = st; return root;
+  },
+  sync(s) {
+    const root = h('div','scene sy'); const items = [];
+    if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
+    const w = h('div','win el'); w.append(h('div','tb','<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;' + esc(s.file || 'Sheet')));
+    const tb = h('table'); const tr0 = h('tr'); tr0.append(h('th','rn','')); s.cols.forEach(c => tr0.append(h('th','',esc(c)))); tb.append(tr0);
+    s.rows.forEach((r,i) => { const tr = h('tr'); tr.append(h('td','rn', String(i+2))); r.forEach(c => tr.append(h('td','', esc(String(c))))); tb.append(tr); });
+    const tr = h('tr'); tr.append(h('td','rn', String(s.rows.length + 2))); const cells = s.add.map(() => { const td = h('td'); tr.append(td); return td; }); tb.append(tr); w.append(tb);
+    const n = h('div','ntf el', `<div class=ic>🤖</div><div><div class=nm>${esc(s.bot || 'Bot')} · ${esc(s.time || 'now')}</div><div class=tx>${mk(s.msg)}</div></div>`);
+    root.append(w, n); items.push(w); root._items = items; root._cells = cells; root._n = n; return root;
+  },
   cta(s) {
     const root = h('div','scene'); const ph = window.AVATAR ? (() => { const w = h('div','el'); w.style.alignSelf = 'flex-start'; w.append(avatarEl(300)); return w; })() : null; const a = h('div','h2 el', mk(s.pre || 'Follow')); const b = h('div','handle-big acc el','@ulvyi'); const c = h('div','p el', mk(s.text || 'AI សម្រាប់ការងារ\nរៀងរាល់សប្តាហ៍ 🚀'));
     if (ph) root.append(ph); root.append(a,b,c); const items = ph ? [ph,a,b,c] : [a,b,c]; if (s.ask) { const d = h('div','card el'); d.append(h('div','h3', mk(s.ask))); root.append(d); items.push(d); }
@@ -423,6 +561,7 @@ const UPDATE = {
   base(root, s, lt) { let st = s.stagger ?? 0.28; if ((s.type === 'flow' || s.type === 'steps') && s.talk) st = Math.max(st, (s.talk * 0.8) / root._items.length); const d0 = s.delay ?? 0.05; root._items.forEach((e,i) => pop(e, (lt - d0 - i*st) / 0.45)); },
   hook(root, s, lt) {
     root._items.forEach((e,i) => pop(e, s.from ? 1 : (lt + 0.6 - i*0.3) / 0.4));  // hook readable from frame 0
+    if (root._ntf) { pop(root._ntf, (lt - 0.35) / 0.35, -80); root._ntf.style.boxShadow = lt > 0.4 ? `0 0 ${20 + 30 * Math.max(0, Math.sin(lt * 6))}px var(--acc)` : ''; }
     if (root._strike) { const p = ease((lt - 0.7) / 0.4); root._strike.style.setProperty('--sr', `${(1-p)*100}%`); root._strike.style.setProperty('--so', p > 0 ? 1 : 0); const q = clamp((lt - 1.0)/0.3); root._to.style.opacity = 0.25 + 0.75*q; root._to.style.display = 'inline-block'; root._to.style.transform = `scale(${0.85 + 0.15*back(q)})`; }
   },
   sheet(root, s, lt) {
@@ -439,6 +578,40 @@ const UPDATE = {
     if (lt < aA) root._ab.textContent = lt > aA - 0.3 ? '•••' : '';
     else typeInto(root._ab, s.ai, (lt - aA) / aD, true);
   },
+
+  tg(root, s, lt) { UPDATE.base(root, s, lt); const n = root._msgs.length, span = SPAN(s, 0.88, 2.5);
+    const at = i => s.at ? s.at[i] * (s.talk || 4) : 0.5 + i * span / n; const H = root._b.offsetHeight; let scroll = 0;
+    root._msgs.forEach((e,i) => { const p = (lt - at(i)) / 0.35; pop(e, p, 30); const m = s.msgs[i]; e.classList.toggle('hl', !!m.hl && p > 1.2);
+      if (p > 0) { const bot = e.offsetTop + e.offsetHeight + 24; const prev = i ? root._msgs[i-1].offsetTop + root._msgs[i-1].offsetHeight + 24 : 0; scroll = Math.max(scroll, prev + (bot - prev) * ease(p) - H); } });
+    root._inn.style.transform = `translateY(${-Math.max(0, scroll)}px)`; },
+  code(root, s, lt) { UPDATE.base(root, s, lt); const L = s.lines.map(x => graphemes(x).length), N = L.reduce((a,b) => a + b, 0);
+    const t0 = s.tAt ?? 0.6, dur = s.tDur ?? Math.min(SPAN(s, 0.55, 1.5), Math.max(1.2, N / 30)); const typed = N * clamp((lt - t0) / dur); let acc = 0;
+    root._lines.forEach((e,i) => { const p = clamp((typed - acc) / Math.max(1, L[i])); typeInto(e, s.lines[i], L[i] ? p : (typed >= acc ? 1 : 0), p > 0 && p < 1); acc += L[i];
+      e.classList.toggle('hl', (s.hl || []).includes(i) && lt > t0 + dur + 0.3 && Math.floor((lt - t0 - dur) * 2) % 4 !== 3); });
+    if (root._toast) { const ta = (s.toastAt ?? 0.75) * (s.talk || 4); pop(root._toast, (lt - ta) / 0.35, 30); } },
+  menu(root, s, lt) { UPDATE.base(root, s, lt); const w = root._w, span = SPAN(s, 0.85, 3); const T = f => 0.5 + f * span;
+    if (root._open) { const dd = root._dd, orp = rel(root._open, w); dd.style.left = Math.min(orp.x, w.offsetWidth - dd.offsetWidth - 10) + 'px'; dd.style.top = (orp.y + root._open.offsetHeight + 6) + 'px'; }
+    const pk = center(root._pick, w); const keys = [{t: T(0), x: 640, y: 560}];
+    if (root._open) { const op = center(root._open, w); keys.push({t: T(0.25), x: op.x, y: op.y, click: true}); const dd = root._dd;
+      dd.style.opacity = lt > T(0.25) ? 1 : 0; root._open.classList.toggle('on', lt > T(0.25)); }
+    keys.push({t: T(0.55), x: pk.x - 40, y: pk.y, click: true}); root._pick.classList.toggle('on', lt > T(0.45));
+    driveCursor(root._cu, keys, lt);
+    if (root._res) { const q = clamp((lt - T(0.7)) / 0.4); root._res.style.opacity = q; root._res.style.transform = `scale(${0.96 + 0.04 * ease(q)})`; root._cu.c.style.opacity = q > 0.5 ? 0 : root._cu.c.style.opacity; } },
+  form(root, s, lt) { UPDATE.base(root, s, lt); const w = root._w, span = SPAN(s, 0.85, 3), n = root._rows.length;
+    root._rows.forEach((r,i) => r.classList.toggle('on', lt > 0.6 + (i + 0.3) * span * 0.75 / n));
+    const keys = [{t: 0.5, x: 500, y: 300}]; root._rows.forEach((r,i) => { const c = center(r.querySelector('.fv'), w); keys.push({t: 0.6 + (i + 0.3) * span * 0.75 / n, x: c.x + 150, y: c.y, click: true}); });
+    const b = center(root._btn, w); keys.push({t: 0.6 + span * 0.88, x: b.x, y: b.y, click: true}); driveCursor(root._cu, keys, lt);
+    const pr = lt > 0.6 + span * 0.88; root._btn.style.boxShadow = pr ? '0 0 0 6px #FDE047' : ''; root._btn.style.transform = pr && lt < 0.6 + span * 0.88 + 0.2 ? 'scale(.93)' : ''; },
+  screens(root, s, lt) { UPDATE.base(root, s, lt); const n = root._cards.length, span = SPAN(s, 0.92, 3), seg = span / n; const st = root._st;
+    const cur = Math.min(n - 1, Math.max(0, Math.floor((lt - 0.4) / seg)));
+    root._cards.forEach((c,i) => { const a = 0.4 + i * seg; const qin = clamp((lt - a) / 0.35); const out = i < cur ? 1 : 0; c.e.style.opacity = i === cur ? qin : 0; c.e.style.transform = `translateX(${(1 - ease(qin)) * 80}px)`; });
+    const c = root._cards[cur]; const a = 0.4 + cur * seg; const keys = [{t: a, x: 600, y: 120}];
+    if (c.tgt) { const p = center(c.tgt, st); keys.push({t: a + seg * 0.7, x: p.x, y: p.y, click: true}); c.tgt.style.boxShadow = lt > a + seg * 0.55 ? '0 0 0 5px #FDE047' : ''; }
+    driveCursor(root._cu, keys, lt); },
+  sync(root, s, lt) { UPDATE.base(root, s, lt); const span = SPAN(s, 0.85, 3), n = root._cells.length;
+    root._cells.forEach((td,i) => { const a = 0.6 + i * span * 0.18, p = (lt - a) / (span * 0.14); typeInto(td, String(s.add[i]), p, p > 0 && p < 1); td.className = p > 0 && p < 1.3 ? 'typ' : ''; });
+    const at = 0.6 + (n - 1) * span * 0.18 + span * 0.14 + 0.5; pop(root._n, (lt - at) / 0.35, -60);
+    root._n.style.boxShadow = lt > at ? `0 0 ${20 + 30 * Math.max(0, Math.sin((lt - at) * 6))}px var(--acc)` : ''; },
   grid(root, s, lt) { UPDATE.base(root, s, lt); const n = root._gi.length, k = K(s); if (s.cycle !== false) { const span = Math.max(1, (s.talk || 4) * 0.85); const cur = Math.min(n - 1, Math.floor(lt / span * n)); root._gi.forEach((e,i) => e.classList.toggle('hot', i === cur && lt > 0.4)); } },
   power(root, s, lt) { UPDATE.base(root, s, lt); const st = root._st; const paths = ['.w0','.w1','.w2','.w3'].map(q => st.querySelector(q));
     root._dots.forEach((d,i) => { const p = paths[i]; const L = p.getTotalLength(); const q = ((lt * (i ? 0.7 : 0.9)) + i * 0.3) % 1; const pt = p.getPointAtLength(q * L); d.style.left = (pt.x - 13) + 'px'; d.style.top = (pt.y - 13) + 'px'; d.style.opacity = lt > 0.5 + i * 0.4 ? 1 : 0; });
