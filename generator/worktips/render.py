@@ -33,7 +33,11 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("BotFather", "បត ហ្វាដឺ"),
+PRON = [("Caps Lock", "ខេបស៍ ឡុក"), ("Motherboard", "ម៉ាទ័របត"), ("Controller", "ខុនត្រូលល័រ"), ("Keyboard", "ឃីបត"),
+        ("Layout", "ឡេអៅ"), ("Unicode", "យូនីកូដ"), ("Windows", "វីនដូ"), ("Monitor", "ម៉ូនីទ័រ"), ("Binary", "បាយណារី"),
+        ("Driver", "ដ្រាយវ័រ"), ("Switch", "ស្វីច"), ("Chrome", "ក្រូម"), ("Shift", "ស៊ីហ្វ"), ("Chip", "ឈីប"), ("Byte", "បៃ"),
+        ("Font", "ហ្វុន"), ("Word", "វើដ"), ("HDMI", "អេចឌីអេមអាយ"), ("USB", "យូអេសប៊ី"), ("CPU", "ស៊ីភីយូ"),
+        ("GPU", "ជីភីយូ"), ("RAM", "រ៉េម"), ("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("BotFather", "បត ហ្វាដឺ"),
         ("Telegram", "តេឡេក្រាម"), ("Excel", "អ៊ិចសែល"), ("Prompt", "ផ្រមត៍"), ("Caption", "ខេបសិន"),
         ("Comment", "ខមមិន"), ("Follow", "ហ្វលឡូ"), ("Email", "អ៊ីមែល"), ("email", "អ៊ីមែល"), ("Copy", "ខូពី"),
         ("Paste", "ផេស"), ("Enter", "អិនទ័រ"), ("Token", "តូខិន"), ("Trigger", "ទ្រីហ្គ័រ"), ("Part 2", "ភាគទីពីរ"),
@@ -55,7 +59,8 @@ def anim_floor(s):
         n = len(s.get("items", s.get("nodes", [])))
         return 1.0 + n * s.get("stagger", 0.3) * (2 if s["type"] == "flow" else 1) + 1.0
     if s["type"] == "phone": return 1.5 + len(s["msgs"]) * s.get("gap", 1.0)
-    return 3.0
+    if s["type"] == "bits": return 4.5
+    return 3.5
 
 def synth_voices(spec, tmp):
     """Generate one Khmer TTS clip per scene that has `speak`; stretch scene durations to fit the voice."""
