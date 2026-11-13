@@ -33,7 +33,9 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("Caps Lock", "ខេបស៍ ឡុក"), ("Motherboard", "ម៉ាទ័របត"), ("Controller", "ខុនត្រូលល័រ"), ("Keyboard", "ឃីបត"),
+PRON = [("Caps Lock", "ខេបស៍ ឡុក"), ("GHz", "ជីហ្គាហឺត"), ("UEFI", "យូ អ៊ី អេហ្វ អាយ"), ("BIOS", "បាយអូស"), ("POST", "ផូស"),
+        ("PSU", "ភី អេស យូ"), ("SSD", "អេស អេស ឌី"), ("HDD", "អេច ឌី ឌី"), ("ROM", "រ៉ូម"), ("Cores", "ខរ"), ("Core", "ខរ"),
+        ("Flash", "ហ្វ្លាស"), ("Save", "សេវ"), ("Icon", "អាយខុន"), ("Taskbar", "ថាសបា"), ("Desktop", "ដេសថប"), ("Motherboard", "ម៉ាទ័របត"), ("Controller", "ខុនត្រូលល័រ"), ("Keyboard", "ឃីបត"),
         ("Layout", "ឡេអៅ"), ("Unicode", "យូនីកូដ"), ("Windows", "វីនដូ"), ("Monitor", "ម៉ូនីទ័រ"), ("Binary", "បាយណារី"),
         ("Driver", "ដ្រាយវ័រ"), ("Switch", "ស្វីច"), ("Chrome", "ក្រូម"), ("Shift", "ស៊ីហ្វ"), ("Chip", "ឈីប"), ("Byte", "បៃ"),
         ("Font", "ហ្វុន"), ("Word", "វើដ"), ("HDMI", "អេចឌីអេមអាយ"), ("USB", "យូអេសប៊ី"), ("CPU", "ស៊ីភីយូ"),
