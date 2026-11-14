@@ -576,16 +576,17 @@ const BUILD = {
   canvas(s) {
     const root = h('div','scene'); const t = h('div','h3 el', mk(s.title)); const st = h('div','stage el');
     const n = s.nodes.length, Y = s.subs ? 230 : 300, P = s.nodes.map((x,i) => ({x: 860 * (i + 0.5) / n, y: Y}));
-    const bi = s.nodes.findIndex(x => x.big), SP = (s.subs || []).map((x,i,a) => ({x: P[bi].x + (i - (a.length - 1) / 2) * 190, y: 500}));
-    const clamp1 = v => Math.max(105, Math.min(755, v)); SP.forEach(p => p.x = clamp1(p.x));
+    const bi = s.nodes.findIndex(x => x.big), SP = (s.subs || []).map((x,i,a) => ({x: P[bi].x + (i - (a.length - 1) / 2) * 250, y: 520}));
+    const clamp1 = v => Math.max(125, Math.min(735, v)); SP.forEach(p => p.x = clamp1(p.x));
     let svg = `<svg width="860" height="720" style="position:absolute;left:0;top:0">`;
     for (let i = 1; i < n; i++) svg += `<path class=lk d="M${P[i-1].x},${Y} L${P[i].x},${Y}" stroke="${s.style === 'make' ? 'rgba(255,255,255,.45)' : '#9CA3AF'}" stroke-width="${s.style === 'make' ? 8 : 5}" ${s.style === 'make' ? 'stroke-dasharray="2 16" stroke-linecap="round"' : ''} fill="none"/>`;
     SP.forEach(p => svg += `<path class=sk d="M${P[bi].x},${Y + 75} L${p.x},${p.y - 50}" stroke="#6B7280" stroke-width="4" stroke-dasharray="10 10" fill="none"/>`);
     st.innerHTML = svg + '</svg>';
-    const nodes = s.nodes.map((x,i) => { const e = h('div', 'cv ' + (s.style === 'make' ? 'mk' : 'n8') + (x.big ? ' big' : ''), x.big ? `${x.icon}<div style="font-size:28px;font-weight:800">${esc(x.t)}</div>` : x.icon);
+    const inner = x => x.big && s.style !== 'make';
+    const nodes = s.nodes.map((x,i) => { const e = h('div', 'cv ' + (s.style === 'make' ? 'mk' : 'n8') + (x.big ? ' big' : ''), inner(x) ? `${x.icon}<div style="font-size:28px;font-weight:800">${esc(x.t)}</div>` : x.icon);
       e.style.left = P[i].x + 'px'; e.style.top = P[i].y + 'px'; if (s.style === 'make') e.style.background = x.c || 'linear-gradient(135deg,#A855F7,#6D28D9)'; st.append(e);
-      if (!x.big) { const l = h('div','cvl', mk(x.t) + (x.s ? `<small>${mk(x.s)}</small>` : '')); l.style.left = P[i].x + 'px'; l.style.top = (P[i].y + 92) + 'px'; st.append(l); } return e; });
-    const subs = (s.subs || []).map((x,i) => { const e = h('div','cv sub', x.icon); e.style.left = SP[i].x + 'px'; e.style.top = SP[i].y + 'px'; st.append(e); const l = h('div','cvl', mk(x.t)); l.style.left = SP[i].x + 'px'; l.style.top = (SP[i].y + 62) + 'px'; st.append(l); return e; });
+      if (!inner(x)) { const l = h('div','cvl', mk(x.t) + (x.s ? `<small>${mk(x.s)}</small>` : '')); l.style.left = P[i].x + 'px'; l.style.top = (P[i].y + (x.big ? 112 : 92)) + 'px'; st.append(l); } return e; });
+    const subs = (s.subs || []).map((x,i) => { const e = h('div','cv sub', x.icon); e.style.left = SP[i].x + 'px'; e.style.top = SP[i].y + 'px'; st.append(e); const l = h('div','cvl', mk(x.t) + (x.s ? `<small>${mk(x.s)}</small>` : '')); l.style.left = SP[i].x + 'px'; l.style.top = (SP[i].y + 62) + 'px'; st.append(l); return e; });
     const dots = [...Array(Math.max(0, n - 1))].map(() => { const d = h('div','cdot'); d.style.width = d.style.height = '24px'; st.append(d); return d; });
     if (s.label) { const lb = h('div','state', mk(s.label)); lb.style.fontSize = '36px'; lb.style.bottom = '20px'; st.append(lb); }
     root.append(t, st); root._items = [t, st]; root._st = st; root._nodes = nodes; root._subs = subs; root._dots = dots; root._P = P; return root;
