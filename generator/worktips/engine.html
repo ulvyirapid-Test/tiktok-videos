@@ -219,6 +219,14 @@ td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .code .ln { white-space:pre; overflow:hidden; text-overflow:ellipsis; word-break:normal; }
 .cvl { font-size:32px; } .cvl small { font-size:28px; }
 .g7 .gi small { font-size:32px; }
+
+.bars { display:flex; flex-direction:column; gap:34px; }
+.brow .bn { font-size:38px; font-weight:800; margin-bottom:10px; display:flex; justify-content:space-between; }
+.brow .bn b { color:var(--acc); font-size:46px; }
+.brow .bt { height:54px; border-radius:27px; background:rgba(255,255,255,.08); overflow:hidden; }
+.brow .bt i { display:block; height:100%; width:0; border-radius:27px; }
+.ppl { display:flex; justify-content:center; gap:26px; font-size:110px; margin-bottom:10px; }
+.ppl span { opacity:.3; transition:none; } .ppl span.on { opacity:1; filter:drop-shadow(0 0 22px var(--acc)); }
 </style></head>
 <body>
 <div id="bgs"></div><div class="glow" id="g1"></div><div class="glow" id="g2"></div><div id="rain"></div>
@@ -332,7 +340,7 @@ const BUILD = {
   hook(s) {
     const root = h('div','scene'); const items = [];
     if (window.AVATAR) { const a = h('div','avatar el'); a.append(avatarEl(240)); a.append(h('div','', `<div class=nm>@ulvyi</div><div class=sb>${esc(window.SERIES || 'AI សម្រាប់ការងារ')}</div>`)); root.append(a); items.push(a); }
-    if (s.notify) { root._ntf = [].concat(s.notify).map(x => { const n = h('div','ntf el', `<div class=ic>${x.icon || '🤖'}</div><div><div class=nm>${esc(x.bot || 'Bot')} · ${esc(x.time || 'now')}</div><div class=tx>${mk(x.t)}</div></div>`); root.append(n); return n; }); }
+    if (s.notify) { root._ntf = [].concat(s.notify).map(x => { const n = h('div','ntf el', `<div class=ic>${x.icon || '🤖'}</div><div><div class=nm>${esc(x.bot || 'Bot')}${x.time === '' ? '' : ' · ' + esc(x.time || 'now')}</div><div class=tx>${mk(x.t)}</div></div>`); root.append(n); return n; }); }
     if (s.badge) { const b = h('div','badge el', esc(s.badge)); root.append(b); items.push(b); }
     for (const l of s.lines) { const e = h('div', (l.cls||'h1') + ' el', mk(l.t)); root.append(e); items.push(e); }
     if (s.from && s.to) {
@@ -389,7 +397,7 @@ const BUILD = {
   },
   tip(s) {
     const root = h('div','scene'); const items = [];
-    const l = h('div','label el', esc(s.label || 'គន្លឹះ 💡')); const c = h('div','card el'); c.append(h('div','h2', mk(s.text))); root._subs = [];
+    const l = h('div','label el', esc(s.label || 'គន្លឹះ 💡')); const c = h('div','card el'); if (s.people) { const pp = h('div','ppl', Array.from({length: s.people}, () => `<span>${s.icon || '🧑'}</span>`).join('')); c.append(pp); root._ppl = [...pp.children]; } c.append(h('div','h2', mk(s.text))); root._subs = [];
     if (s.sub) s.sub.split('\n').forEach(x => { const e = h('div','p', mk(x)); e.style.marginTop = '14px'; c.append(e); root._subs.push(e); });
     root.append(l, c); items.push(l, c); if (s.foot) { const f = h('div','h3 el', mk(s.foot)); root.append(f); items.push(f); }
     root._items = items; return root;
@@ -591,6 +599,13 @@ const BUILD = {
     if (s.label) { const lb = h('div','state', mk(s.label)); lb.style.fontSize = '36px'; lb.style.bottom = '20px'; st.append(lb); }
     root.append(t, st); root._items = [t, st]; root._st = st; root._nodes = nodes; root._subs = subs; root._dots = dots; root._P = P; return root;
   },
+
+  bars(s) {
+    const root = h('div','scene'); const t = h('div','h3 el', mk(s.title)); const c = h('div','card el'); const b = h('div','bars'); const fills = [];
+    s.rows.forEach(r => { const e = h('div','brow', `<div class=bn><span>${mk(r.n)}</span><b>${mk(r.label)}</b></div><div class=bt><i style="background:${r.c || 'var(--acc)'}"></i></div>`); b.append(e); fills.push({i: e.querySelector('i'), b: e.querySelector('b'), w: r.v / (s.max || 100) * 100}); });
+    c.append(b); const items = [t, c]; root.append(t, c); if (s.note) { const n = h('div','p el', mk(s.note)); root.append(n); items.push(n); }
+    root._items = items; root._fills = fills; return root;
+  },
   cta(s) {
     const root = h('div','scene'); const ph = window.AVATAR ? (() => { const w = h('div','el'); w.style.alignSelf = 'flex-start'; w.append(avatarEl(250)); return w; })() : null; const a = h('div','h2 el', mk(s.pre || 'Follow')); const b = h('div','handle-big acc el','@ulvyi'); const c = h('div','p el', mk(s.text || 'AI សម្រាប់ការងារ\nរៀងរាល់សប្តាហ៍ 🚀'));
     if (ph) root.append(ph); root.append(a,b,c); const items = ph ? [ph,a,b,c] : [a,b,c]; if (s.ask) { const d = h('div','card el'); d.append(h('div','h3', mk(s.ask))); root.append(d); items.push(d); }
@@ -661,12 +676,14 @@ const UPDATE = {
     root._dots.forEach((d,i) => { const q = ((lt * 0.9) - i) % (n + 1); const v = q >= 0 && q < 1 && lt > 0.5 + n * 0.45 * k; d.style.opacity = v ? 1 : 0; const x = P[i].x + (P[i+1].x - P[i].x) * clamp(q); d.style.left = (x - 12) + 'px'; d.style.top = (P[i].y - 12) + 'px'; });
     root._subs.forEach((e,i) => { const q = ease(clamp((lt - 0.8 - n * 0.45 * k - i * 0.5 * k) / 0.4)); e.style.opacity = q; e.style.transform = `translate(-50%,-50%) scale(${0.6 + 0.4 * back(q)})`; e.style.borderColor = Math.floor(lt * 1.5) % root._subs.length === i && q > 0.9 ? 'var(--acc)' : ''; });
     root._st.querySelectorAll('.cvl').forEach(l => l.style.opacity = 1); },
-  tip(root, s, lt) { UPDATE.base(root, s, lt); const span = SPAN(s, 0.75, 2), n = root._subs.length;
+  tip(root, s, lt) { UPDATE.base(root, s, lt); const span = SPAN(s, 0.75, 2), n = root._subs.length; if (root._ppl) root._ppl.forEach((e,i) => { e.classList.toggle('on', lt > 0.8 && i < (s.hot || 1)); e.style.transform = i < (s.hot || 1) && lt > 0.8 ? `scale(${1.1 + 0.08 * Math.sin(lt * 4)})` : ''; });
     root._subs.forEach((e,i) => pop(e, (lt - 0.9 - (i + 0.2) * span / Math.max(1, n)) / 0.4, 24));
     const c = root._items[1]; c.style.boxShadow = `0 0 ${18 + 22 * (0.5 + 0.5 * Math.sin(lt * 2.4))}px var(--acc)`; c.style.borderColor = 'var(--acc)';
     c.style.transform += ` translateY(${Math.sin(lt * 1.6) * 6}px)`; },
   compare(root, s, lt) { UPDATE.base(root, s, lt); const li = [...root.querySelectorAll('.col li')], span = SPAN(s, 0.85, 3);
     const cur = Math.min(li.length - 1, Math.floor((lt - 0.8) / (span / li.length))); li.forEach((e,i) => e.classList.toggle('hot', lt > 0.8 && i === cur)); },
+  bars(root, s, lt) { UPDATE.base(root, s, lt); const n = root._fills.length, span = SPAN(s, 0.7, 2);
+    root._fills.forEach((f,i) => { const q = ease(clamp((lt - 0.7 - i * span / n) / 1.0)); f.i.style.width = (f.w * q) + '%'; f.b.style.opacity = q > 0.05 ? 1 : 0; f.b.style.transform = `scale(${1 + 0.25 * Math.max(0, 1 - (lt - 0.7 - i * span / n - 1.0) / 0.5) * (q >= 1 ? 1 : 0)})`; }); },
   grid(root, s, lt) { UPDATE.base(root, s, lt); const n = root._gi.length, k = K(s); if (s.cycle !== false) { const span = Math.max(1, (s.talk || 4) * 0.85); const cur = Math.min(n - 1, Math.floor(lt / span * n)); root._gi.forEach((e,i) => e.classList.toggle('hot', i === cur && lt > 0.4)); } },
   power(root, s, lt) { UPDATE.base(root, s, lt); const st = root._st; const paths = ['.w0','.w1','.w2','.w3'].map(q => st.querySelector(q));
     root._dots.forEach((d,i) => { const p = paths[i]; const L = p.getTotalLength(); const q = ((lt * (i ? 0.7 : 0.9)) + i * 0.3) % 1; const pt = p.getPointAtLength(q * L); d.style.left = (pt.x - 13) + 'px'; d.style.top = (pt.y - 13) + 'px'; d.style.opacity = lt > 0.5 + i * 0.4 ? 1 : 0; });
