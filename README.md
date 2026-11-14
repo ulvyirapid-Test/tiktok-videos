@@ -27,6 +27,9 @@ Animated shorts (chat typing, spreadsheet, phone alerts, flow, steps) rendered f
 
 
 ## Video house rules (from Ravy)
-- Every video opens with a greeting/welcome (added automatically by `render.py`, `GREETING`). Set `"greet": false` in a spec to skip.
+- Every video opens with greeting + welcome + what the video covers (auto by `render.py`; needs `"topic"` in the spec):
+  - part 1 / standalone: «សួស្តីបងប្អូនទាំងអស់គ្នា! ស្វាគមន៍មកកាន់ Channel របស់ខ្ញុំ។ វីដេអូនេះ យើងនឹងសិក្សាស្វែងយល់អំពី {topic}។»
+  - part ≥2: «… វីដេអូនេះ យើងនឹងសិក្សាបន្តពីភាគមុន អំពី {topic}។»
+  - write the hook line so it does not repeat the intro.
 - Say **"វីដេអូនេះ"** (this video) — never **"ស៊េរីនេះ"** (this series). `render.py` replaces it automatically.
 - Before sending to Ravy: run the independent reviewer (≥85, no CRITICAL); approval gate before scheduling.

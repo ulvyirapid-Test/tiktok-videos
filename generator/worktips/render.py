@@ -4,7 +4,7 @@ Usage:
   python3 generator/worktips/render.py content/worktips/SPEC.json videos/OUT.mp4 [music_seed]
   python3 generator/worktips/render.py content/worktips/SPEC.json --preview t1 t2 ...   (writes PNGs next to OUT dir)
 """
-import asyncio, base64, json, os, shutil, subprocess, sys, tempfile
+import asyncio, base64, json, re, os, shutil, subprocess, sys, tempfile
 from playwright.async_api import async_playwright
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -33,7 +33,7 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
+PRON = [("Channel", "ឆានែល"), ("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
         ("Intelligence", "អ៊ីនថេលីជិន"), ("Dartmouth", "ដាតម៉ោត"), ("ELIZA", "អេលីហ្សា"), ("Chatbot", "ឆាតបូត"), ("Chat", "ឆាត"), ("Robot", "រ៉ូបូត"),
         ("Hallucination", "ហាលូស៊ីណេសិន"), ("Facebook", "ហ្វេសប៊ុក"), ("Post", "ផូស្ត៍"), ("Emoji", "អ៊ីម៉ូជី"), ("Hashtag", "ហាសថេក"),
         ("Skills", "ស្គីល"), ("Skill", "ស្គីល"), ("Projects", "ប្រូជេក"), ("Project", "ប្រូជេក"), ("Connectors", "ខនណិចទ័រ"), ("Connect", "ខនណិច"),
@@ -112,14 +112,27 @@ def mix_audio(clips, music, total, out):
     subprocess.run(args + ["-filter_complex", fc, "-map", "[a]", "-ac", "2", out], check=True)
 
 # Ravy's standing rules for every video (14 Nov 2026):
-#  1) open with a greeting/welcome;  2) say "វីដេអូនេះ" (this video), never "ស៊េរីនេះ" (this series).
-GREETING = "សួស្តីបងប្អូនទាំងអស់គ្នា! ស្វាគមន៍មកកាន់ឆានែលរបស់ខ្ញុំ។"
+#  1) open with a greeting + welcome + what this video covers:
+#     standalone / part 1 : "...ស្វាគមន៍មកកាន់ Channel របស់ខ្ញុំ។ វីដេអូនេះ យើងនឹងសិក្សាស្វែងយល់អំពី {topic}។"
+#     later parts (part>=2): "...វីដេអូនេះ យើងនឹងសិក្សាបន្តពីភាគមុន អំពី {topic}។"
+#  2) say "វីដេអូនេះ" (this video), never "ស៊េរីនេះ" (this series).
+GREETING = "សួស្តីបងប្អូនទាំងអស់គ្នា! ស្វាគមន៍មកកាន់ Channel របស់ខ្ញុំ។"
+KH_DIG = str.maketrans("០១២៣៤៥៦៧៨៩", "0123456789")
+
+def part_no(spec):
+    if spec.get("part"): return int(spec["part"])
+    m = re.search(r"ភាគ\s*([០-៩0-9]+)", spec.get("series", ""))
+    return int(m.group(1).translate(KH_DIG)) if m else 1
 
 def apply_house_rules(spec):
     spec = json.loads(json.dumps(spec, ensure_ascii=False).replace("ស៊េរីនេះ", "វីដេអូនេះ"))
     first = spec["scenes"][0]
     if spec.get("greet", True) and first.get("speak") and not first["speak"].startswith("សួស្តី"):
-        first["speak"] = GREETING + " " + first["speak"]
+        topic = spec.get("topic")
+        if not topic: raise SystemExit("spec needs a 'topic' (what this video covers) for the opening line")
+        intro = (f"វីដេអូនេះ យើងនឹងសិក្សាបន្តពីភាគមុន អំពី{topic}។" if part_no(spec) >= 2
+                 else f"វីដេអូនេះ យើងនឹងសិក្សាស្វែងយល់អំពី{topic}។")
+        first["speak"] = f"{GREETING} {intro} {first['speak']}"
     return spec
 
 def main():
