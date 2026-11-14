@@ -24,3 +24,9 @@ Animated shorts (chat typing, spreadsheet, phone alerts, flow, steps) rendered f
 - Preview frames: `python3 generator/worktips/render.py content/worktips/SPEC.json --preview 0 5 12`
 - Carousel: `python3 generator/worktips/render_slides.py content/worktips/SPEC.json carousels/OUT_DIR` (spec uses `slides`)
 - Scene types: hook, compare, sheet, chat, phone, flow, steps, tip, prompt, cta. Markup: *cyan* _violet_ ~green~ !yellow!
+
+
+## Video house rules (from Ravy)
+- Every video opens with a greeting/welcome (added automatically by `render.py`, `GREETING`). Set `"greet": false` in a spec to skip.
+- Say **"វីដេអូនេះ"** (this video) — never **"ស៊េរីនេះ"** (this series). `render.py` replaces it automatically.
+- Before sending to Ravy: run the independent reviewer (≥85, no CRITICAL); approval gate before scheduling.

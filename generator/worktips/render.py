@@ -111,8 +111,19 @@ def mix_audio(clips, music, total, out):
     fc = ";".join(parts + [f"[0:a]volume=0.22[m]", f"[m]{vl}amix=inputs={len(clips)+1}:normalize=0:duration=first,atrim=0:{total:.2f}[a]"])
     subprocess.run(args + ["-filter_complex", fc, "-map", "[a]", "-ac", "2", out], check=True)
 
+# Ravy's standing rules for every video (14 Nov 2026):
+#  1) open with a greeting/welcome;  2) say "វីដេអូនេះ" (this video), never "ស៊េរីនេះ" (this series).
+GREETING = "សួស្តីបងប្អូនទាំងអស់គ្នា! ស្វាគមន៍មកកាន់ឆានែលរបស់ខ្ញុំ។"
+
+def apply_house_rules(spec):
+    spec = json.loads(json.dumps(spec, ensure_ascii=False).replace("ស៊េរីនេះ", "វីដេអូនេះ"))
+    first = spec["scenes"][0]
+    if spec.get("greet", True) and first.get("speak") and not first["speak"].startswith("សួស្តី"):
+        first["speak"] = GREETING + " " + first["speak"]
+    return spec
+
 def main():
-    spec = json.load(open(sys.argv[1]))
+    spec = apply_house_rules(json.load(open(sys.argv[1])))
     if sys.argv[2] == "--preview":
         out = os.path.join(os.path.dirname(os.path.abspath(sys.argv[1])), "_preview"); os.makedirs(out, exist_ok=True)
         _, paths = asyncio.run(frames(spec, [float(x) for x in sys.argv[3:]], out))
