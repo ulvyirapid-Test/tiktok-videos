@@ -1,0 +1,211 @@
+{
+ "avatar": true,
+ "voice": "km-KH-PisethNeural",
+ "acc": "#C084FC",
+ "series": "Make & n8n · ភាគ ១ · Make",
+ "title": "Make ជាអ្វី? មុខងារ និងរបៀបប្រើ",
+ "caption": "Make ជាអ្វី? 🟣 Scenario · Module · Trigger · Router · Filter · AI Agent និងរបៀបប្រើ ៥ ជំហាន 🛠️ ភាគ ២៖ n8n · ភាគ ៣៖ ប្រៀបធៀប ⚖️\nអ្នកចង់ឱ្យ Make ធ្វើការងារអ្វីជំនួស? 👇\n#AIAgent #Automation #Make #n8n #AIសម្រាប់ការងារ #រៀនAI #TikTokខ្មែរ",
+ "scenes": [
+  {
+   "type": "hook",
+   "bg": "gpu",
+   "dur": 4,
+   "badge": "ភាគ ១",
+   "lines": [
+    {
+     "t": "*Make* ជាអ្វី? 🟣\nធ្វើអ្វីបានខ្លះ?",
+     "cls": "h2"
+    },
+    {
+     "t": "Automation + _AI Agent_ · ពន្យល់ពីដើម",
+     "cls": "h3"
+    }
+   ],
+   "speak": "ស៊េរីនេះ ខ្ញុំនឹងពន្យល់ឧបករណ៍ពីរ ដែលពេញនិយមបំផុត សម្រាប់ AI Automation និង AI Agent គឺ Make និង n8n។ ភាគទីមួយនេះ តោះស្គាល់ Make៖ វាជាអ្វី មានមុខងារអ្វីខ្លះ ហើយប្រើយ៉ាងម៉េច។"
+  },
+  {
+   "type": "compare",
+   "bg": "storage",
+   "dur": 4,
+   "neutral": true,
+   "title": "ពាក្យពីរ ត្រូវយល់មុន 📖",
+   "left": {
+    "title": "⚙️ Automation",
+    "items": [
+     "ធ្វើតាម*ជំហានកំណត់ទុក*",
+     "ដូចគ្នារាល់ដង 🚆",
+     "ល្អសម្រាប់ការងារ*ដដែលៗ*"
+    ]
+   },
+   "right": {
+    "title": "🧠 AI Agent",
+    "items": [
+     "AI *គិត* ហើយ*ជ្រើសឧបករណ៍*",
+     "ឆ្លើយសំណួរខុសៗគ្នា",
+     "បត់បែន · ប៉ុន្តែអាច!ខុស!"
+    ]
+   },
+   "say": "Automation = ផ្លូវ*ថេរ* · Agent = AI *សម្រេចចិត្ត*",
+   "speak": "មុននឹងចូល Make សូមយល់ពាក្យពីរសិន។ Automation គឺការឱ្យកុំព្យូទ័រធ្វើការងារ តាមជំហានដែលយើងកំណត់ទុក ដូចគ្នារាល់ដង ដូចរថភ្លើងរត់តាមផ្លូវដែក។ AI Agent វិញ គឺ AI ដែលគិត ហើយជ្រើសរើសឧបករណ៍ខ្លួនឯង ដើម្បីឆ្លើយ ឬធ្វើការងារ តាមអ្វីដែលយើងសុំ។ វាបត់បែនជាង ប៉ុន្តែអាចខុសបាន។"
+  },
+  {
+   "type": "grid",
+   "bg": "gpu",
+   "dur": 4,
+   "title": "មុខងារសំខាន់ៗរបស់ *Make* 🧩",
+   "items": [
+    {
+     "icon": "🟣",
+     "t": "Scenario",
+     "s": "ការងារមួយទាំងមូល"
+    },
+    {
+     "icon": "⭕",
+     "t": "Module",
+     "s": "ជំហានមួយ (រង្វង់)"
+    },
+    {
+     "icon": "⚡",
+     "t": "Trigger",
+     "s": "ចាប់ផ្តើមពេលណា"
+    },
+    {
+     "icon": "🔀",
+     "t": "Router",
+     "s": "បំបែកជាច្រើនផ្លូវ"
+    },
+    {
+     "icon": "🚦",
+     "t": "Filter",
+     "s": "លក្ខខណ្ឌ មុនបន្ត"
+    },
+    {
+     "icon": "🧠",
+     "t": "AI Agent",
+     "s": "គិត + ប្រើឧបករណ៍"
+    }
+   ],
+   "say": "Scenario មានច្រើន *Module* ភ្ជាប់គ្នា",
+   "speak": "Make ជាកម្មវិធីលើ Website សម្រាប់បង្កើត Automation ដោយអូសទាញ។ ការងារមួយទាំងមូល ហៅថា Scenario។ ជំហាននីមួយៗ ជារង្វង់ ហៅថា Module។ Module ទីមួយ ជា Trigger កំណត់ថា ការងារចាប់ផ្តើមពេលណា។ Router បំបែកការងារជាច្រើនផ្លូវ។ Filter ពិនិត្យលក្ខខណ្ឌ មុននឹងបន្តទៅជំហានបន្ទាប់។ ហើយ AI Agent អាចគិត និងប្រើឧបករណ៍ដោយខ្លួនឯង។"
+  },
+  {
+   "type": "canvas",
+   "bg": "gpu",
+   "dur": 4,
+   "style": "make",
+   "title": "ឧទាហរណ៍ *Automation* ក្នុង Make ⚙️",
+   "nodes": [
+    {
+     "icon": "📩",
+     "t": "Telegram",
+     "s": "Trigger: សារថ្មី",
+     "c": "linear-gradient(135deg,#38BDF8,#0284C7)"
+    },
+    {
+     "icon": "🧠",
+     "t": "AI",
+     "s": "សរសេរចម្លើយ",
+     "c": "linear-gradient(135deg,#10B981,#047857)"
+    },
+    {
+     "icon": "📗",
+     "t": "Google Sheets",
+     "s": "កត់ត្រា",
+     "c": "linear-gradient(135deg,#22C55E,#15803D)"
+    },
+    {
+     "icon": "📤",
+     "t": "Telegram",
+     "s": "ផ្ញើចម្លើយ",
+     "c": "linear-gradient(135deg,#38BDF8,#0284C7)"
+    }
+   ],
+   "label": "៤ Module · រត់*តាមលំដាប់*រាល់ដង",
+   "say": "សារចូល → AI ឆ្លើយ → *កត់ត្រា* → ផ្ញើត្រឡប់",
+   "speak": "នេះជាឧទាហរណ៍ Scenario មួយ។ ពេលមានសារ Telegram ថ្មី Make ផ្ញើសារនោះទៅ AI ឱ្យសរសេរចម្លើយ កត់ត្រាចូល Google Sheet ហើយផ្ញើចម្លើយត្រឡប់ទៅវិញ។ បួន Module នេះ រត់តាមលំដាប់ដដែលរាល់ដង។ នេះហើយជា AI Automation។"
+  },
+  {
+   "type": "steps",
+   "bg": "board",
+   "dur": 4,
+   "title": "របៀបប្រើ *Make* ៥ ជំហាន 🛠️",
+   "stagger": 1.0,
+   "items": [
+    "ចុះឈ្មោះ make.com → *Create scenario*",
+    "ចុច *+* ជ្រើសកម្មវិធីសម្រាប់ *Trigger*",
+    "បន្ថែម Module៖ *AI · Sheets · Telegram*",
+    "ចុច *Run once* ដើម្បីសាកល្បង",
+    "បើក Scenario *ON* ឱ្យរត់ស្វ័យប្រវត្តិ"
+   ],
+   "say": "សាកល្បងជាមួយ *Run once* សិន មុនបើក ON",
+   "speak": "របៀបប្រើ Make មានប្រាំជំហាន។ ទីមួយ ចុះឈ្មោះលើ make dot com ហើយចុច Create scenario។ ទីពីរ ចុចសញ្ញាបូក ជ្រើសកម្មវិធីសម្រាប់ Trigger ដូចជា Telegram។ ទីបី បន្ថែម Module បន្ទាប់ ដូចជា AI, Google Sheet និង Telegram។ ទីបួន ចុច Run once ដើម្បីសាកល្បងម្តង។ ទីប្រាំ ពេលដំណើរការត្រឹមត្រូវ បើក Scenario ឱ្យ ON ដើម្បីរត់ដោយស្វ័យប្រវត្តិ។"
+  },
+  {
+   "type": "canvas",
+   "bg": "rom",
+   "dur": 4,
+   "style": "make",
+   "title": "*Make AI Agent* ធ្វើការយ៉ាងម៉េច? 🧠",
+   "nodes": [
+    {
+     "icon": "📩",
+     "t": "Telegram",
+     "s": "សំណួរចូល",
+     "c": "linear-gradient(135deg,#38BDF8,#0284C7)"
+    },
+    {
+     "icon": "🧠",
+     "t": "Run an agent",
+     "big": true,
+     "c": "linear-gradient(135deg,#A855F7,#6D28D9)"
+    },
+    {
+     "icon": "📤",
+     "t": "Telegram",
+     "s": "ផ្ញើចម្លើយ",
+     "c": "linear-gradient(135deg,#38BDF8,#0284C7)"
+    }
+   ],
+   "subs": [
+    {
+     "icon": "📜",
+     "t": "Instructions"
+    },
+    {
+     "icon": "🤖",
+     "t": "AI Model"
+    },
+    {
+     "icon": "🧰",
+     "t": "Tools = Scenarios"
+    }
+   ],
+   "say": "Agent ប្រើ *Scenario ផ្សេងៗ* ជាឧបករណ៍",
+   "speak": "Make មាន AI Agents ផងដែរ។ យើងបង្កើត Agent មួយ ដាក់ Instructions ប្រាប់តួនាទី ភ្ជាប់ AI Model ហើយបន្ថែមឧបករណ៍ ដែលជា Scenario ផ្សេងៗ ដូចជា Scenario អាន Google Sheet ឬផ្ញើ Email។ បន្ទាប់មក ក្នុង Scenario មួយ ប្រើ Module Run an agent ដើម្បីផ្ញើសំណួរទៅ Agent។ Agent សម្រេចចិត្តខ្លួនឯង ថាត្រូវប្រើឧបករណ៍មួយណា។"
+  },
+  {
+   "type": "checklist",
+   "bg": "gpu",
+   "dur": 4,
+   "title": "*Make* — តម្លៃ និងចំណុចខ្លាំង 💰",
+   "items": [
+    "ងាយរៀន · *អូសទាញ*",
+    "ភ្ជាប់កម្មវិធី *1,800+*",
+    "ឥតគិតថ្លៃ *1,000 credits*/ខែ",
+    "Core ~*$9*/ខែ (បង់ប្រចាំឆ្នាំ)"
+   ],
+   "note": "១ Module រត់ម្តង ≈ *១ credit* · Cloud តែប៉ុណ្ណោះ",
+   "say": "គិតលុយតាម*ចំនួនជំហាន*ដែលរត់",
+   "speak": "ចំណុចខ្លាំងរបស់ Make គឺងាយរៀន ហើយភ្ជាប់ជាមួយកម្មវិធីជាងមួយពាន់ប្រាំបីរយ។ គម្រោងឥតគិតថ្លៃ ឱ្យប្រើមួយពាន់ credits ក្នុងមួយខែ ដោយបើក Scenario បានពីរ។ Make គិតតាមជំហាន៖ រាល់ Module ដែលរត់ម្តង ជាទូទៅប្រើមួយ credit។ គម្រោង Core ចាប់ពីប្រហែលប្រាំបួនដុល្លារក្នុងមួយខែ បើបង់ប្រចាំឆ្នាំ។ Make ប្រើបានតែលើ Cloud ប៉ុណ្ណោះ។"
+  },
+  {
+   "type": "cta",
+   "bg": "navy",
+   "dur": 5,
+   "pre": "ភាគ ២៖ *n8n* 🔴\nFollow",
+   "text": "AI សម្រាប់ការងារ 🚀",
+   "ask": "អ្នកចង់ឱ្យ Make\n_ធ្វើការងារអ្វី_? 👇",
+   "speak": "ភាគបន្ទាប់ យើងនឹងស្គាល់ n8n។ ចុច Follow ដើម្បីកុំឱ្យខកខាន ហើយ Comment ប្រាប់ខ្ញុំ ថាអ្នកចង់ឱ្យ Make ធ្វើការងារអ្វីជំនួស។"
+  }
+ ]
+}

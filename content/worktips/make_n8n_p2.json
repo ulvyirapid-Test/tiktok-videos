@@ -1,0 +1,179 @@
+{
+ "avatar": true,
+ "voice": "km-KH-PisethNeural",
+ "acc": "#F472B6",
+ "series": "Make & n8n · ភាគ ២ · n8n",
+ "title": "n8n ជាអ្វី? មុខងារ និងរបៀបប្រើ",
+ "caption": "n8n ជាអ្វី? 🔴 Workflow · Node · Trigger · IF · Code · HTTP Request · AI Agent node និងរបៀបប្រើ ៥ ជំហាន 🛠️ ភាគ ៣៖ Make vs n8n ⚖️\nអ្នកធ្លាប់ប្រើ n8n ទេ? 👇\n#AIAgent #Automation #Make #n8n #AIសម្រាប់ការងារ #រៀនAI #TikTokខ្មែរ",
+ "scenes": [
+  {
+   "type": "hook",
+   "bg": "alert",
+   "dur": 4,
+   "badge": "ភាគ ២",
+   "lines": [
+    {
+     "t": "*n8n* ជាអ្វី? 🔴\nធ្វើអ្វីបានខ្លះ?",
+     "cls": "h2"
+    },
+    {
+     "t": "Workflow + _AI Agent node_",
+     "cls": "h3"
+    }
+   ],
+   "speak": "ភាគមុន យើងស្គាល់ Make ហើយ។ ភាគនេះ តោះស្គាល់ n8n៖ វាជាអ្វី មានមុខងារអ្វីខ្លះ ហើយប្រើយ៉ាងម៉េច។"
+  },
+  {
+   "type": "grid",
+   "bg": "alert",
+   "dur": 4,
+   "title": "មុខងារសំខាន់ៗរបស់ *n8n* 🧩",
+   "items": [
+    {
+     "icon": "🔴",
+     "t": "Workflow",
+     "s": "ការងារមួយទាំងមូល"
+    },
+    {
+     "icon": "🟦",
+     "t": "Node",
+     "s": "ជំហានមួយ (ប្រអប់)"
+    },
+    {
+     "icon": "⚡",
+     "t": "Trigger",
+     "s": "Schedule · Webhook · App"
+    },
+    {
+     "icon": "🔀",
+     "t": "IF / Switch",
+     "s": "បំបែកផ្លូវតាមលក្ខខណ្ឌ"
+    },
+    {
+     "icon": "💻",
+     "t": "Code",
+     "s": "JavaScript · Python"
+    },
+    {
+     "icon": "🌐",
+     "t": "HTTP Request",
+     "s": "ភ្ជាប់ API ណាក៏បាន"
+    }
+   ],
+   "say": "Workflow មានច្រើន *Node* ភ្ជាប់គ្នា",
+   "speak": "n8n ក៏ជាឧបករណ៍អូសទាញ សម្រាប់បង្កើត Automation ដែរ។ ការងារមួយទាំងមូល ហៅថា Workflow ហើយជំហាននីមួយៗ ជាប្រអប់ ហៅថា Node។ Trigger ចាប់ផ្តើមការងារ តាមម៉ោង តាម Webhook ឬពេលមានទិន្នន័យថ្មីពីកម្មវិធី។ IF និង Switch បំបែកផ្លូវតាមលក្ខខណ្ឌ។ Code អនុញ្ញាតឱ្យសរសេរ JavaScript ឬ Python បន្ថែម។ ហើយ HTTP Request ភ្ជាប់ទៅកម្មវិធីណាក៏បាន ដែលមាន API។"
+  },
+  {
+   "type": "canvas",
+   "bg": "code",
+   "dur": 4,
+   "style": "n8n",
+   "title": "ឧទាហរណ៍ *Automation* ក្នុង n8n ⚙️",
+   "nodes": [
+    {
+     "icon": "⏰",
+     "t": "Schedule",
+     "s": "រាល់ ៥ ល្ងាច"
+    },
+    {
+     "icon": "📗",
+     "t": "Google Sheets",
+     "s": "អានស្តុក"
+    },
+    {
+     "icon": "🔀",
+     "t": "IF",
+     "s": "ស្តុក < ២០?"
+    },
+    {
+     "icon": "📤",
+     "t": "Telegram",
+     "s": "ព្រមានក្រុម"
+    }
+   ],
+   "label": "រត់*តាមម៉ោង* · ពិនិត្យ*លក្ខខណ្ឌ* · ព្រមាន",
+   "say": "រាល់ល្ងាច → អានស្តុក → *IF* ទាប → ព្រមាន",
+   "speak": "នេះជាឧទាហរណ៍ Workflow មួយ។ រៀងរាល់ម៉ោងប្រាំល្ងាច Schedule Trigger ចាប់ផ្តើម។ Node Google Sheet អានទិន្នន័យស្តុក។ Node IF ពិនិត្យថា ទំនិញណាមួយ នៅសល់តិចជាងម្ភៃឬទេ។ បើពិត Node Telegram ផ្ញើសារព្រមានទៅក្រុម។"
+  },
+  {
+   "type": "canvas",
+   "bg": "alert",
+   "dur": 4,
+   "style": "n8n",
+   "title": "*AI Agent node* ក្នុង n8n 🤖",
+   "nodes": [
+    {
+     "icon": "⚡",
+     "t": "Telegram Trigger",
+     "s": "សំណួរចូល"
+    },
+    {
+     "icon": "🤖",
+     "t": "AI Agent",
+     "big": true
+    },
+    {
+     "icon": "📤",
+     "t": "Telegram",
+     "s": "ផ្ញើចម្លើយ"
+    }
+   ],
+   "subs": [
+    {
+     "icon": "🧠",
+     "t": "Chat Model"
+    },
+    {
+     "icon": "💭",
+     "t": "Memory"
+    },
+    {
+     "icon": "📗",
+     "t": "Sheets Tool"
+    }
+   ],
+   "say": "ភ្ជាប់ខួរក្បាល · Memory · ឧបករណ៍ *នៅក្រោម Agent*",
+   "speak": "ចំណុចពិសេសរបស់ n8n គឺ AI Agent node។ នៅខាងក្រោមវា យើងភ្ជាប់ Chat Model ដែលជាខួរក្បាល AI, Memory ដើម្បីចាំការសន្ទនា និងឧបករណ៍ ដូចជា Google Sheet។ ពេលមានសំណួរចូលតាម Telegram Agent គិត ជ្រើសឧបករណ៍ ហើយផ្ញើចម្លើយត្រឡប់ទៅវិញ។ ងាយមើលណាស់ ថា Agent មានអ្វីខ្លះ។"
+  },
+  {
+   "type": "steps",
+   "bg": "board",
+   "dur": 4,
+   "title": "របៀបប្រើ *n8n* ៥ ជំហាន 🛠️",
+   "stagger": 1.0,
+   "items": [
+    "ប្រើ *n8n Cloud* ឬ *Self-host*",
+    "*Create Workflow* → ដាក់ *Trigger*",
+    "ចុច *+* បន្ថែម Node / *AI Agent*",
+    "ចុច *Execute workflow* ដើម្បីសាកល្បង",
+    "ចុច *Publish* ឱ្យរត់ពិត"
+   ],
+   "say": "សាកល្បងសិន → *Publish* ឱ្យរត់ពិត",
+   "speak": "របៀបប្រើ n8n មានប្រាំជំហាន។ ទីមួយ ជ្រើសប្រើ n8n Cloud ឬដំឡើងលើម៉ាស៊ីនមេខ្លួនឯង។ ទីពីរ បង្កើត Workflow ថ្មី ហើយដាក់ Trigger។ ទីបី ចុចសញ្ញាបូក បន្ថែម Node ឬ AI Agent។ ទីបួន ចុច Execute workflow ដើម្បីសាកល្បង។ ទីប្រាំ ចុច Publish ដើម្បីឱ្យវារត់ពិត។ ចំណាំ៖ ក្នុង n8n ជំនាន់ពីរ ប៊ូតុង Publish ជំនួសប៊ូតុង Activate ចាស់។"
+  },
+  {
+   "type": "checklist",
+   "bg": "alert",
+   "dur": 4,
+   "title": "*n8n* — តម្លៃ និងចំណុចខ្លាំង 💰",
+   "items": [
+    "*Self-host* ឥតគិតថ្លៃ (Community)",
+    "Cloud ~*€20*/ខែ (បង់ប្រចាំឆ្នាំ)",
+    "គិតតាម*ការរត់ Workflow ម្តង*",
+    "*400+* កម្មវិធី + HTTP + Code"
+   ],
+   "note": "!Self-host = ត្រូវថែទាំម៉ាស៊ីនមេខ្លួនឯង!",
+   "say": "Workflow ១០ ជំហាន រត់ម្តង = *១ execution*",
+   "speak": "ចំណុចខ្លាំងរបស់ n8n គឺអាចដំឡើងលើម៉ាស៊ីនមេខ្លួនឯងបាន ដោយឥតគិតថ្លៃ តាមរយៈ Community Edition ប៉ុន្តែយើងត្រូវចំណាយលើម៉ាស៊ីនមេ និងថែទាំខ្លួនឯង។ បើប្រើ Cloud ចាប់ពីប្រហែលម្ភៃអឺរ៉ូក្នុងមួយខែ បើបង់ប្រចាំឆ្នាំ។ n8n គិតតាមការរត់ Workflow ម្តង ទោះមានប៉ុន្មានជំហានក៏ដោយ។ វាភ្ជាប់កម្មវិធីជាងបួនរយ ហើយអាចភ្ជាប់បន្ថែមតាម HTTP Request និង Code។"
+  },
+  {
+   "type": "cta",
+   "bg": "navy",
+   "dur": 5,
+   "pre": "ភាគ ៣៖ Make vs n8n ⚖️\nFollow",
+   "text": "AI សម្រាប់ការងារ 🚀",
+   "ask": "អ្នកធ្លាប់ប្រើ\n_n8n_ ទេ? 👇",
+   "speak": "ភាគបន្ទាប់ យើងនឹងប្រៀបធៀប Make និង n8n ថាដូចគ្នា និងខុសគ្នាត្រង់ណា ហើយគួរប្រើមួយណា។ ចុច Follow ដើម្បីកុំឱ្យខកខាន។"
+  }
+ ]
+}

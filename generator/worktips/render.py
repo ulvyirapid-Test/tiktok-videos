@@ -33,7 +33,10 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("Community Edition", "ខមមុយនីធី អេឌីសិន"), ("AI Automation", "អេអាយ អូតូមេសិន"), ("AI Agents", "អេអាយ អេជិន"), ("AI Agent", "អេអាយ អេជិន"),
+PRON = [("Execute workflow", "អិចសេគ្យូត វើកហ្វ្លូ"), ("HTTP Request", "អេចធីធីភី រីក្វេស"), ("Run once", "រ៉ាន់ វ៉ាន់ស៍"), ("Run an agent", "រ៉ាន់ អាន អេជិន"),
+        ("Self-host", "សេលហូស"), ("executions", "អិចសេគ្យូសិន"), ("Router", "រ៉ោទ័រ"), ("Filter", "ហ្វីលទ័រ"), ("Publish", "ផាប់ប្លីស"),
+        ("Schedule", "ស្កេជូល"), ("Webhook", "វេបហុក"), ("JavaScript", "ចាវ៉ាស្គ្រីប"), ("Python", "ផៃថុន"), ("Create", "ក្រៀត"), ("ON", "អន"),
+        ("Community Edition", "ខមមុយនីធី អេឌីសិន"), ("AI Automation", "អេអាយ អូតូមេសិន"), ("AI Agents", "អេអាយ អេជិន"), ("AI Agent", "អេអាយ អេជិន"),
         ("Automation", "អូតូមេសិន"), ("Agents", "អេជិន"), ("Agent", "អេជិន"), ("n8n", "អិន អេត អិន"), ("Make", "មេក"), ("Module", "ម៉ូឌុល"),
         ("Scenario", "ស៊ីណារីយ៉ូ"), ("Workflow", "វើកហ្វ្លូ"), ("Node", "ណូដ"), ("node", "ណូដ"), ("Memory", "មេម៉ូរី"), ("Instructions", "អ៊ិនស្ត្រាក់សិន"),
         ("Tools", "ធូល"), ("Model", "ម៉ូដែល"), ("credits", "ក្រេឌីត"), ("credit", "ក្រេឌីត"), ("Cloud", "ក្លោដ"), ("Website", "វេបសាយ"), ("Code", "ខូដ"),
