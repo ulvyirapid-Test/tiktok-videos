@@ -213,7 +213,12 @@ td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .g7 .gi small { font-size:30px; color:#CBD5E1; }
 .cvl { font-size:30px; } .cvl small { font-size:26px; color:#CBD5E1; }
 .col li.hot { color:#fff; text-shadow:0 0 18px var(--acc); transform:scale(1.04); transform-origin:left center; }
-.chk.cur { background:rgba(255,255,255,.07); border-radius:18px; }
+.chk.now { background:rgba(255,255,255,.07); border-radius:18px; }
+
+.ntf { padding:16px 22px; } .ntf .tx { font-size:36px; } .ntf .nm { font-size:28px; }
+.code .ln { white-space:pre; overflow:hidden; text-overflow:ellipsis; word-break:normal; }
+.cvl { font-size:32px; } .cvl small { font-size:28px; }
+.g7 .gi small { font-size:32px; }
 </style></head>
 <body>
 <div id="bgs"></div><div class="glow" id="g1"></div><div class="glow" id="g2"></div><div id="rain"></div>
@@ -327,7 +332,7 @@ const BUILD = {
   hook(s) {
     const root = h('div','scene'); const items = [];
     if (window.AVATAR) { const a = h('div','avatar el'); a.append(avatarEl(240)); a.append(h('div','', `<div class=nm>@ulvyi</div><div class=sb>${esc(window.SERIES || 'AI សម្រាប់ការងារ')}</div>`)); root.append(a); items.push(a); }
-    if (s.notify) { const n = h('div','ntf el', `<div class=ic>🤖</div><div><div class=nm>${esc(s.notify.bot || 'Bot')} · ${esc(s.notify.time || 'now')}</div><div class=tx>${mk(s.notify.t)}</div></div>`); root.append(n); root._ntf = n; }
+    if (s.notify) { root._ntf = [].concat(s.notify).map(x => { const n = h('div','ntf el', `<div class=ic>${x.icon || '🤖'}</div><div><div class=nm>${esc(x.bot || 'Bot')} · ${esc(x.time || 'now')}</div><div class=tx>${mk(x.t)}</div></div>`); root.append(n); return n; }); }
     if (s.badge) { const b = h('div','badge el', esc(s.badge)); root.append(b); items.push(b); }
     for (const l of s.lines) { const e = h('div', (l.cls||'h1') + ' el', mk(l.t)); root.append(e); items.push(e); }
     if (s.from && s.to) {
@@ -597,7 +602,7 @@ const UPDATE = {
   base(root, s, lt) { let st = s.stagger ?? 0.28; if ((s.type === 'flow' || s.type === 'steps') && s.talk) st = Math.max(st, (s.talk * 0.8) / root._items.length); const d0 = s.delay ?? 0.05; root._items.forEach((e,i) => pop(e, (lt - d0 - i*st) / 0.45)); },
   hook(root, s, lt) {
     root._items.forEach((e,i) => pop(e, s.from ? 1 : (lt + 0.6 - i*0.3) / 0.4));  // hook readable from frame 0
-    if (root._ntf) { pop(root._ntf, (lt - 0.35) / 0.35, -80); root._ntf.style.boxShadow = lt > 0.4 ? `0 0 ${20 + 30 * Math.max(0, Math.sin(lt * 6))}px var(--acc)` : ''; }
+    if (root._ntf) root._ntf.forEach((n,i) => { const a = 0.3 + i * 1.3; pop(n, (lt - a) / 0.35, -80); n.style.boxShadow = lt > a + 0.1 ? `0 0 ${20 + 30 * Math.max(0, Math.sin((lt - a) * 6))}px var(--acc)` : ''; });
     if (root._strike) { const p = ease((lt - 0.7) / 0.4); root._strike.style.setProperty('--sr', `${(1-p)*100}%`); root._strike.style.setProperty('--so', p > 0 ? 1 : 0); const q = clamp((lt - 1.0)/0.3); root._to.style.opacity = 0.25 + 0.75*q; root._to.style.display = 'inline-block'; root._to.style.transform = `scale(${0.85 + 0.15*back(q)})`; }
   },
   sheet(root, s, lt) {
@@ -677,7 +682,7 @@ const UPDATE = {
       e.style.left = (from + (to - from) * q) + 'px'; e.style.top = (y - Math.sin(q * Math.PI) * 60) + 'px'; const onB = (ba ? 1 - q : q) > 0.99;
       e.style.opacity = (cleared && onB) ? Math.max(0, 1 - (lt - clearAt) / 0.4) : 1; });
     const f = root._st.querySelector('.flash'); f.style.opacity = cleared ? Math.min(1, (lt - clearAt) / 0.3) * (s.flashKeep ? 1 : Math.max(0, 1 - (lt - clearAt - 1.6) / 0.5)) : 0; },
-  checklist(root, s, lt) { UPDATE.base(root, s, lt); const span = Math.max(1.2, (s.talk || 4) * 0.8), n = root._rows.length; const cur = Math.floor((lt - 0.8) / (span / n)); root._rows.forEach((r,i) => { r.classList.toggle('ok', lt > 0.8 + (i + 0.5) * span / n); r.classList.toggle('cur', i === cur); r.style.transform = i === cur ? `scale(${1.02 + 0.015 * Math.sin(lt * 5)})` : ''; }); },
+  checklist(root, s, lt) { UPDATE.base(root, s, lt); const span = Math.max(1.2, (s.talk || 4) * 0.8), n = root._rows.length; const cur = Math.floor((lt - 0.8) / (span / n)); root._rows.forEach((r,i) => { r.classList.toggle('ok', lt > 0.8 + (i + 0.5) * span / n); r.classList.toggle('now', i === cur); r.style.transform = i === cur ? `scale(${1.02 + 0.015 * Math.sin(lt * 5)})` : ''; }); },
   race(root, s, lt) { UPDATE.base(root, s, lt); root._bars.forEach(b => { const q = lt < 0.6 ? 0 : ((lt - 0.6) % (b.sec + 0.8)) / b.sec; b.i.style.width = `${Math.min(1, q) * 100}%`; }); },
   crowd(root, s, lt) { UPDATE.base(root, s, lt); const c = Math.floor(lt * 3) % 8; root._cores.forEach((e,i) => e.classList.toggle('on', i === c || i === (c + 4) % 8));
     root._dg.forEach((e,i) => { const r = Math.floor(i / 18), col = i % 18; const v = Math.sin(lt * 4 - (r + col) * 0.35); e.style.background = v > 0.3 ? `hsl(${(r * 18 + col * 10 + lt * 60) % 360},85%,62%)` : 'rgba(255,255,255,.1)'; }); },
@@ -732,7 +737,7 @@ window.setup = function (spec) {
   const bgs = document.getElementById('bgs'); window.SC.forEach(o => { const th = THEMES[o.s.bg || spec.bg || 'navy']; const d = document.createElement('div'); d.className = 'bgl'; d.style.background = th.g; if (th.pat) { const pd = document.createElement('div'); pd.style.cssText = `position:absolute;inset:0;background-image:${th.pat};${th.ps ? 'background-size:' + th.ps : ''}`; d.append(pd); } bgs.append(d); o.bg = d; o.th = th; });
   window.BASEACC = spec.acc || '#22D3EE';
   const narr = spec.scenes.some(x => x.say);
-  if (narr) { document.documentElement.style.setProperty('--sceneh', '1130px'); document.getElementById('say').style.top = '1370px'; if (window.AVATAR) document.getElementById('say').prepend(avatarEl(120)); }
+  if (narr) { document.documentElement.style.setProperty('--sceneh', '1180px'); document.getElementById('say').style.top = '1410px'; if (window.AVATAR) document.getElementById('say').prepend(avatarEl(120)); }
   window.TOTAL = t0; return t0;
 };
 window.draw = function (t) {

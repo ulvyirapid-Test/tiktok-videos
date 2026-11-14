@@ -11,11 +11,20 @@
    "bg": "tg",
    "dur": 4,
    "badge": "ភាគ ៣",
-   "notify": {
-    "bot": "SHD Alert",
-    "time": "now",
-    "t": "✅ ឡាន ៣ ដឹកដល់ ហាង ១២"
-   },
+   "notify": [
+    {
+     "bot": "SHD Alert",
+     "time": "08:12",
+     "t": "✅ Bot ដំណើរការហើយ!",
+     "icon": "🤖"
+    },
+    {
+     "bot": "SHD Alert",
+     "time": "now",
+     "t": "🚚 ឡាន ៣ · ហាង ១២: ដឹកដល់ ✅",
+     "icon": "🤖"
+    }
+   ],
    "lines": [
     {
      "t": "បិទភ្ជាប់កូដ → *Run*\n→ *Trigger* ⏰",
@@ -34,20 +43,24 @@
    "dur": 4,
    "title": "៥. បិទភ្ជាប់កូដ → *Save* 💾",
    "file": "Code.gs",
-   "size": 27,
+   "size": 28,
    "tDur": 2.0,
    "lines": [
-    "const BOT_TOKEN = '7712345678:AAH…'; // ពី BotFather",
-    "const CHAT_ID = '-4012345678';      // ពី getUpdates",
+    "const BOT_TOKEN = '7712345678:AAH…';",
+    "const CHAT_ID = '-4012345678';",
     "",
     "function send(text) {",
-    "  UrlFetchApp.fetch('https://api.telegram.org/bot'",
-    "    + BOT_TOKEN + '/sendMessage', {",
+    "  const url = 'https://api.telegram.org/bot'",
+    "    + BOT_TOKEN + '/sendMessage';",
+    "  UrlFetchApp.fetch(url, {",
     "    method: 'post',",
     "    payload: { chat_id: CHAT_ID, text: text }",
     "  });",
     "}",
-    "function testSend() { send('✅ Bot ដំណើរការហើយ!'); }"
+    "",
+    "function testSend() {",
+    "  send('✅ Bot ដំណើរការហើយ!');",
+    "}"
    ],
    "hl": [
     0,
@@ -64,21 +77,26 @@
    "dur": 4,
    "title": "*notifyOnEdit* — ផ្ញើពេលវាយ*ជួរឈរ C*",
    "file": "Code.gs (ផ្នែកទី ៣)",
-   "size": 27,
+   "size": 28,
    "tDur": 1.5,
    "lines": [
     "function notifyOnEdit(e) {",
     "  const r = e.range, sh = r.getSheet();",
-    "  if (sh.getName() !== 'Delivery' ||",
-    "      r.getColumn() !== 3 || r.getRow() < 2) return;",
-    "  const [truck, shop, status] =",
-    "    sh.getRange(r.getRow(), 1, 1, 3).getValues()[0];",
-    "  if (status) send('🚚 ឡាន ' + truck + ' · ' + shop + ': ' + status);",
+    "  if (sh.getName() !== 'Delivery') return;",
+    "  if (r.getColumn() !== 3) return;",
+    "  if (r.getRow() < 2) return;",
+    "  const [truck, shop, status] = sh",
+    "    .getRange(r.getRow(), 1, 1, 3)",
+    "    .getValues()[0];",
+    "  if (!status) return;",
+    "  send('🚚 ឡាន ' + truck + ' · ' + shop",
+    "    + ': ' + status);",
     "}"
    ],
    "hl": [
+    2,
     3,
-    6
+    9
    ],
    "toastAt": 0.45,
    "say": "កែ*ជួរឈរ C* → អានជួរនោះ → *send*",
@@ -167,7 +185,7 @@
     }
    ],
    "say": "!ត្រូវធីក! «Connect to an external service» ទើបផ្ញើទៅ Telegram បាន",
-   "speak": "ជ្រើស testSend នៅលើរបារខាងលើ ហើយចុច Run។ លើកដំបូង Google សុំការអនុញ្ញាត។ ចុច Review permissions ហើយជ្រើសគណនីរបស់អ្នក។ បើឃើញសារព្រមាន ថា Google មិនទាន់ផ្ទៀងផ្ទាត់កម្មវិធីនេះ កុំភ័យ ព្រោះនេះជាកូដរបស់អ្នកផ្ទាល់។ ចុច Advanced រួចចុច Go to project។ ចុងក្រោយ Google បង្ហាញប្រអប់ធីកសម្រាប់សិទ្ធិនីមួយៗ។ ធីក Select all ជាពិសេសសិទ្ធិ Connect to an external service ហើយចុច Continue។ បើមិនធីក កូដនឹងផ្ញើសារទៅ Telegram មិនបានទេ។"
+   "speak": "ជ្រើស testSend នៅលើរបារខាងលើ ហើយចុច Run។ លើកដំបូង Google សុំការអនុញ្ញាត។ ចុច Review permissions ហើយជ្រើសគណនីរបស់អ្នក។ បើឃើញសារព្រមាន ថា Google មិនទាន់ផ្ទៀងផ្ទាត់កម្មវិធីនេះ កុំភ័យ ព្រោះនេះជាកូដរបស់អ្នកផ្ទាល់។ ចុច Advanced រួចចុចតំណ ហ្គោ ធូ ប្រូជេក ដែលមានពាក្យ អាន់សេហ្វ។ ចុងក្រោយ Google បង្ហាញប្រអប់ធីក សម្រាប់សិទ្ធិនីមួយៗ។ ធីក Select all ជាពិសេស សិទ្ធិភ្ជាប់ទៅសេវាខាងក្រៅ ហើយចុច Continue។ បើមិនធីក កូដនឹងផ្ញើសារទៅ Telegram មិនបានទេ។"
   },
   {
    "type": "tg",
@@ -245,7 +263,7 @@
    ],
    "btn": "Save",
    "say": "onEdit ធម្មតា *ផ្ញើទៅក្រៅមិនបាន* → ត្រូវដាក់ Trigger នេះ",
-   "speak": "ជ្រើស function notifyOnEdit។ ប្រភព From spreadsheet ហើយប្រភេទ On edit រួចចុច Save។ ហេតុអ្វីត្រូវធ្វើបែបនេះ? ព្រោះ function ដែលមានឈ្មោះ onEdit ធម្មតា មិនមានសិទ្ធិផ្ញើសារចេញទៅក្រៅទេ។ Trigger ដែលយើងដាក់ដោយខ្លួនឯង ដំណើរការក្នុងនាមយើង ដូច្នេះវាផ្ញើទៅ Telegram បាន។"
+   "speak": "ជ្រើស function notifyOnEdit។ ប្រភព From spreadsheet ហើយប្រភេទ On edit រួចចុច Save។ ហេតុអ្វីត្រូវធ្វើបែបនេះ? ព្រោះ function ដែលមានឈ្មោះ onEdit ធម្មតា មិនមានសិទ្ធិផ្ញើសារចេញទៅក្រៅទេ។ Trigger ដែលយើងដាក់ដោយខ្លួនឯង ដំណើរការក្នុងនាមយើង ដូច្នេះវាផ្ញើទៅ Telegram បាន។ បើ AI ដាក់ឈ្មោះ function ផ្សេង ជ្រើស function ដែលផ្ញើសារពេលកែ Sheet។"
   },
   {
    "type": "sync",
@@ -280,16 +298,6 @@
    "msg": "🚚 ឡាន ៣ · ហាង ១២: ដឹកដល់ ✅",
    "say": "វាយក្នុង*ជួរឈរ C* → Telegram រោទ៍*ភ្លាម*",
    "speak": "ឥឡូវ សាកល្បង។ វាយលេខឡាន វាយឈ្មោះហាង ហើយវាយស្ថានភាពក្នុងជួរឈរទីបី។ ពេលចុច Enter សារលោតមកក្នុង Telegram ភ្លាមៗ។ Bot របស់អ្នករួចរាល់ហើយ។"
-  },
-  {
-   "type": "tip",
-   "bg": "board",
-   "dur": 4,
-   "label": "គន្លឹះបន្ថែម 💡",
-   "text": "ចង់បាន*របាយការណ៍*\nរាល់ល្ងាច?",
-   "sub": "① ឱ្យ AI សរសេរ function *sendDailySummary* បន្ថែម\n② Trigger៖ *Time-driven* → *Day timer*\n③ ជ្រើស *5pm – 6pm*",
-   "say": "របាយការណ៍ ត្រូវការ *function ថ្មី* + Trigger *Time-driven*",
-   "speak": "គន្លឹះបន្ថែម៖ បើចង់ឱ្យ Bot ផ្ញើរបាយការណ៍សង្ខេបរៀងរាល់ល្ងាច ត្រូវឱ្យ AI សរសេរ function មួយទៀត ឈ្មោះ sendDailySummary។ បន្ទាប់មក ដាក់ Trigger ប្រភេទ Time-driven ជ្រើស Day timer ហើយជ្រើសចន្លោះម៉ោងប្រាំ ដល់ម៉ោងប្រាំមួយល្ងាច។ Google រត់វានៅពេលណាមួយ ក្នុងចន្លោះមួយម៉ោងនោះ។"
   },
   {
    "type": "grid",
@@ -329,7 +337,7 @@
     }
    ],
    "say": "៦ ជំហាន · ប្រហែល *២០ នាទី*",
-   "speak": "សង្ខេប៖ បង្កើត Bot ជាមួយ BotFather យក Chat ID តាម getUpdates បើក Apps Script ឱ្យ AI សរសេរកូដ បិទភ្ជាប់ ហើយ Run testSend ធីក Select all រួចចុច Continue ចុងក្រោយ ដាក់ Trigger On edit។"
+   "speak": "សង្ខេប៖ BotFather ឱ្យ Token, getUpdates ឱ្យ Chat ID, Apps Script និង AI ឱ្យកូដ, Run ហើយធីក Select all, ចុងក្រោយ Trigger On edit។"
   },
   {
    "type": "cta",
