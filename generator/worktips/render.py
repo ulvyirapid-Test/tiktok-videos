@@ -33,7 +33,7 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
+PRON = [("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
         ("Intelligence", "អ៊ីនថេលីជិន"), ("Dartmouth", "ដាតម៉ោត"), ("ELIZA", "អេលីហ្សា"), ("Chatbot", "ឆាតបូត"), ("Chat", "ឆាត"), ("Robot", "រ៉ូបូត"),
         ("Hallucination", "ហាលូស៊ីណេសិន"), ("Facebook", "ហ្វេសប៊ុក"), ("Post", "ផូស្ត៍"), ("Emoji", "អ៊ីម៉ូជី"), ("Hashtag", "ហាសថេក"),
         ("Skills", "ស្គីល"), ("Skill", "ស្គីល"), ("Projects", "ប្រូជេក"), ("Project", "ប្រូជេក"), ("Connectors", "ខនណិចទ័រ"), ("Connect", "ខនណិច"),
