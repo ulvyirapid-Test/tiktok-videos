@@ -33,7 +33,7 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("COUNTIFS", "ខោន អ៊ីហ្វ អេស"), ("SUMIFS", "សាំ អ៊ីហ្វ អេស"), ("IFERROR", "អ៊ីហ្វ អ៊ែរើ"), ("IFNA", "អ៊ីហ្វ អិនអេ"), ("XLOOKUP", "អិច លុកអាប់"), ("IFS", "អ៊ីហ្វ អេស"), ("FALSE", "ហ្វលស៍"), ("TRUE", "ទ្រូ"), ("AND", "អែន"), ("OR", "អ័រ"), ("Google Sheets", "ហ្គូហ្គល ស៊ីត"), ("Microsoft 365", "ម៉ាយក្រូសូហ្វ សាមរយហុកសិបប្រាំ"), ("Microsoft", "ម៉ាយក្រូសូហ្វ"), ("Playlist", "ផ្លេលីស"), ("Price", "ប្រាយស៍"), ("Sales", "សេលស៍"), ("Channel", "ឆានែល"), ("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
+PRON = [("COUNTIFS", "ខោនធ៍ អ៊ីហ្វ អេស"), ("SUMIFS", "សាំ អ៊ីហ្វ អេស"), ("IFERROR", "អ៊ីហ្វ អ៊ែរើ"), ("IFNA", "អ៊ីហ្វ អិនអេ"), ("XLOOKUP", "អ៊ិចស៍ លុកអាប់"), ("IFS", "អ៊ីហ្វ អេស"), ("FALSE", "ហ្វលស៍"), ("TRUE", "ទ្រូ"), ("AND", "អែន"), ("OR", "អ័រ"), ("Google Sheets", "ហ្គូហ្គល ស៊ីត"), ("Microsoft 365", "ម៉ាយក្រូសូហ្វ ស្រី ស៊ិច ហ្វាយ"), ("Microsoft", "ម៉ាយក្រូសូហ្វ"), ("Playlist", "ផ្លេលីស"), ("Price", "ប្រាយស៍"), ("Sales", "សេលស៍"), ("Channel", "ឆានែល"), ("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
         ("Intelligence", "អ៊ីនថេលីជិន"), ("Dartmouth", "ដាតម៉ោត"), ("ELIZA", "អេលីហ្សា"), ("Chatbot", "ឆាតបូត"), ("Chat", "ឆាត"), ("Robot", "រ៉ូបូត"),
         ("Hallucination", "ហាលូស៊ីណេសិន"), ("Facebook", "ហ្វេសប៊ុក"), ("Post", "ផូស្ត៍"), ("Emoji", "អ៊ីម៉ូជី"), ("Hashtag", "ហាសថេក"),
         ("Skills", "ស្គីល"), ("Skill", "ស្គីល"), ("Projects", "ប្រូជេក"), ("Project", "ប្រូជេក"), ("Connectors", "ខនណិចទ័រ"), ("Connect", "ខនណិច"),
@@ -62,7 +62,7 @@ PRON = [("COUNTIFS", "ខោន អ៊ីហ្វ អេស"), ("SUMIFS", "ស�
         ("Telegram", "តេឡេក្រាម"), ("Excel", "អ៊ិចសែល"), ("Prompt", "ផ្រមត៍"), ("Caption", "ខេបសិន"),
         ("Comment", "ខមមិន"), ("Follow", "ហ្វលឡូ"), ("Email", "អ៊ីមែល"), ("email", "អ៊ីមែល"), ("Copy", "ខូពី"),
         ("Paste", "ផេស"), ("Enter", "អិនទ័រ"), ("Token", "តូខិន"), ("Trigger", "ទ្រីហ្គ័រ"), ("Part 2", "ភាគទីពីរ"),
-        ("Control", "ខុនត្រូល"), ("SUMIF", "សាំ អ៊ីហ្វ"), ("VLOOKUP", "វី លុកអាប់"), ("COUNTIF", "ខោន អ៊ីហ្វ"),
+        ("Control", "ខុនត្រូល"), ("SUMIF", "សាំ អ៊ីហ្វ"), ("VLOOKUP", "វី លុកអាប់"), ("COUNTIF", "ខោនធ៍ អ៊ីហ្វ"),
         ("Bot", "បូត"), ("Sheet", "ស៊ីត"), ("AI", "អេអាយ"), ("IF", "អ៊ីហ្វ")]
 
 LETTER = {"A": "អេ", "B": "ប៊ី", "C": "ស៊ី", "D": "ឌី", "E": "អ៊ី", "F": "អែហ្វ", "G": "ជី"}
@@ -139,6 +139,7 @@ def apply_house_rules(spec):
         if not topic: raise SystemExit("spec needs a 'topic' (what this video covers) for the opening line")
         intro = (f"វីដេអូនេះ យើងនឹងសិក្សាបន្តពីភាគមុន អំពី{topic}។" if part_no(spec) >= 2
                  else f"វីដេអូនេះ យើងនឹងសិក្សាស្វែងយល់អំពី{topic}។")
+        intro = re.sub(r"អំពី(?=[A-Za-z])", "អំពី ", intro)
         first["speak"] = f"{GREETING} {intro} {first['speak']}"
     return spec
 
