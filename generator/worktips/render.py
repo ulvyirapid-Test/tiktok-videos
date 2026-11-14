@@ -34,7 +34,7 @@ TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
 PRON = [("integrations", "អ៊ីនធីហ្គ្រេសិន"), ("Server", "សឺវើ"), ("Starter", "ស្តាតទ័រ"), ("tab", "ថេប"), ("telegram", "តេឡេក្រាម"), ("bot", "បូត"), ("api", "អេភីអាយ"), ("org", "អ័រ"), ("Chat Model", "ឆាត ម៉ូដែល"), ("Activate", "អាក់ធីវេត"), ("Gmail", "ជីមែល"), ("API", "អេភីអាយ"), ("MCP", "អឹម ស៊ី ភី"), ("Execute workflow", "អិចសេគ្យូត វើកហ្វ្លូ"), ("HTTP Request", "អេចធីធីភី រីក្វេស"), ("Select all", "ស៊ីឡិច អល"), ("Continue", "ខនធីនីវ"), ("Day timer", "ដេ ថាយម័រ"), ("Run once", "រ៉ាន់ វ៉ាន់ស៍"), ("Run an agent", "រ៉ាន់ អាន អេជិន"),
-        ("Self-host", "សេលហូស"), ("executions", "អិចសេគ្យូសិន"), ("Router", "រ៉ោទ័រ"), ("Filter", "ហ្វីលទ័រ"), ("Publish", "ផាប់ប្លីស"),
+        ("Self-host", "សែលហូស្ត៍"), ("executions", "អិចសេគ្យូសិន"), ("Router", "រ៉ោទ័រ"), ("Filter", "ហ្វីលទ័រ"), ("Publish", "ផាប់ប្លីស"),
         ("Schedule", "ស្កេជូល"), ("Webhook", "វេបហុក"), ("JavaScript", "ចាវ៉ាស្គ្រីប"), ("Python", "ផៃថុន"), ("Create", "ក្រៀត"), ("ON", "អន"),
         ("Community Edition", "ខមមុយនីធី អេឌីសិន"), ("AI Automation", "អេអាយ អូតូមេសិន"), ("AI Agents", "អេអាយ អេជិន"), ("AI Agent", "អេអាយ អេជិន"),
         ("Automation", "អូតូមេសិន"), ("Agents", "អេជិន"), ("Agent", "អេជិន"), ("n8n", "អិន អេត អិន"), ("Make", "មេក"), ("Module", "ម៉ូឌុល"),

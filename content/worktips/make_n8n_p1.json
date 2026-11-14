@@ -4,7 +4,7 @@
  "acc": "#C084FC",
  "series": "Make & n8n · ភាគ ១ · Make",
  "title": "Make ជាអ្វី? មុខងារ និងរបៀបប្រើ",
- "caption": "Make ជាអ្វី? 🟣 Scenario · Module · Trigger · Router · Filter · AI Agent និងរបៀបប្រើ ៥ ជំហាន 🛠️ ភាគ ២៖ n8n · ភាគ ៣៖ ប្រៀបធៀប ⚖️\nអ្នកចង់ឱ្យ Make ធ្វើការងារអ្វីជំនួស? 👇\n#AIAgent #Automation #Make #n8n #AIសម្រាប់ការងារ #រៀនAI #TikTokខ្មែរ",
+ "caption": "Make ឱ្យ AI ឆ្លើយអតិថិជន + កត់ចូល Sheet ដោយខ្លួនឯង 🟣 Scenario · Module · Trigger · Router · Filter · AI Agent និងរបៀបប្រើ ៥ ជំហាន 🛠️ ភាគ ២៖ n8n · ភាគ ៣៖ ប្រៀបធៀប ⚖️\nអ្នកចង់ឱ្យ Make ធ្វើការងារអ្វីជំនួស? 👇\n#AIAgent #Automation #Make #n8n #AIសម្រាប់ការងារ #រៀនAI #TikTokខ្មែរ",
  "scenes": [
   {
    "type": "hook",
@@ -140,9 +140,9 @@
      "c": "linear-gradient(135deg,#38BDF8,#0284C7)"
     }
    ],
-   "label": "AI ត្រូវ*ភ្ជាប់គណនី AI* · អាចមានថ្លៃបន្ថែម",
+   "label": "AI៖ *AI របស់ Make* (credits) ឬ*គណនី AI ផ្ទាល់ខ្លួន*",
    "say": "សារចូល → AI ឆ្លើយ → *កត់ត្រា* → ផ្ញើត្រឡប់",
-   "speak": "នេះជាឧទាហរណ៍ Scenario មួយ។ ពេលមានសារ Telegram ថ្មី Make ផ្ញើសារនោះទៅ AI ឱ្យសរសេរចម្លើយ កត់ត្រាចូល Google Sheet ហើយផ្ញើចម្លើយត្រឡប់ទៅវិញ។ បួន Module នេះ រត់តាមលំដាប់ដដែលរាល់ដង។ នេះហើយជា AI Automation។ ចំណាំ៖ Module AI ត្រូវភ្ជាប់គណនី AI ហើយអាចប្រើ credits ឬមានថ្លៃបន្ថែម។"
+   "speak": "នេះជាឧទាហរណ៍ Scenario មួយ។ ពេលមានសារ Telegram ថ្មី Make ផ្ញើសារនោះទៅ AI ឱ្យសរសេរចម្លើយ កត់ត្រាចូល Google Sheet ហើយផ្ញើចម្លើយត្រឡប់ទៅវិញ។ បួន Module នេះ រត់តាមលំដាប់ដដែលរាល់ដង។ នេះហើយជា AI Automation។ ចំណាំ៖ Module AI អាចប្រើ AI របស់ Make ដោយកាត់ credits ឬភ្ជាប់គណនី AI របស់អ្នក ដែលអាចមានថ្លៃបន្ថែម។"
   },
   {
    "type": "steps",
@@ -158,7 +158,7 @@
     "បើក Scenario *ON* ឱ្យរត់ស្វ័យប្រវត្តិ"
    ],
    "say": "សាក *Run once* សិន → បើក *ON*",
-   "speak": "របៀបប្រើ Make មានប្រាំជំហាន។ ទីមួយ ចុះឈ្មោះលើ មេក ដត ខម ហើយចុចបង្កើត Scenario ថ្មី។ ទីពីរ ចុចសញ្ញាបូក ជ្រើសកម្មវិធីសម្រាប់ Trigger ដូចជា Telegram។ ទីបី បន្ថែម Module បន្ទាប់ ដូចជា AI, Google Sheet និង Telegram។ ទីបួន ចុច Run once ដើម្បីសាកល្បងម្តង។ ទីប្រាំ ពេលដំណើរការត្រឹមត្រូវ បើក Scenario ឱ្យ ON ដើម្បីរត់ដោយស្វ័យប្រវត្តិ។"
+   "speak": "របៀបប្រើ Make មានប្រាំជំហាន។ ទីមួយ ចុះឈ្មោះលើ មេក ដត ខម ហើយចុចបង្កើត Scenario ថ្មី។ ទីពីរ ចុចសញ្ញាបូក ជ្រើសកម្មវិធីសម្រាប់ Trigger ដូចជា Telegram។ ទីបី បន្ថែម Module បន្ទាប់ ដូចជា AI និង Google Sheet។ ទីបួន ចុច Run once ដើម្បីសាកល្បងម្តង។ ទីប្រាំ ពេលដំណើរការត្រឹមត្រូវ បើក Scenario ឱ្យ ON ដើម្បីរត់ដោយស្វ័យប្រវត្តិ។"
   },
   {
    "type": "canvas",
