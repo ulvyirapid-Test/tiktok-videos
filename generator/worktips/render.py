@@ -33,7 +33,7 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("Execute workflow", "អិចសេគ្យូត វើកហ្វ្លូ"), ("HTTP Request", "អេចធីធីភី រីក្វេស"), ("Run once", "រ៉ាន់ វ៉ាន់ស៍"), ("Run an agent", "រ៉ាន់ អាន អេជិន"),
+PRON = [("Chat Model", "ឆាត ម៉ូដែល"), ("Activate", "អាក់ធីវេត"), ("Gmail", "ជីមែល"), ("API", "អេភីអាយ"), ("MCP", "អឹម ស៊ី ភី"), ("Execute workflow", "អិចសេគ្យូត វើកហ្វ្លូ"), ("HTTP Request", "អេចធីធីភី រីក្វេស"), ("Select all", "ស៊ីឡិច អល"), ("Continue", "ខនធីនីវ"), ("Day timer", "ដេ ថាយម័រ"), ("Run once", "រ៉ាន់ វ៉ាន់ស៍"), ("Run an agent", "រ៉ាន់ អាន អេជិន"),
         ("Self-host", "សេលហូស"), ("executions", "អិចសេគ្យូសិន"), ("Router", "រ៉ោទ័រ"), ("Filter", "ហ្វីលទ័រ"), ("Publish", "ផាប់ប្លីស"),
         ("Schedule", "ស្កេជូល"), ("Webhook", "វេបហុក"), ("JavaScript", "ចាវ៉ាស្គ្រីប"), ("Python", "ផៃថុន"), ("Create", "ក្រៀត"), ("ON", "អន"),
         ("Community Edition", "ខមមុយនីធី អេឌីសិន"), ("AI Automation", "អេអាយ អូតូមេសិន"), ("AI Agents", "អេអាយ អេជិន"), ("AI Agent", "អេអាយ អេជិន"),
@@ -41,11 +41,11 @@ PRON = [("Execute workflow", "អិចសេគ្យូត វើកហ្វ�
         ("Scenario", "ស៊ីណារីយ៉ូ"), ("Workflow", "វើកហ្វ្លូ"), ("Node", "ណូដ"), ("node", "ណូដ"), ("Memory", "មេម៉ូរី"), ("Instructions", "អ៊ិនស្ត្រាក់សិន"),
         ("Tools", "ធូល"), ("Model", "ម៉ូដែល"), ("credits", "ក្រេឌីត"), ("credit", "ក្រេឌីត"), ("Cloud", "ក្លោដ"), ("Website", "វេបសាយ"), ("Code", "ខូដ"),
         ("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("installable trigger", "ឥនស្តលអេបិល ទ្រីហ្គ័រ"), ("From spreadsheet", "ហ្វ្រំ ស្ព្រេតស៊ីត"), ("Go to project", "ហ្គោ ធូ ប្រូជេក"),
-        ("Review permissions", "រីវីវ ភើមីសិន"), ("Time-driven", "តាម ដ្រីវិន"), ("Add Trigger", "អែត ទ្រីហ្គ័រ"), ("On edit", "អន អេឌីត"),
+        ("Review permissions", "រីវីវ ភើមីសិន"), ("Time-driven", "ថាយម៍ ដ្រីវិន"), ("Add Trigger", "អែត ទ្រីហ្គ័រ"), ("On edit", "អន អេឌីត"),
         ("notifyOnEdit", "ណូទីហ្វាយ អន អេឌីត"), ("onEdit", "អន អេឌីត"), ("testSend", "តេស សេន"), ("send", "សេន"), ("getUpdates", "ហ្គេត អាប់ដេត"),
-        ("Chat ID", "ឆាត អាយឌី"), ("SHD Alert", "អេស អេច ឌី អាឡឺត"), ("SHD", "អេស អេច ឌី"), ("ChatGPT", "ឆាត ជីភីធី"), ("Claude", "ក្លត"),
+        ("Chat ID", "ឆាត អាយឌី"), ("SHD Alert", "អេស អេច ឌី អាឡឺត"), ("SHD", "អេស អេច ឌី"), ("ChatGPT", "ឆាត ជីភីធី"), ("Claude", "ក្លូដ"),
         ("Extensions", "អ៊ិចស្ទេនសិន"), ("Triggers", "ទ្រីហ្គ័រ"), ("Advanced", "អាតវ៉ាន់"), ("Allow", "អាឡៅ"), ("Run", "រ៉ាន់"),
-        ("Start", "ស្តាត"), ("start", "ស្តាត"), ("newbot", "ញូបត"), ("revoke", "រីវូក"), ("username", "យូសឺណេម"), ("Browser", "ប្រោស័រ"),
+        ("Start", "ស្តាត"), ("start", "ស្តាត"), ("newbot", "ញូបូត"), ("revoke", "រីវូក"), ("username", "យូសឺណេម"), ("Browser", "ប្រោស័រ"),
         ("function", "ហ្វាំងសិន"), ("Delivery", "ដេលីវើរី"), ("Refresh", "រីហ្វ្រេស"), ("Google", "ហ្គូហ្គល"), ("chat", "ឆាត"), ("id", "អាយឌី"),
         ("Caps Lock", "ខេបស៍ ឡុក"), ("GHz", "ជីហ្គាហឺត"), ("UEFI", "យូ អ៊ី អេហ្វ អាយ"), ("BIOS", "បាយអូស"), ("POST", "ផូស"),
         ("PSU", "ភី អេស យូ"), ("SSD", "អេស អេស ឌី"), ("HDD", "អេច ឌី ឌី"), ("ROM", "រ៉ូម"), ("Cores", "ខរ"), ("Core", "ខរ"),
@@ -53,12 +53,12 @@ PRON = [("Execute workflow", "អិចសេគ្យូត វើកហ្វ�
         ("Layout", "ឡេអៅ"), ("Unicode", "យូនីកូដ"), ("Windows", "វីនដូ"), ("Monitor", "ម៉ូនីទ័រ"), ("Binary", "បាយណារី"),
         ("Driver", "ដ្រាយវ័រ"), ("Switch", "ស្វីច"), ("Chrome", "ក្រូម"), ("Shift", "ស៊ីហ្វ"), ("Chip", "ឈីប"), ("Byte", "បៃ"),
         ("Font", "ហ្វុន"), ("Word", "វើដ"), ("HDMI", "អេចឌីអេមអាយ"), ("USB", "យូអេសប៊ី"), ("CPU", "ស៊ីភីយូ"),
-        ("GPU", "ជីភីយូ"), ("RAM", "រ៉េម"), ("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("BotFather", "បត ហ្វាដឺ"),
+        ("GPU", "ជីភីយូ"), ("RAM", "រ៉េម"), ("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("BotFather", "បូត ហ្វាដឺ"),
         ("Telegram", "តេឡេក្រាម"), ("Excel", "អ៊ិចសែល"), ("Prompt", "ផ្រមត៍"), ("Caption", "ខេបសិន"),
         ("Comment", "ខមមិន"), ("Follow", "ហ្វលឡូ"), ("Email", "អ៊ីមែល"), ("email", "អ៊ីមែល"), ("Copy", "ខូពី"),
         ("Paste", "ផេស"), ("Enter", "អិនទ័រ"), ("Token", "តូខិន"), ("Trigger", "ទ្រីហ្គ័រ"), ("Part 2", "ភាគទីពីរ"),
         ("Control", "ខុនត្រូល"), ("SUMIF", "សាំ អ៊ីហ្វ"), ("VLOOKUP", "វី លុកអាប់"), ("COUNTIF", "ខោន អ៊ីហ្វ"),
-        ("Bot", "បត"), ("Sheet", "ស៊ីត"), ("AI", "អេអាយ"), ("IF", "អ៊ីហ្វ")]
+        ("Bot", "បូត"), ("Sheet", "ស៊ីត"), ("AI", "អេអាយ"), ("IF", "អ៊ីហ្វ")]
 
 def khmerize(text):
     import re

@@ -4,7 +4,7 @@
  "avatar": true,
  "voice": "km-KH-PisethNeural",
  "title": "បង្កើត Telegram Bot (ភាគ ២): Token · Chat ID · AI",
- "caption": "បង្កើត Telegram Bot ភាគ ២ 🤖 BotFather → Token 🔑 → Chat ID → Apps Script → AI សរសេរកូដ ✍️ Save ទុកធ្វើតាម 📌 ភាគ ៣៖ Run + Trigger!\nធ្វើដល់ជំហានណាហើយ? 👇\n#TelegramBot #AppsScript #GoogleSheetខ្មែរ #AIសម្រាប់ការងារ #Automation #TikTokខ្មែរ",
+ "caption": "បង្កើត Telegram Bot ភាគ ២ 🤖 BotFather → Token 🔑 → Chat ID → Apps Script → AI សរសេរកូដ ✍️ Prompt ពេញ នៅ Comment 📌 ភាគ ៣៖ Run + Trigger!\nអ្នកធ្វើដល់ជំហានទីប៉ុន្មានហើយ? 👇\n#TelegramBot #AppsScript #GoogleSheetខ្មែរ #AIសម្រាប់ការងារ #Automation #TikTokខ្មែរ",
  "scenes": [
   {
    "type": "hook",
@@ -14,7 +14,7 @@
    "notify": {
     "bot": "SHD Alert",
     "time": "now",
-    "t": "✅ ឡាន ៣ ដឹកដល់ ហាង ១២"
+    "t": "🚚 ឡាន ៣ · ហាង ១២: ដឹកដល់ ✅"
    },
    "lines": [
     {
@@ -22,11 +22,11 @@
      "cls": "h2"
     },
     {
-     "t": "Token · Chat ID · _AI សរសេរកូដ_",
+     "t": "បញ្ចប់ភាគ ៣ = មាន _Bot មួយដូចនេះ_ ✅",
      "cls": "h3"
     }
    ],
-   "speak": "ភាគមុន យើងឃើញហើយថា Bot ជូនដំណឹងការងារ ធ្វើអ្វីបានខ្លះ។ ថ្ងៃនេះ តោះចាប់ផ្តើមបង្កើតវា។ ភាគនេះ យើងនឹងយក Token, Chat ID ហើយឱ្យ AI សរសេរកូដ។ សូម Save វីដេអូនេះទុក ដើម្បីងាយធ្វើតាម។"
+   "speak": "ចង់បាន Bot ដែលផ្ញើសារដូចនេះ ដោយស្វ័យប្រវត្តិទេ? បញ្ចប់ភាគទីបី អ្នកនឹងមាន Bot មួយដូចនេះ។ ភាគនេះ យើងនឹងយក Token, Chat ID ហើយឱ្យ AI សរសេរកូដ។ សូម Save វីដេអូនេះទុក ដើម្បីងាយធ្វើតាម។"
   },
   {
    "type": "tg",
@@ -111,35 +111,33 @@
    "bg": "code",
    "dur": 4,
    "title": "បើកតំណ *getUpdates* ក្នុង Browser 🔎",
-   "url": "api.telegram.org/bot<TOKEN>/getUpdates",
-   "size": 25,
+   "url": "https://api.telegram.org/bot7712345678:AAH…/getUpdates",
+   "size": 31,
    "tDur": 1.6,
    "lines": [
-    "{\"ok\":true,\"result\":[{",
-    "  \"update_id\": 81234567,",
+    "\"result\": [{",
     "  \"message\": {",
-    "    \"from\": {\"first_name\": \"Ravy\"},",
     "    \"chat\": {",
     "      \"id\": -4012345678,",
     "      \"title\": \"ក្រុមដឹកជញ្ជូន\",",
     "      \"type\": \"group\"",
     "    },",
     "    \"text\": \"/start@shd_alert_bot\"",
-    "}}]}"
+    "}}]"
    ],
    "hl": [
-    5
+    3
    ],
-   "toast": "✔ Chat ID = -4012345678 · ក្រុម = *លេខដក*",
    "toastAt": 0.7,
-   "say": "លេខក្បែរ *id* ក្នុង *chat* = Chat ID",
-   "speak": "បន្ទាប់មក បើក Browser ហើយវាយតំណដូចក្នុងរូប ដោយដាក់ Token របស់អ្នកជំនួសពាក្យដែលនៅចន្លោះសញ្ញា។ Telegram នឹងបង្ហាញទិន្នន័យមួយ។ រកពាក្យ chat ហើយមើលលេខនៅក្បែរពាក្យ id។ នោះហើយជា Chat ID។ Chat ID របស់ក្រុម ជាលេខដក។ បើមិនឃើញអ្វីសោះ សូមវាយ start ក្នុងក្រុមម្តងទៀត ហើយបើកតំណនោះឡើងវិញ។"
+   "say": "លេខក្បែរ *id* ក្នុង *chat* = Chat ID (ក្រុម = លេខដក)",
+   "speak": "បន្ទាប់មក បើក Browser ហើយវាយតំណ api ចុច telegram ចុច org ស្លាស ពាក្យ bot បន្តដោយ Token របស់អ្នកភ្លាម គ្មានដកឃ្លា ហើយបញ្ចប់ដោយ ស្លាស getUpdates ដូចក្នុងរូប។ ចំណាំ៖ ទុកពាក្យ bot នៅពីមុខ Token ហើយកុំដាក់សញ្ញាតូចធំ។ Telegram នឹងបង្ហាញទិន្នន័យ។ រកពាក្យ chat ហើយមើលលេខក្បែរពាក្យ id។ នោះហើយជា Chat ID។ Chat ID របស់ក្រុម ជាលេខដក។ បើមិនឃើញអ្វីសោះ វាយ start ក្នុងក្រុមម្តងទៀត ហើយបើកតំណឡើងវិញ។",
+   "note": "`bot` + *Token* ភ្ជាប់គ្នា · គ្មាន *< >* · គ្មានដកឃ្លា"
   },
   {
    "type": "menu",
    "bg": "excel",
    "dur": 4,
-   "title": "៣. បើក *Apps Script* ពី Sheet",
+   "title": "៣. ប្តូរឈ្មោះ tab ជា *Delivery* → *Apps Script*",
    "file": "Delivery - Google Sheets",
    "fs": 23,
    "bar": [
@@ -187,22 +185,22 @@
     "t": "ផ្ទាំងសរសេរកូដ *Code.gs*",
     "s": "Apps Script Editor"
    },
-   "say": "Sheet ឈ្មោះ *Delivery* · Extensions → *Apps Script*",
-   "speak": "ជំហានទីបី។ រៀបចំ Google Sheet មួយ ដាក់ឈ្មោះ Sheet ថា Delivery ហើយមានបីជួរឈរ គឺ ឡាន ហាង និងស្ថានភាព។ បន្ទាប់មក ចុចម៉ឺនុយ Extensions ហើយជ្រើស Apps Script។ ផ្ទាំងសរសេរកូដនឹងបើកឡើង។"
+   "say": "tab ខាងក្រោម = *Delivery* · ជួរទី ១ = ចំណងជើង",
+   "speak": "ជំហានទីបី។ បើក Google Sheet មួយ ហើយប្តូរឈ្មោះ tab នៅខាងក្រោម ជា Delivery មិនមែនឈ្មោះឯកសារទេ។ ជួរទីមួយ ជាចំណងជើង ឡាន ហាង និងស្ថានភាព។ បន្ទាប់មក ចុចម៉ឺនុយ Extensions ហើយជ្រើស Apps Script។ ផ្ទាំងសរសេរកូដនឹងបើកឡើង។"
   },
   {
    "type": "chat",
    "bg": "ai",
    "dur": 4,
    "title": "៤. ឱ្យ *AI* សរសេរកូដ ✍️",
-   "small": 29,
+   "small": 33,
    "uAt": 0.5,
    "uDur": 6.5,
    "aDur": 3.0,
    "user": "សរសេរ Google Apps Script សម្រាប់ Sheet ឈ្មោះ Delivery (A=ឡាន, B=ហាង, C=ស្ថានភាព)។ ពេលខ្ញុំវាយស្ថានភាពក្នុងជួរឈរ C ឱ្យផ្ញើសារទៅ Telegram តាម sendMessage។ ដាក់ BOT_TOKEN និង CHAT_ID នៅខាងលើ។ មាន function testSend សម្រាប់សាកល្បង និង notifyOnEdit សម្រាប់ installable trigger On edit។",
    "ai": "បាទ! នេះជាកូដ Apps Script 👇\n① ដាក់ Token និង Chat ID\n② Run testSend ដើម្បីសាកល្បង\n③ ដាក់ Trigger On edit លើ notifyOnEdit",
-   "say": "ប្រាប់ AI ឱ្យ*ច្បាស់*៖ Sheet · ជួរឈរ · សារ · Trigger",
-   "speak": "ជំហានទីបួន។ បើក AI ដូចជា ChatGPT ឬ Claude ហើយប្រាប់វាឱ្យច្បាស់ ថា Sheet ឈ្មោះអ្វី ជួរឈរនីមួយៗមានអ្វី ចង់ឱ្យផ្ញើសារពេលណា ហើយត្រូវប្រើ installable trigger។ ប្រាប់វាផងដែរ ឱ្យសរសេរ function មួយសម្រាប់សាកល្បង។ ពេល Prompt ច្បាស់ AI នឹងសរសេរកូដដែលប្រើបានភ្លាម។"
+   "say": "Prompt ពេញ មាននៅ *Comment* 📌 · ប្រាប់ AI ឱ្យ*ច្បាស់*",
+   "speak": "ជំហានទីបួន។ បើក AI ដូចជា ChatGPT ឬ Claude ហើយប្រាប់វាឱ្យច្បាស់ ថា Sheet ឈ្មោះអ្វី ជួរឈរនីមួយៗមានអ្វី ចង់ឱ្យផ្ញើសារពេលណា ហើយត្រូវប្រើ installable trigger។ ប្រាប់វាផងដែរ ឱ្យសរសេរ function មួយសម្រាប់សាកល្បង។ ពេល Prompt ច្បាស់ AI នឹងសរសេរកូដដែលប្រើបានភ្លាម។ Prompt ពេញ ខ្ញុំដាក់នៅក្នុង Comment ឱ្យអ្នកចម្លងយកទៅប្រើ។"
   },
   {
    "type": "cta",
@@ -210,8 +208,8 @@
    "dur": 5,
    "pre": "ភាគ ៣៖ Run → Trigger 👀\nFollow",
    "text": "ដើម្បីកុំឱ្យខកខាន",
-   "ask": "ធ្វើដល់ជំហានណាហើយ?\nComment 👇",
-   "speak": "ភាគបន្ទាប់ យើងនឹងបិទភ្ជាប់កូដ ចុច Run ដាក់ Trigger ហើយសាកល្បងឱ្យសារចូល Telegram ពិតៗ។ ចុច Follow ដើម្បីកុំឱ្យខកខាន ហើយ Comment ប្រាប់ខ្ញុំ បើជាប់ជំហានណាមួយ។"
+   "ask": "ធ្វើដល់ជំហានណាហើយ?\nComment *១–៤* 👇",
+   "speak": "ភាគបន្ទាប់ យើងនឹងបិទភ្ជាប់កូដ ចុច Run ដាក់ Trigger ហើយសាកល្បងឱ្យសារចូល Telegram ពិតៗ។ ចុច Follow ហើយ Comment ប្រាប់ខ្ញុំ ថាអ្នកធ្វើដល់ជំហានទីប៉ុន្មានហើយ។"
   }
  ]
 }

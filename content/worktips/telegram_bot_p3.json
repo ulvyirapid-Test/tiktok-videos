@@ -4,7 +4,7 @@
  "avatar": true,
  "voice": "km-KH-PisethNeural",
  "title": "បង្កើត Telegram Bot (ភាគ ៣): Run · Trigger · សាកល្បង",
- "caption": "បង្កើត Telegram Bot ភាគ ៣ (ចុងក្រោយ) 🤖 បិទភ្ជាប់កូដ → Run → Allow → Trigger ⏰ → វាយក្នុង Sheet សារចូល Telegram ភ្លាម 🔔 Save ទុកធ្វើតាម 📌\nComment \"BOT\" បើចង់បានវីដេអូបន្ទាប់ 👇\n#TelegramBot #AppsScript #GoogleSheetខ្មែរ #AIសម្រាប់ការងារ #Automation #TikTokខ្មែរ",
+ "caption": "បង្កើត Telegram Bot ភាគ ៣ (ចុងក្រោយ) 🤖 បិទភ្ជាប់កូដ → Run → ធីក Select all → Trigger ⏰ → វាយក្នុង Sheet សារចូល Telegram ភ្លាម 🔔 Save ទុកធ្វើតាម 📌\nសារសាកល្បងចូលហើយឬនៅ? Comment ✅ ឬជំហានដែលជាប់ 👇\n#TelegramBot #AppsScript #GoogleSheetខ្មែរ #AIសម្រាប់ការងារ #Automation #TikTokខ្មែរ",
  "scenes": [
   {
    "type": "hook",
@@ -34,7 +34,7 @@
    "dur": 4,
    "title": "៥. បិទភ្ជាប់កូដ → *Save* 💾",
    "file": "Code.gs",
-   "size": 22,
+   "size": 27,
    "tDur": 2.0,
    "lines": [
     "const BOT_TOKEN = '7712345678:AAH…'; // ពី BotFather",
@@ -47,8 +47,26 @@
     "    payload: { chat_id: CHAT_ID, text: text }",
     "  });",
     "}",
-    "function testSend() { send('✅ Bot ដំណើរការហើយ!'); }",
-    "",
+    "function testSend() { send('✅ Bot ដំណើរការហើយ!'); }"
+   ],
+   "hl": [
+    0,
+    1
+   ],
+   "toast": "💾 Saved · ដាក់ *Token* និង *Chat ID* របស់អ្នក",
+   "toastAt": 0.45,
+   "say": "*send* = ផ្ញើសារ · *testSend* = សាកល្បង",
+   "speak": "ជំហានទីប្រាំ។ ចម្លងកូដពី AI មកបិទភ្ជាប់ក្នុង Apps Script ជំនួសកូដចាស់ ហើយចុច Save។ ដាក់ Token និង Chat ID របស់អ្នក នៅពីរជួរខាងលើ។ ផ្នែកទីមួយ send ជាអ្នកផ្ញើសារទៅ Telegram។ ផ្នែកទីពីរ testSend ផ្ញើសារសាកល្បងមួយ។"
+  },
+  {
+   "type": "code",
+   "bg": "code",
+   "dur": 4,
+   "title": "*notifyOnEdit* — ផ្ញើពេលវាយ*ជួរឈរ C*",
+   "file": "Code.gs (ផ្នែកទី ៣)",
+   "size": 27,
+   "tDur": 1.5,
+   "lines": [
     "function notifyOnEdit(e) {",
     "  const r = e.range, sh = r.getSheet();",
     "  if (sh.getName() !== 'Delivery' ||",
@@ -59,19 +77,18 @@
     "}"
    ],
    "hl": [
-    0,
-    1
+    3,
+    6
    ],
-   "toast": "💾 Saved · ដាក់ *Token* និង *Chat ID* របស់អ្នក",
    "toastAt": 0.45,
-   "say": "ដាក់ *Token* + *Chat ID* នៅ ២ ជួរខាងលើ",
-   "speak": "ជំហានទីប្រាំ។ ចម្លងកូដពី AI មកបិទភ្ជាប់ក្នុង Apps Script ជំនួសកូដចាស់។ ដាក់ Token និង Chat ID របស់អ្នក នៅពីរជួរខាងលើ ហើយចុច Save។ កូដនេះមានបីផ្នែក។ send សម្រាប់ផ្ញើសារ។ testSend សម្រាប់សាកល្បង។ ហើយ notifyOnEdit ផ្ញើសារ ពេលអ្នកវាយស្ថានភាព ក្នុងជួរឈរទីបី។"
+   "say": "កែ*ជួរឈរ C* → អានជួរនោះ → *send*",
+   "speak": "ផ្នែកទីបី notifyOnEdit ពិនិត្យថា អ្នកកែក្នុង tab Delivery ជួរឈរទីបី ហើយមិនមែនជួរចំណងជើង។ បើពិត វាអានលេខឡាន ហាង និងស្ថានភាព រួចផ្ញើជាសារមួយទៅក្រុម។"
   },
   {
    "type": "screens",
    "bg": "google",
    "dur": 4,
-   "title": "Run *testSend* → ចុច*អនុញ្ញាត*",
+   "title": "Run *testSend* → ធីក *Select all*",
    "h": 800,
    "cards": [
     {
@@ -135,22 +152,22 @@
     },
     {
      "h": "Untitled project wants access to your Google Account",
-     "km": "ចុច *Allow* (ឬ Continue)",
-     "p": "• See, edit… your spreadsheets\n• Connect to an external service",
+     "km": "ធីក *Select all* → ចុច *Continue*",
+     "p": "☑ Select all\n☑ See, edit… your spreadsheets\n☑ Connect to an external service",
      "btns": [
       {
        "t": "Cancel"
       },
       {
-       "t": "Allow",
+       "t": "Continue",
        "p": true,
        "go": true
       }
      ]
     }
    ],
-   "say": "សារព្រមាន*ធម្មតា* — ព្រោះជាកូដរបស់អ្នកផ្ទាល់",
-   "speak": "ជ្រើស testSend នៅលើរបារខាងលើ ហើយចុច Run។ លើកដំបូង Google សុំការអនុញ្ញាត។ ចុច Review permissions ហើយជ្រើសគណនីរបស់អ្នក។ បើឃើញសារព្រមាន ថា Google មិនទាន់ផ្ទៀងផ្ទាត់កម្មវិធីនេះ កុំភ័យ ព្រោះនេះជាកូដរបស់អ្នកផ្ទាល់។ ចុច Advanced រួចចុច Go to project។ ចុងក្រោយ ចុច Allow ដើម្បីអនុញ្ញាតឱ្យកូដ ផ្ញើសារចេញទៅ Telegram បាន។"
+   "say": "!ត្រូវធីក! «Connect to an external service» ទើបផ្ញើទៅ Telegram បាន",
+   "speak": "ជ្រើស testSend នៅលើរបារខាងលើ ហើយចុច Run។ លើកដំបូង Google សុំការអនុញ្ញាត។ ចុច Review permissions ហើយជ្រើសគណនីរបស់អ្នក។ បើឃើញសារព្រមាន ថា Google មិនទាន់ផ្ទៀងផ្ទាត់កម្មវិធីនេះ កុំភ័យ ព្រោះនេះជាកូដរបស់អ្នកផ្ទាល់។ ចុច Advanced រួចចុច Go to project។ ចុងក្រោយ Google បង្ហាញប្រអប់ធីកសម្រាប់សិទ្ធិនីមួយៗ។ ធីក Select all ជាពិសេសសិទ្ធិ Connect to an external service ហើយចុច Continue។ បើមិនធីក កូដនឹងផ្ញើសារទៅ Telegram មិនបានទេ។"
   },
   {
    "type": "tg",
@@ -176,7 +193,7 @@
     }
    ],
    "say": "ឃើញសារនេះ = Token និង Chat ID *ត្រឹមត្រូវ*",
-   "speak": "បន្ទាប់ពីចុច Allow testSend ដំណើរការ ហើយសារសាកល្បងចូលក្នុងក្រុមភ្លាម។ បើឃើញសារនេះ មានន័យថា Token និង Chat ID ត្រឹមត្រូវហើយ។ បើមិនឃើញ សូមពិនិត្យ Token និង Chat ID ម្តងទៀត។"
+   "speak": "បន្ទាប់ពីចុច Continue testSend ដំណើរការ ហើយសារសាកល្បងចូលក្នុងក្រុមភ្លាម។ បើឃើញសារនេះ មានន័យថា Token និង Chat ID ត្រឹមត្រូវហើយ។ បើមិនឃើញ សូមពិនិត្យ Token, Chat ID និងប្រអប់ធីក ម្តងទៀត។"
   },
   {
    "type": "menu",
@@ -270,9 +287,9 @@
    "dur": 4,
    "label": "គន្លឹះបន្ថែម 💡",
    "text": "ចង់បាន*របាយការណ៍*\nរាល់ល្ងាច?",
-   "sub": "ប្រើ Trigger ប្រភេទ *Time-driven*\nឧ. រៀងរាល់ថ្ងៃ ចន្លោះម៉ោង ៥–៦ ល្ងាច",
-   "say": "Time-driven = រត់*តាមម៉ោង*ដោយខ្លួនឯង",
-   "speak": "គន្លឹះបន្ថែម៖ បើចង់ឱ្យ Bot ផ្ញើរបាយការណ៍សង្ខេបរៀងរាល់ល្ងាច ប្រើ Trigger ប្រភេទ Time-driven។ ចំណាំថា Google ឱ្យជ្រើសពេលជាចន្លោះមួយម៉ោង ឧទាហរណ៍ ចន្លោះម៉ោងប្រាំ ដល់ម៉ោងប្រាំមួយល្ងាច។"
+   "sub": "① ឱ្យ AI សរសេរ function *sendDailySummary* បន្ថែម\n② Trigger៖ *Time-driven* → *Day timer*\n③ ជ្រើស *5pm – 6pm*",
+   "say": "របាយការណ៍ ត្រូវការ *function ថ្មី* + Trigger *Time-driven*",
+   "speak": "គន្លឹះបន្ថែម៖ បើចង់ឱ្យ Bot ផ្ញើរបាយការណ៍សង្ខេបរៀងរាល់ល្ងាច ត្រូវឱ្យ AI សរសេរ function មួយទៀត ឈ្មោះ sendDailySummary។ បន្ទាប់មក ដាក់ Trigger ប្រភេទ Time-driven ជ្រើស Day timer ហើយជ្រើសចន្លោះម៉ោងប្រាំ ដល់ម៉ោងប្រាំមួយល្ងាច។ Google រត់វានៅពេលណាមួយ ក្នុងចន្លោះមួយម៉ោងនោះ។"
   },
   {
    "type": "grid",
@@ -302,8 +319,8 @@
     },
     {
      "icon": "▶️",
-     "t": "Run",
-     "s": "testSend → Allow"
+     "t": "បិទភ្ជាប់ → Run",
+     "s": "Select all → Continue"
     },
     {
      "icon": "⏰",
@@ -312,7 +329,7 @@
     }
    ],
    "say": "៦ ជំហាន · ប្រហែល *២០ នាទី*",
-   "speak": "សង្ខេប៖ បង្កើត Bot ជាមួយ BotFather យក Chat ID តាម getUpdates បើក Apps Script ឱ្យ AI សរសេរកូដ Run testSend ហើយចុច Allow ចុងក្រោយ ដាក់ Trigger On edit។"
+   "speak": "សង្ខេប៖ បង្កើត Bot ជាមួយ BotFather យក Chat ID តាម getUpdates បើក Apps Script ឱ្យ AI សរសេរកូដ បិទភ្ជាប់ ហើយ Run testSend ធីក Select all រួចចុច Continue ចុងក្រោយ ដាក់ Trigger On edit។"
   },
   {
    "type": "cta",
@@ -320,8 +337,8 @@
    "dur": 5,
    "pre": "Save ទុកធ្វើតាម 📌\nFollow",
    "text": "AI សម្រាប់ការងារ 🚀",
-   "ask": "Comment *BOT*\nបើចង់បានវីដេអូបន្ទាប់ 👇",
-   "speak": "បើវីដេអូនេះមានប្រយោជន៍ សូម Save ទុក ចុច Follow ហើយ Comment ពាក្យ Bot បើអ្នកចង់ឱ្យខ្ញុំធ្វើវីដេអូ Bot ផ្សេងទៀត។"
+   "ask": "សារសាកល្បងចូលហើយឬនៅ?\nComment *✅* ឬជំហានដែលជាប់ 👇",
+   "speak": "បើវីដេអូនេះមានប្រយោជន៍ សូម Save ទុក ហើយចុច Follow។ Comment ប្រាប់ខ្ញុំផង៖ សារសាកល្បងចូលហើយឬនៅ? បើចូលហើយ ដាក់សញ្ញាធីក បើមិនទាន់ ប្រាប់ជំហានដែលអ្នកជាប់ ខ្ញុំនឹងជួយ។"
   }
  ]
 }
