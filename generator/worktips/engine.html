@@ -58,7 +58,7 @@ tr.rowbad td { background:rgba(248,113,113,.16); }
 td.fill { background:rgba(74,222,128,.22); font-weight:800; color:var(--ok); }
 td.res, td.resv { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .bigt th, .bigt td { padding:.42em .55em; }
-.rn { color:var(--mut); width:56px; text-align:center; font-size:28px; background:rgba(255,255,255,.04); }
+.rn { color:#CBD5E1; width:60px; text-align:center; font-size:30px; background:rgba(255,255,255,.04); }
 /* phone */
 .phone { align-self:center; width:600px; height:1000px; border-radius:70px; background:#0B1024; border:10px solid #2A3157; padding:80px 30px 30px; display:flex; flex-direction:column; gap:22px; position:relative; box-shadow:0 30px 90px rgba(0,0,0,.5); }
 .phone::before { content:""; position:absolute; top:24px; left:50%; width:160px; height:34px; margin-left:-80px; border-radius:20px; background:#000; }
@@ -626,12 +626,12 @@ const BUILD = {
 
 const K = s => Math.max(1, Math.min(3, (s.talk || 0) / 5));
 const UPDATE = {
-  base(root, s, lt) { let st = s.stagger ?? 0.28; if ((s.type === 'flow' || s.type === 'steps') && s.talk) st = Math.max(st, (s.talk * 0.8) / root._items.length); const d0 = s.delay ?? 0.05; root._items.forEach((e,i) => pop(e, (lt - d0 - i*st) / 0.45)); },
+  base(root, s, lt) { let st = s.stagger ?? 0.28; if ((s.type === 'flow' || s.type === 'steps') && s.talk && !s.fixed) st = Math.max(st, (s.talk * 0.8) / root._items.length); const d0 = s.delay ?? 0.05; root._items.forEach((e,i) => pop(e, (lt - d0 - i*st) / 0.45)); },
   hook(root, s, lt) {
     root._items.forEach((e,i) => pop(e, s.from ? 1 : (lt + 0.6 - i*0.3) / 0.4));  // hook readable from frame 0
-    if (s.pulse) root._items.forEach(e => { if (e.classList.contains('h1')) e.style.transform += ` scale(${1 + 0.035 * Math.sin(lt * 1.8)})`; });
+    if (s.pulse) root._items.forEach(e => { if (e.classList.contains('h1')) e.style.transform += ` scale(${1 + 0.05 * Math.sin(lt * 2.2)})`; });
     const TT = Math.max(4, s.talk || 8);
-    if (root._ntf) root._ntf.forEach((n,i) => { const a = s.ntfAt ? s.ntfAt[i] * TT : 0.3 + i * 1.3; pop(n, (lt - a) / 0.35, -80); n.style.boxShadow = lt > a + 0.1 ? `0 0 ${20 + 30 * Math.max(0, Math.sin((lt - a) * 6))}px var(--acc)` : ''; });
+    if (root._ntf) root._ntf.forEach((n,i) => { const a = s.ntfAt ? s.ntfAt[i] * TT : 0.3 + i * 1.3; pop(n, (lt - a) / 0.35, -80); n.style.boxShadow = lt > a + 0.1 ? `0 0 ${20 + 30 * Math.max(0, Math.sin((lt - a) * 6))}px var(--acc)` : ''; if (s.ntfSize) n.querySelector('.tx').style.fontSize = s.ntfSize + 'px'; if (s.cycle && lt > a + 0.5) { const on = Math.floor(lt / 2.4) % root._ntf.length === i; n.style.transform += on ? ' scale(1.06)' : ''; n.style.background = on ? 'rgba(45,58,80,.98)' : ''; } });
     if (root._strike) { const p = ease((lt - 0.7) / 0.4); root._strike.style.setProperty('--sr', `${(1-p)*100}%`); root._strike.style.setProperty('--so', p > 0 ? 1 : 0); const q = clamp((lt - 1.0)/0.3); root._to.style.opacity = 0.25 + 0.75*q; root._to.style.display = 'inline-block'; root._to.style.transform = `scale(${0.85 + 0.15*back(q)})`; }
   },
   sheet(root, s, lt) {
