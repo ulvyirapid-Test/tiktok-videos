@@ -198,6 +198,15 @@ td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
 .ntf .ic { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,#38BDF8,#2563EB); display:flex; align-items:center; justify-content:center; font-size:40px; flex:none; }
 .ntf .nm { font-size:28px; color:#7DD3FC; font-weight:800; } .ntf .tx { font-size:34px; font-weight:700; }
 .sy table { font-size:32px; } .sy td.typ { background:rgba(56,189,248,.16); }
+
+.cv { position:absolute; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:64px; transform:translate(-50%,-50%); transition:none; }
+.cv.mk { width:150px; height:150px; border-radius:50%; box-shadow:0 12px 30px rgba(0,0,0,.45); border:5px solid rgba(255,255,255,.25); }
+.cv.n8 { width:150px; height:130px; border-radius:24px; background:#2A2D3E; border:4px solid #4B5068; box-shadow:0 12px 30px rgba(0,0,0,.45); }
+.cv.n8.big { width:250px; height:150px; font-size:46px; border-color:#EA4B71; }
+.cv.sub { width:100px; height:100px; border-radius:50%; background:#2A2D3E; border:4px dashed #6B7280; font-size:44px; }
+.cv.on { box-shadow:0 0 0 6px var(--acc), 0 0 50px var(--acc); }
+.cvl { position:absolute; transform:translateX(-50%); width:210px; text-align:center; font-size:27px; font-weight:800; line-height:1.3; }
+.cvl small { display:block; font-size:22px; color:var(--mut); font-weight:600; }
 </style></head>
 <body>
 <div id="bgs"></div><div class="glow" id="g1"></div><div class="glow" id="g2"></div><div id="rain"></div>
@@ -323,7 +332,7 @@ const BUILD = {
   compare(s) {
     const root = h('div','scene'); const t = h('div','h2 el', mk(s.title)); const cmp = h('div','cmp');
     const mkcol = (c, good) => { const col = h('div','col el' + (good?' good':'')); col.append(h('h4', good?'ok':'bad', esc(c.title))); const ul = h('ul'); c.items.forEach(x => ul.append(h('li','el', mk(x)))); col.append(ul); return col; };
-    const L = mkcol(s.left,false), R = mkcol(s.right,true); cmp.append(L, R); root.append(t, cmp);
+    const L = mkcol(s.left,false), R = mkcol(s.right,true); if (s.neutral) { L.querySelector('h4').className = 'acc'; R.querySelector('h4').className = 'acc2'; R.classList.remove('good'); } cmp.append(L, R); root.append(t, cmp);
     root._items = [t, L, ...L.querySelectorAll('li'), R, ...R.querySelectorAll('li')]; return root;
   },
   sheet(s) {
@@ -549,6 +558,24 @@ const BUILD = {
     const n = h('div','ntf el', `<div class=ic>🤖</div><div><div class=nm>${esc(s.bot || 'Bot')} · ${esc(s.time || 'now')}</div><div class=tx>${mk(s.msg)}</div></div>`);
     root.append(w, n); items.push(w); root._items = items; root._cells = cells; root._n = n; return root;
   },
+
+  canvas(s) {
+    const root = h('div','scene'); const t = h('div','h3 el', mk(s.title)); const st = h('div','stage el');
+    const n = s.nodes.length, Y = s.subs ? 230 : 300, P = s.nodes.map((x,i) => ({x: 860 * (i + 0.5) / n, y: Y}));
+    const bi = s.nodes.findIndex(x => x.big), SP = (s.subs || []).map((x,i,a) => ({x: P[bi].x + (i - (a.length - 1) / 2) * 190, y: 500}));
+    const clamp1 = v => Math.max(105, Math.min(755, v)); SP.forEach(p => p.x = clamp1(p.x));
+    let svg = `<svg width="860" height="720" style="position:absolute;left:0;top:0">`;
+    for (let i = 1; i < n; i++) svg += `<path class=lk d="M${P[i-1].x},${Y} L${P[i].x},${Y}" stroke="${s.style === 'make' ? 'rgba(255,255,255,.45)' : '#9CA3AF'}" stroke-width="${s.style === 'make' ? 8 : 5}" ${s.style === 'make' ? 'stroke-dasharray="2 16" stroke-linecap="round"' : ''} fill="none"/>`;
+    SP.forEach(p => svg += `<path class=sk d="M${P[bi].x},${Y + 75} L${p.x},${p.y - 50}" stroke="#6B7280" stroke-width="4" stroke-dasharray="10 10" fill="none"/>`);
+    st.innerHTML = svg + '</svg>';
+    const nodes = s.nodes.map((x,i) => { const e = h('div', 'cv ' + (s.style === 'make' ? 'mk' : 'n8') + (x.big ? ' big' : ''), x.big ? `${x.icon}<div style="font-size:28px;font-weight:800">${esc(x.t)}</div>` : x.icon);
+      e.style.left = P[i].x + 'px'; e.style.top = P[i].y + 'px'; if (s.style === 'make') e.style.background = x.c || 'linear-gradient(135deg,#A855F7,#6D28D9)'; st.append(e);
+      if (!x.big) { const l = h('div','cvl', mk(x.t) + (x.s ? `<small>${mk(x.s)}</small>` : '')); l.style.left = P[i].x + 'px'; l.style.top = (P[i].y + 92) + 'px'; st.append(l); } return e; });
+    const subs = (s.subs || []).map((x,i) => { const e = h('div','cv sub', x.icon); e.style.left = SP[i].x + 'px'; e.style.top = SP[i].y + 'px'; st.append(e); const l = h('div','cvl', mk(x.t)); l.style.left = SP[i].x + 'px'; l.style.top = (SP[i].y + 62) + 'px'; st.append(l); return e; });
+    const dots = [...Array(Math.max(0, n - 1))].map(() => { const d = h('div','cdot'); d.style.width = d.style.height = '24px'; st.append(d); return d; });
+    if (s.label) { const lb = h('div','state', mk(s.label)); lb.style.fontSize = '36px'; lb.style.bottom = '20px'; st.append(lb); }
+    root.append(t, st); root._items = [t, st]; root._st = st; root._nodes = nodes; root._subs = subs; root._dots = dots; root._P = P; return root;
+  },
   cta(s) {
     const root = h('div','scene'); const ph = window.AVATAR ? (() => { const w = h('div','el'); w.style.alignSelf = 'flex-start'; w.append(avatarEl(300)); return w; })() : null; const a = h('div','h2 el', mk(s.pre || 'Follow')); const b = h('div','handle-big acc el','@ulvyi'); const c = h('div','p el', mk(s.text || 'AI សម្រាប់ការងារ\nរៀងរាល់សប្តាហ៍ 🚀'));
     if (ph) root.append(ph); root.append(a,b,c); const items = ph ? [ph,a,b,c] : [a,b,c]; if (s.ask) { const d = h('div','card el'); d.append(h('div','h3', mk(s.ask))); root.append(d); items.push(d); }
@@ -612,6 +639,13 @@ const UPDATE = {
     root._cells.forEach((td,i) => { const a = 0.6 + i * span * 0.18, p = (lt - a) / (span * 0.14); typeInto(td, String(s.add[i]), p, p > 0 && p < 1); td.className = p > 0 && p < 1.3 ? 'typ' : ''; });
     const at = 0.6 + (n - 1) * span * 0.18 + span * 0.14 + 0.5; pop(root._n, (lt - at) / 0.35, -60);
     root._n.style.boxShadow = lt > at ? `0 0 ${20 + 30 * Math.max(0, Math.sin((lt - at) * 6))}px var(--acc)` : ''; },
+
+  canvas(root, s, lt) { UPDATE.base(root, s, lt); const n = root._nodes.length, k = K(s), P = root._P;
+    root._nodes.forEach((e,i) => { const q = ease(clamp((lt - 0.5 - i * 0.45 * k) / 0.4)); e.style.opacity = q; e.style.transform = `translate(-50%,-50%) scale(${0.6 + 0.4 * back(q)})`; });
+    const cyc = (lt * 0.9) % (n + 1); root._nodes.forEach((e,i) => e.classList.toggle('on', lt > 0.5 + n * 0.45 * k && Math.floor(cyc) === i));
+    root._dots.forEach((d,i) => { const q = ((lt * 0.9) - i) % (n + 1); const v = q >= 0 && q < 1 && lt > 0.5 + n * 0.45 * k; d.style.opacity = v ? 1 : 0; const x = P[i].x + (P[i+1].x - P[i].x) * clamp(q); d.style.left = (x - 12) + 'px'; d.style.top = (P[i].y - 12) + 'px'; });
+    root._subs.forEach((e,i) => { const q = ease(clamp((lt - 0.8 - n * 0.45 * k - i * 0.5 * k) / 0.4)); e.style.opacity = q; e.style.transform = `translate(-50%,-50%) scale(${0.6 + 0.4 * back(q)})`; e.style.borderColor = Math.floor(lt * 1.5) % root._subs.length === i && q > 0.9 ? 'var(--acc)' : ''; });
+    root._st.querySelectorAll('.cvl').forEach(l => l.style.opacity = 1); },
   grid(root, s, lt) { UPDATE.base(root, s, lt); const n = root._gi.length, k = K(s); if (s.cycle !== false) { const span = Math.max(1, (s.talk || 4) * 0.85); const cur = Math.min(n - 1, Math.floor(lt / span * n)); root._gi.forEach((e,i) => e.classList.toggle('hot', i === cur && lt > 0.4)); } },
   power(root, s, lt) { UPDATE.base(root, s, lt); const st = root._st; const paths = ['.w0','.w1','.w2','.w3'].map(q => st.querySelector(q));
     root._dots.forEach((d,i) => { const p = paths[i]; const L = p.getTotalLength(); const q = ((lt * (i ? 0.7 : 0.9)) + i * 0.3) % 1; const pt = p.getPointAtLength(q * L); d.style.left = (pt.x - 13) + 'px'; d.style.top = (pt.y - 13) + 'px'; d.style.opacity = lt > 0.5 + i * 0.4 ? 1 : 0; });

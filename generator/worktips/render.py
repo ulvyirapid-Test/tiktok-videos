@@ -33,7 +33,11 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("installable trigger", "ឥនស្តលអេបិល ទ្រីហ្គ័រ"), ("From spreadsheet", "ហ្វ្រំ ស្ព្រេតស៊ីត"), ("Go to project", "ហ្គោ ធូ ប្រូជេក"),
+PRON = [("Community Edition", "ខមមុយនីធី អេឌីសិន"), ("AI Automation", "អេអាយ អូតូមេសិន"), ("AI Agents", "អេអាយ អេជិន"), ("AI Agent", "អេអាយ អេជិន"),
+        ("Automation", "អូតូមេសិន"), ("Agents", "អេជិន"), ("Agent", "អេជិន"), ("n8n", "អិន អេត អិន"), ("Make", "មេក"), ("Module", "ម៉ូឌុល"),
+        ("Scenario", "ស៊ីណារីយ៉ូ"), ("Workflow", "វើកហ្វ្លូ"), ("Node", "ណូដ"), ("node", "ណូដ"), ("Memory", "មេម៉ូរី"), ("Instructions", "អ៊ិនស្ត្រាក់សិន"),
+        ("Tools", "ធូល"), ("Model", "ម៉ូដែល"), ("credits", "ក្រេឌីត"), ("credit", "ក្រេឌីត"), ("Cloud", "ក្លោដ"), ("Website", "វេបសាយ"), ("Code", "ខូដ"),
+        ("Google Sheet", "ហ្គូហ្គល ស៊ីត"), ("Apps Script", "អែប ស្គ្រីប"), ("installable trigger", "ឥនស្តលអេបិល ទ្រីហ្គ័រ"), ("From spreadsheet", "ហ្វ្រំ ស្ព្រេតស៊ីត"), ("Go to project", "ហ្គោ ធូ ប្រូជេក"),
         ("Review permissions", "រីវីវ ភើមីសិន"), ("Time-driven", "តាម ដ្រីវិន"), ("Add Trigger", "អែត ទ្រីហ្គ័រ"), ("On edit", "អន អេឌីត"),
         ("notifyOnEdit", "ណូទីហ្វាយ អន អេឌីត"), ("onEdit", "អន អេឌីត"), ("testSend", "តេស សេន"), ("send", "សេន"), ("getUpdates", "ហ្គេត អាប់ដេត"),
         ("Chat ID", "ឆាត អាយឌី"), ("SHD Alert", "អេស អេច ឌី អាឡឺត"), ("SHD", "អេស អេច ឌី"), ("ChatGPT", "ឆាត ជីភីធី"), ("Claude", "ក្លត"),
