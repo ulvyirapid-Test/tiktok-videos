@@ -52,7 +52,12 @@ table { border-collapse:collapse; width:100%; font-size:36px; }
 th { background:rgba(74,222,128,.14); color:#BBF7D0; font-weight:700; }
 th, td { border:2px solid rgba(255,255,255,.1); padding:16px 18px; text-align:left; white-space:nowrap; }
 td.hl { background:rgba(34,211,238,.18); }
-td.res { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
+tr.rowhl td { background:rgba(250,204,21,.24); box-shadow:inset 0 3px 0 #FACC15, inset 0 -3px 0 #FACC15; }
+tr.rowbad td { background:rgba(248,113,113,.16); }
+.fx .mono { white-space:normal; word-break:break-all; line-height:1.35; }
+td.fill { background:rgba(74,222,128,.22); font-weight:800; color:var(--ok); }
+td.res, td.resv { background:rgba(74,222,128,.25); font-weight:800; color:var(--ok); }
+.bigt th, .bigt td { padding:.42em .55em; }
 .rn { color:var(--mut); width:56px; text-align:center; font-size:28px; background:rgba(255,255,255,.04); }
 /* phone */
 .phone { align-self:center; width:600px; height:1000px; border-radius:70px; background:#0B1024; border:10px solid #2A3157; padding:80px 30px 30px; display:flex; flex-direction:column; gap:22px; position:relative; box-shadow:0 30px 90px rgba(0,0,0,.5); }
@@ -361,15 +366,16 @@ const BUILD = {
     const root = h('div','scene'); const items = [];
     if (s.title) { const t = h('div','h3 el', mk(s.title)); root.append(t); items.push(t); }
     const w = h('div','win el'); w.append(h('div','tb','<span class=dot></span><span class=dot></span><span class=dot></span>&nbsp;' + esc(s.file || 'Sheet')));
-    const fx = h('div','fx','<b>fx</b>'); const fxt = h('span','mono'); fx.append(fxt); w.append(fx);
+    const fx = h('div','fx','<b>fx</b>'); const fxt = h('span','mono'); if (s.fxSize) fxt.style.fontSize = s.fxSize + 'px'; fx.append(fxt); w.append(fx); if (s.fs) w.style.setProperty('--fs', s.fs);
     const tb = h('table'); const tr0 = h('tr'); tr0.append(h('th','rn','')); s.cols.forEach(c => tr0.append(h('th','',esc(c)))); tb.append(tr0);
     const rowsEl = [];
     s.rows.forEach((r,i) => { const tr = h('tr'); tr.append(h('td','rn', String(i+2))); r.forEach((c,j) => { const td = h('td', (s.hlCol===j && s.hlVal===c)?'hl':'', esc(String(c))); tr.append(td); }); tb.append(tr); rowsEl.push(tr); });
+    const fillTds = s.fill ? rowsEl.map(tr => tr.children[s.fillCol + 1]) : [];
     let resTd = null;
     if (s.result) { const tr = h('tr'); tr.append(h('td','rn', String(s.rows.length+2))); s.cols.forEach((c,j) => { const td = h('td','', j===0 ? esc(s.result.label) : ''); if (j===s.cols.length-1) resTd = td; tr.append(td); }); tb.append(tr); rowsEl.push(tr); }
     w.append(tb); root.append(w); items.push(w);
     if (s.note) { const n = h('div','p el', mk(s.note)); root.append(n); items.push(n); root._note = n; }
-    root._items = items; root._rows = rowsEl; root._fxt = fxt; root._res = resTd; return root;
+    if (s.fs) { tb.style.fontSize = s.fs + 'px'; tb.classList.add('bigt'); } if (s.formula === '') fx.style.display = 'none'; root._items = items; root._rows = rowsEl; root._fxt = fxt; root._res = resTd; root._fillTds = fillTds; return root;
   },
   chat(s) {
     const root = h('div','scene'); const items = [];
@@ -626,8 +632,11 @@ const UPDATE = {
   sheet(root, s, lt) {
     UPDATE.base(root, s, lt);
     root._rows.forEach((r,i) => r.style.opacity = clamp((lt - 0.3 - i*0.12) / 0.25));
-    if (s.formula) typeInto(root._fxt, s.formula, (lt - (s.fAt ?? 1.2)) / (s.fDur ?? 1.6), true);
-    if (root._res) { const p = clamp((lt - (s.rAt ?? 3.2)) / 0.3); root._res.textContent = p > 0 ? s.result.value : ''; root._res.className = p > 0 ? 'res' : ''; root._res.style.transform = `scale(${0.8 + 0.2*back(p)})`; }
+    const T = s.rel ? Math.max(4, s.talk || 8) : 1;
+    if (s.formula) typeInto(root._fxt, s.formula, (lt - (s.fAt ?? 1.2) * T) / ((s.fDur ?? 1.6) * T), true);
+    if (s.hlRows) s.hlRows.forEach((rn, k) => { const tr = root._rows[rn - 2]; if (tr) tr.classList.toggle(s.bad && s.bad.includes(rn) ? 'rowbad' : 'rowhl', lt > (s.hlAt ?? 2) * T + k * (s.hlGap ?? 0.6)); });
+    if (s.fill) root._fillTds.forEach((td, k) => { const on = lt > (s.fillAt ?? 2) * T + k * 0.22; td.textContent = on ? s.fill[k] : (s.fillBlank ? '' : td.dataset.v ?? (td.dataset.v = td.textContent)); td.classList.toggle('fill', on); });
+    if (root._res) { const p = clamp((lt - (s.rAt ?? 3.2) * T) / 0.3); root._res.textContent = p > 0 ? s.result.value : ''; root._res.className = p > 0 ? 'resv' : ''; root._res.style.transform = `scale(${0.8 + 0.2*back(p)})`; }
   },
   chat(root, s, lt) {
     UPDATE.base(root, s, lt);
