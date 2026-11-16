@@ -1,0 +1,187 @@
+{
+  "id": "phnom-pros-srei-p2",
+  "series": "ភ្នំប្រុស ភ្នំស្រី",
+  "part": 2,
+  "label": "ភ្នំប្រុស ភ្នំស្រី • ភាគ ២",
+  "cover_title": "ល្បិចគោមភ្លើង",
+  "voice": "km-KH-SreymomNeural",
+  "rate": "-5%",
+  "music_seed": 3,
+  "image_seed": 4127,
+  "style": "cinematic digital painting, ancient Khmer kingdom era, Angkor-style villagers in traditional sampot clothing, misty Cambodian countryside with sugar palm trees and rice fields, soft volumetric lighting, rich warm colors, highly detailed, vertical 9:16 composition, no text, no letters, no watermark",
+  "characters": {
+    "LEADER": "young Khmer woman leader around 25, long black hair in a high bun, deep red silk sampot, gold-trimmed sbai shawl, gold armlets, confident clever smile",
+    "MEN": "group of strong Khmer men, bare chests, dark blue sampot chang kben, red krama tied at the waist",
+    "WOMEN": "group of Khmer women in red and gold traditional sampot and sbai"
+  },
+  "scenes": [
+    {
+      "speak": "បុរសៗ ឃើញផ្កាយព្រឹករះ ក៏ឈប់ធ្វើការ។ ប៉ុន្តែ ពន្លឺនោះ មិនមែនជាផ្កាយទេ!",
+      "subs": [
+        "បុរសៗ ឃើញផ្កាយព្រឹករះ",
+        "ក៏ឈប់ធ្វើការ។",
+        "ប៉ុន្តែ ពន្លឺនោះ",
+        "មិនមែនជាផ្កាយទេ!"
+      ],
+      "prompt": "night sky over dark misty hills, one very bright glowing lantern hanging high on a tall bamboo pole that looks like a shining morning star, mysterious mood, deep blue night",
+      "motion": "in"
+    },
+    {
+      "speak": "នេះជាភាគពីរ ភាគចុងក្រោយ។ ស្ត្រី និងបុរស ភ្នាល់គ្នាលើកភ្នំក្នុងមួយយប់។ បើមុនផ្កាយព្រឹករះ ភ្នំក្រុមណាខ្ពស់ជាង ក្រុមនោះឈ្នះ។ ក្រុមចាញ់ ត្រូវដណ្ដឹងគេ។",
+      "subs": [
+        "នេះជាភាគ ២ ភាគចុងក្រោយ។",
+        "ស្ត្រី និងបុរស ភ្នាល់គ្នា",
+        "លើកភ្នំក្នុងមួយយប់។",
+        "មុនផ្កាយព្រឹករះ",
+        "ភ្នំក្រុមណាខ្ពស់ជាង ក្រុមនោះឈ្នះ។",
+        "ក្រុមចាញ់ ត្រូវដណ្ដឹងគេ។"
+      ],
+      "prompt": "at sunset, WOMEN led by LEADER on the left facing MEN on the right across an open field, two small piles of earth between them, tense friendly rivalry, golden hour",
+      "motion": "right"
+    },
+    {
+      "speak": "ពេលយប់ចុះ បុរសៗ ជីកដី លើកថ្ម យ៉ាងខ្លាំង។ ភ្នំរបស់ពួកគេ ឡើងខ្ពស់ យ៉ាងលឿន។",
+      "subs": [
+        "ពេលយប់ចុះ បុរសៗ ជីកដី",
+        "លើកថ្ម យ៉ាងខ្លាំង។",
+        "ភ្នំរបស់ពួកគេ",
+        "ឡើងខ្ពស់ យ៉ាងលឿន។"
+      ],
+      "prompt": "night, wide shot of MEN as small silhouettes carrying baskets of earth up a tall hill, a few torches, dramatic firelight",
+      "motion": "up"
+    },
+    {
+      "speak": "ចំណែកស្ត្រីៗវិញ កម្លាំងតិចជាង។ ភ្នំរបស់ពួកនាង នៅទាបជាងឆ្ងាយ។ ប៉ុន្តែ មេក្រុមស្ត្រី មិនបារម្ភទេ។ នាងញញឹម ហើយខ្សឹបប្រាប់ក្រុមថា យើងមានល្បិច។",
+      "subs": [
+        "ចំណែកស្ត្រីៗវិញ កម្លាំងតិចជាង។",
+        "ភ្នំរបស់ពួកនាង នៅទាបជាងឆ្ងាយ។",
+        "ប៉ុន្តែ មេក្រុមស្ត្រី",
+        "មិនបារម្ភទេ។",
+        "នាងញញឹម ហើយខ្សឹបប្រាប់ក្រុមថា",
+        "«យើងមានល្បិច»។"
+      ],
+      "prompt": "night, close-up of LEADER smiling cleverly and whispering to WOMEN gathered around her, a small low hill behind them, warm oil lamp light on their faces",
+      "motion": "in"
+    },
+    {
+      "speak": "នាងដឹងថា បុរសៗ ខ្លាំងមែន តែងាយជឿ។ បើធ្វើឲ្យពួកគេឈប់មុនម៉ោង ស្ត្រីនឹងមានពេល លើកភ្នំបន្តរហូតដល់ភ្លឺ។",
+      "subs": [
+        "នាងដឹងថា បុរសៗ ខ្លាំងមែន",
+        "តែងាយជឿ។",
+        "បើធ្វើឲ្យពួកគេឈប់មុនម៉ោង",
+        "ស្ត្រីនឹងមានពេល",
+        "លើកភ្នំបន្តរហូតដល់ភ្លឺ។"
+      ],
+      "prompt": "night, LEADER standing on a small hill looking thoughtfully across at the MEN's tall torch-lit hill in the distance, moonlight, strategic planning mood",
+      "motion": "left"
+    },
+    {
+      "speak": "កណ្ដាលអធ្រាត្រ ស្ត្រីៗ យកគោមភ្លើងមួយ ចងលើចុងដងឫស្សីដ៏ខ្ពស់ ហើយលើកវាឡើង ឲ្យភ្លឺចែងចាំង ដូចផ្កាយព្រឹក។",
+      "subs": [
+        "កណ្ដាលអធ្រាត្រ ស្ត្រីៗ",
+        "យកគោមភ្លើងមួយ",
+        "ចងលើចុងដងឫស្សីដ៏ខ្ពស់",
+        "ហើយលើកវាឡើង ឲ្យភ្លឺចែងចាំង",
+        "ដូចផ្កាយព្រឹក។"
+      ],
+      "prompt": "midnight, WOMEN together raising a very tall bamboo pole with a bright glowing lantern tied at the top, lantern shining like a star against the dark sky, magical glow",
+      "motion": "up"
+    },
+    {
+      "speak": "នៅម្ខាងទៀត បុរសៗ ងើបមើលមេឃ ហើយស្រែកថា ផ្កាយព្រឹករះហើយ! យើងឈ្នះហើយ!",
+      "subs": [
+        "នៅម្ខាងទៀត បុរសៗ",
+        "ងើបមើលមេឃ ហើយស្រែកថា",
+        "«ផ្កាយព្រឹករះហើយ!",
+        "យើងឈ្នះហើយ!»"
+      ],
+      "prompt": "night, MEN on top of their tall hill pointing excitedly at a bright light in the distant sky, cheering, torches, wide shot",
+      "motion": "left"
+    },
+    {
+      "speak": "ពួកគេអស់កម្លាំង ក៏ទម្លាក់ល្អី ហើយដេកលក់នៅជើងភ្នំ ដោយគិតថា ខ្លួនឈ្នះច្បាស់ហើយ។",
+      "subs": [
+        "ពួកគេអស់កម្លាំង",
+        "ក៏ទម្លាក់ល្អី",
+        "ហើយដេកលក់នៅជើងភ្នំ",
+        "ដោយគិតថា ខ្លួនឈ្នះច្បាស់ហើយ។"
+      ],
+      "prompt": "night, exhausted MEN sleeping peacefully on the grass at the foot of their hill, empty woven baskets dropped beside them, dying torches, calm blue moonlight",
+      "motion": "out"
+    },
+    {
+      "speak": "តែស្ត្រីៗ មិនឈប់ទេ។ ពួកនាងបន្តលើកដី ពេញមួយយប់ ដោយស្ងាត់ៗ។ ភ្នំស្រី ឡើងខ្ពស់ ខ្ពស់ ហើយខ្ពស់ទៀត។",
+      "subs": [
+        "តែស្ត្រីៗ មិនឈប់ទេ។",
+        "ពួកនាងបន្តលើកដី",
+        "ពេញមួយយប់ ដោយស្ងាត់ៗ។",
+        "ភ្នំស្រី ឡើងខ្ពស់ ខ្ពស់",
+        "ហើយខ្ពស់ទៀត។"
+      ],
+      "prompt": "night, wide shot of WOMEN as small silhouettes carrying baskets up their growing hill, a tall bamboo pole with a glowing lantern above them, starry sky, hopeful mood",
+      "motion": "up"
+    },
+    {
+      "speak": "ពេលផ្កាយព្រឹកពិតរះ ហើយមេឃភ្លឺ បុរសៗ ភ្ញាក់ឡើង ហើយភ្ញាក់ផ្អើលយ៉ាងខ្លាំង។ ភ្នំស្រី ខ្ពស់ជាងភ្នំប្រុស!",
+      "subs": [
+        "ពេលផ្កាយព្រឹកពិតរះ",
+        "បុរសៗ ភ្ញាក់ឡើង",
+        "ហើយភ្ញាក់ផ្អើលយ៉ាងខ្លាំង។",
+        "ភ្នំស្រី",
+        "ខ្ពស់ជាងភ្នំប្រុស!"
+      ],
+      "prompt": "sunrise, two hills side by side, the hill on the left clearly taller with WOMEN cheering on its top, the shorter hill on the right, shocked MEN in the foreground looking up at the taller hill, pink and orange dawn sky",
+      "motion": "out"
+    },
+    {
+      "speak": "ពួកគេទើបដឹងថា ពន្លឺនោះ គឺគោមភ្លើងរបស់ស្ត្រី! ប៉ុន្តែ ពាក្យភ្នាល់ គឺជាពាក្យភ្នាល់។",
+      "subs": [
+        "ពួកគេទើបដឹងថា ពន្លឺនោះ",
+        "គឺគោមភ្លើងរបស់ស្ត្រី!",
+        "ប៉ុន្តែ ពាក្យភ្នាល់",
+        "គឺជាពាក្យភ្នាល់។"
+      ],
+      "prompt": "early morning, a tall bamboo pole with a burnt-out lantern at its top standing on the taller hill, MEN at the bottom looking up at it in disbelief and scratching their heads, soft morning mist",
+      "motion": "up"
+    },
+    {
+      "speak": "ស្ត្រីឈ្នះការភ្នាល់ ដោយប្រាជ្ញា មិនមែនដោយកម្លាំងទេ។ តាមរឿងព្រេងនេះ តាំងពីពេលនោះមក បុរសជាអ្នកដណ្ដឹងស្ត្រី។",
+      "subs": [
+        "ស្ត្រីឈ្នះការភ្នាល់",
+        "ដោយប្រាជ្ញា",
+        "មិនមែនដោយកម្លាំងទេ។",
+        "តាមរឿងព្រេងនេះ តាំងពីពេលនោះមក",
+        "បុរសជាអ្នកដណ្ដឹងស្ត្រី។"
+      ],
+      "prompt": "morning, LEADER and WOMEN celebrating joyfully on top of the taller hill, flower petals in the air, MEN below bowing politely and offering gifts on trays, bright warm light",
+      "motion": "in"
+    },
+    {
+      "speak": "សព្វថ្ងៃ ភ្នំទាំងពីរនេះ នៅតែមាននៅខេត្តកំពង់ចាម។ ភ្នំស្រីខ្ពស់ជាង ហើយភ្នំប្រុសទាបជាង ដូចក្នុងរឿងព្រេង។",
+      "subs": [
+        "សព្វថ្ងៃ ភ្នំទាំងពីរនេះ",
+        "នៅតែមាននៅខេត្តកំពង់ចាម។",
+        "ភ្នំស្រីខ្ពស់ជាង",
+        "ហើយភ្នំប្រុសទាបជាង",
+        "ដូចក្នុងរឿងព្រេង។"
+      ],
+      "prompt": "present-day aerial view of two green forested hills in rural Cambodia, the taller hill with a pointed peak and long stairway, the lower rounded hill with a Khmer pagoda with golden roof on top, rice fields and sugar palm trees around, sunny blue sky, no people",
+      "motion": "right",
+      "style": "photorealistic modern-day travel photography, vertical 9:16, highly detailed, no text, no watermark"
+    },
+    {
+      "speak": "តើអ្នកធ្លាប់ទៅលេងភ្នំប្រុស ភ្នំស្រីទេ? សរសេរប្រាប់ខាងក្រោមផង។ ចុចហ្វូឡូ ដើម្បីមើលរឿងព្រេងខ្មែរបន្ទាប់!",
+      "subs": [
+        "តើអ្នកធ្លាប់ទៅលេង",
+        "ភ្នំប្រុស ភ្នំស្រីទេ?",
+        "សរសេរប្រាប់ខាងក្រោមផង",
+        "ចុច Follow",
+        "មើលរឿងព្រេងខ្មែរបន្ទាប់!"
+      ],
+      "prompt": "golden sunset over two hills in Cambodia, silhouettes of sugar palm trees, a glowing lantern in the foreground, peaceful nostalgic mood",
+      "motion": "out"
+    }
+  ],
+  "caption": "ស្ត្រីឈ្នះបុរស ដោយល្បិចគោមភ្លើងតែមួយ! 🏮 រឿងព្រេងភ្នំប្រុស ភ្នំស្រី ភាគ ២ (ចប់)។ តើអ្នកធ្លាប់ទៅលេងភ្នំប្រុស ភ្នំស្រីទេ? 👇 #រឿងព្រេងខ្មែរ #ភ្នំប្រុសភ្នំស្រី #កំពង់ចាម #រឿងខ្មែរ #TikTokខ្មែរ #AIStory #fyp",
+  "cover_scene": 5
+}

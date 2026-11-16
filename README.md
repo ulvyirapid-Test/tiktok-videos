@@ -33,3 +33,11 @@ Animated shorts (chat typing, spreadsheet, phone alerts, flow, steps) rendered f
   - write the hook line so it does not repeat the intro.
 - Say **"វីដេអូនេះ"** (this video) — never **"ស៊េរីនេះ"** (this series). `render.py` replaces it automatically.
 - Before sending to Ravy: run the independent reviewer (≥85, no CRITICAL); approval gate before scheduling.
+
+## Khmer legend stories (AI story account)
+Free pipeline: Claude writes `content/stories/ID.json` → independent reviewer scores it (≥85) → push → GitHub Actions (`.github/workflows/story-video.yml`) renders the video and sends it to Telegram with ✅/❌ buttons.
+- Renderer: `python3 generator/story/render_story.py content/stories/ID.json [--no-images] [--preview]` → `videos/stories/ID.mp4`, `ID_cover.jpg`, `ID.json`
+- Voice: Edge TTS `km-KH-SreymomNeural`; images: Pollinations.ai FLUX (one per scene, `prompt` + global `style`, per-scene `style` override); motion: zoompan Ken Burns + crossfades; subtitles: ASS via libass with `shaping=complex` (needs distro FFmpeg with HarfBuzz, not a static build)
+- Spec fields: id, label, cover_title, cover_scene, voice, rate, music_seed, image_seed, style, characters {LEADER…}, scenes [{speak, subs[], prompt, motion in|out|left|right|up, style?}], caption
+- Speak text: Khmer only (no Latin words, write numbers as words); subs ≤ ~28 chars per line, no emoji
+- Repo secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (required for Telegram), `POLLINATIONS_TOKEN` (optional, faster)

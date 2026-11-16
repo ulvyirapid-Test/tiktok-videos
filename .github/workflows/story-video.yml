@@ -1,0 +1,84 @@
+name: Story video (Khmer legends)
+
+# Renders content/stories/*.json into videos/stories/*.mp4 with free tools
+# (Edge TTS Khmer voice, Pollinations AI images, FFmpeg) and sends the result to Telegram for approval.
+on:
+  push:
+    branches: [main]
+    paths: ["content/stories/*.json"]
+  workflow_dispatch:
+    inputs:
+      spec:
+        description: "Spec file to (re)render, e.g. content/stories/phnom-pros-srei-p2.json"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: story-video
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          pip install --quiet edge-tts numpy pillow
+
+      - name: Pick specs to render
+        id: pick
+        run: |
+          if [ -n "${{ github.event.inputs.spec }}" ]; then
+            echo "${{ github.event.inputs.spec }}" > specs.txt
+          else
+            git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'content/stories/*.json' > specs.txt || true
+          fi
+          cat specs.txt
+          echo "count=$(grep -c . specs.txt || true)" >> "$GITHUB_OUTPUT"
+
+      - name: Render
+        if: steps.pick.outputs.count != '0'
+        env:
+          POLLINATIONS_TOKEN: ${{ secrets.POLLINATIONS_TOKEN }}
+        run: |
+          while read -r spec; do
+            [ -n "$spec" ] && python3 generator/story/render_story.py "$spec" --preview
+          done < specs.txt
+
+      - name: Upload preview
+        if: steps.pick.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-preview
+          path: |
+            .work/*_preview.jpg
+            videos/stories/
+          retention-days: 7
+
+      - name: Commit video
+        if: steps.pick.outputs.count != '0'
+        run: |
+          git config user.name "story-bot"
+          git config user.email "story-bot@users.noreply.github.com"
+          git add videos/stories/
+          git commit -m "Render story videos [skip ci]" || exit 0
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && break; sleep 5; done
+
+      - name: Send to Telegram for approval
+        if: steps.pick.outputs.count != '0'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          while read -r spec; do
+            [ -n "$spec" ] && python3 tools/send_story_telegram.py "videos/stories/$(basename "$spec")"
+          done < specs.txt
