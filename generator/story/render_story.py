@@ -75,31 +75,63 @@ def build_prompt(spec, scene):
     return p + ", " + scene.get("style", spec.get("style", ""))
 
 
+UNSAFE = {"FEMALE_BREAST_EXPOSED": .25, "FEMALE_GENITALIA_EXPOSED": .2, "MALE_GENITALIA_EXPOSED": .2,
+          "BUTTOCKS_EXPOSED": .3, "ANUS_EXPOSED": .2}
+_detector = None
+
+
+def is_safe(path):
+    """Family-friendly check with NudeNet; also rejects bikini-like shots (exposed belly next to a female face)."""
+    global _detector
+    try:
+        from nudenet import NudeDetector
+    except ImportError:
+        print("  WARNING: nudenet not installed — safety check skipped")
+        return True
+    _detector = _detector or NudeDetector()
+    found = {d["class"]: d["score"] for d in _detector.detect(path)}
+    bad = [k for k, th in UNSAFE.items() if found.get(k, 0) >= th]
+    if found.get("BELLY_EXPOSED", 0) >= .5 and found.get("FACE_FEMALE", 0) >= .3:
+        bad.append("BELLY_EXPOSED")
+    if bad:
+        print(f"  rejected (unsafe): {bad}")
+    return not bad
+
+
 def fetch_image(prompt, seed, path):
+    """Try up to 3 seeds; each candidate must pass the safety check. Returns False -> placeholder."""
     if os.path.exists(path) and os.path.getsize(path) > 20000:
         return True
-    q = urllib.parse.quote(prompt[:1800], safe="")
-    url = (f"https://image.pollinations.ai/prompt/{q}?width={W}&height={H}&seed={seed}"
-           f"&model=flux&nologo=true&enhance=false&safe=true")
+    from PIL import Image
+    import io
     headers = {"User-Agent": "tiktok-story-generator/1.0"}
     tok = os.environ.get("POLLINATIONS_TOKEN")
     if tok:
         headers["Authorization"] = "Bearer " + tok
-    for attempt in range(6):
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=180) as r:
-                data = r.read()
-            from PIL import Image
-            import io
-            im = Image.open(io.BytesIO(data)).convert("RGB")
-            if im.width < 500:
-                raise ValueError(f"tiny image {im.size}")
-            im = cover_resize(im, W, H)
-            im.save(path, quality=94)
+    for k in range(3):
+        q = urllib.parse.quote(prompt[:1800], safe="")
+        url = (f"https://image.pollinations.ai/prompt/{q}?width={W}&height={H}&seed={seed + 1000 * k}"
+               f"&model=flux&nologo=true&enhance=false&safe=true")
+        for attempt in range(6):
+            try:
+                with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=180) as r:
+                    data = r.read()
+                im = Image.open(io.BytesIO(data)).convert("RGB")
+                if im.width < 500:
+                    raise ValueError(f"tiny image {im.size}")
+                break
+            except Exception as e:
+                print(f"  image retry {attempt + 1}: {e}")
+                time.sleep(16 + attempt * 10)   # anonymous limit ≈ 1 request / 15 s
+        else:
+            return False
+        # cut the bottom strip (free-tier logo sits there), then fill the frame
+        im = im.crop((0, 0, im.width, int(im.height * 0.93)))
+        cover_resize(im, W, H).save(path, quality=94)
+        if is_safe(path):
             return True
-        except Exception as e:
-            print(f"  image retry {attempt + 1}: {e}")
-            time.sleep(16 + attempt * 10)   # anonymous limit ≈ 1 request / 15 s
+        os.remove(path)
+        time.sleep(15)
     return False
 
 

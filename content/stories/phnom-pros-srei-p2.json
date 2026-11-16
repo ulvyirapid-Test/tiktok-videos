@@ -8,11 +8,11 @@
   "rate": "-5%",
   "music_seed": 3,
   "image_seed": 4127,
-  "style": "cinematic digital painting, ancient Khmer kingdom era, Angkor-style villagers in traditional sampot clothing, misty Cambodian countryside with sugar palm trees and rice fields, soft volumetric lighting, rich warm colors, highly detailed, vertical 9:16 composition, no text, no letters, no watermark",
+  "style": "Khmer folktale storybook illustration, painterly 2D animated film style, warm earthy colors, soft cinematic lighting, misty Cambodian countryside with sugar palm trees, family-friendly, every person fully clothed in modest traditional Khmer clothing, vertical 9:16 composition, no text, no letters, no watermark",
   "characters": {
-    "LEADER": "young Khmer woman leader around 25, long black hair in a high bun, deep red silk sampot, gold-trimmed sbai shawl, gold armlets, confident clever smile",
-    "MEN": "group of strong Khmer men, bare chests, dark blue sampot chang kben, red krama tied at the waist",
-    "WOMEN": "group of Khmer women in red and gold traditional sampot and sbai"
+    "LEADER": "a young Khmer village woman leader with long black hair in a high bun, wearing a modest long-sleeved red silk blouse, a gold-trimmed sbai shawl over both shoulders and an ankle-length red sampot, clever confident smile",
+    "MEN": "a group of Khmer village men wearing loose long-sleeved cotton shirts, dark blue sampot chang kben and red krama scarves",
+    "WOMEN": "a group of Khmer village women wearing modest long-sleeved blouses and ankle-length red and gold sampot skirts"
   },
   "scenes": [
     {
@@ -60,7 +60,7 @@
         "នាងញញឹម ហើយខ្សឹបប្រាប់ក្រុមថា",
         "«យើងមានល្បិច»។"
       ],
-      "prompt": "night, close-up of LEADER smiling cleverly and whispering to WOMEN gathered around her, a small low hill behind them, warm oil lamp light on their faces",
+      "prompt": "night, medium shot of LEADER smiling cleverly and whispering to WOMEN gathered around her, a small low hill behind them, warm oil lamp light",
       "motion": "in"
     },
     {
@@ -153,7 +153,7 @@
         "តាមរឿងព្រេងនេះ តាំងពីពេលនោះមក",
         "បុរសជាអ្នកដណ្ដឹងស្ត្រី។"
       ],
-      "prompt": "morning, LEADER and WOMEN celebrating joyfully on top of the taller hill, flower petals in the air, MEN below bowing politely and offering gifts on trays, bright warm light",
+      "prompt": "morning, wide shot of WOMEN celebrating joyfully on top of the taller hill with flower petals in the air, MEN below bowing politely and offering gifts on trays, bright warm light",
       "motion": "in"
     },
     {
