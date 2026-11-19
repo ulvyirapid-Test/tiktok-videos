@@ -33,7 +33,7 @@ VOFF = 0.15  # voice starts this many seconds into each scene (matches engine.ht
 TAIL = 0.55  # pause after each narration line before the next scene
 
 # English words the Khmer neural voice mispronounces -> Khmer spelling (screen text keeps English)
-PRON = [("COUNTIFS", "ខោនធ៍ អ៊ីហ្វ អេស"), ("SUMIFS", "សាំ អ៊ីហ្វ អេស"), ("IFERROR", "អ៊ីហ្វ អ៊ែរើ"), ("IFNA", "អ៊ីហ្វ អិនអេ"), ("XLOOKUP", "អ៊ិចស៍ លុកអាប់"), ("IFS", "អ៊ីហ្វ អេស"), ("TRIM", "ទ្រីម"), ("FALSE", "ហ្វលស៍"), ("TRUE", "ទ្រូ"), ("AND", "អែនដ៍"), ("OR", "អ័រ"), ("Google Sheets", "ហ្គូហ្គល ស៊ីត"), ("Microsoft 365", "ម៉ាយក្រូសូហ្វ ស្រី ស៊ិចស្ទី ហ្វាយ"), ("Microsoft", "ម៉ាយក្រូសូហ្វ"), ("Playlist", "ផ្លេលីស"), ("Price", "ប្រាយស៍"), ("Sales", "សេលស៍"), ("Channel", "ឆានែល"), ("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
+PRON = [("COUNTIFS", "ខោនធ៍ អ៊ីហ្វ អេស"), ("SUMIFS", "សាំ អ៊ីហ្វ អេស"), ("IFERROR", "អ៊ីហ្វ អ៊ែរើ"), ("IFNA", "អ៊ីហ្វ អិនអេ"), ("XLOOKUP", "អ៊ិចស៍ លុកអាប់"), ("IFS", "អ៊ីហ្វ អេស"), ("Find and Replace", "ហ្វាញ អេន រីផ្លេស"), ("Bonus", "បូណាស់"), ("Laptop", "ឡែបថប"), ("Fn", "អែហ្វ អិន"), ("TRIM", "ទ្រីម"), ("FALSE", "ហ្វលស៍"), ("TRUE", "ទ្រូ"), ("AND", "អែនដ៍"), ("OR", "អ័រ"), ("Google Sheets", "ហ្គូហ្គល ស៊ីត"), ("Microsoft 365", "ម៉ាយក្រូសូហ្វ ស្រី ស៊ិចស្ទី ហ្វាយ"), ("Microsoft", "ម៉ាយក្រូសូហ្វ"), ("Playlist", "ផ្លេលីស"), ("Price", "ប្រាយស៍"), ("Sales", "សេលស៍"), ("Channel", "ឆានែល"), ("TikTok", "ធិកតុក"), ("PDF", "ភីឌីអែហ្វ"), ("John McCarthy", "ចន ម៉ាកខាធី"), ("Google Translate", "ហ្គូហ្គល ត្រេនស្លេត"), ("Google Drive", "ហ្គូហ្គល ដ្រាយ"), ("Artificial", "អាធីហ្វីសៀល"),
         ("Intelligence", "អ៊ីនថេលីជិន"), ("Dartmouth", "ដាតម៉ោត"), ("ELIZA", "អេលីហ្សា"), ("Chatbot", "ឆាតបូត"), ("Chat", "ឆាត"), ("Robot", "រ៉ូបូត"),
         ("Hallucination", "ហាលូស៊ីណេសិន"), ("Facebook", "ហ្វេសប៊ុក"), ("Post", "ផូស្ត៍"), ("Emoji", "អ៊ីម៉ូជី"), ("Hashtag", "ហាសថេក"),
         ("Skills", "ស្គីល"), ("Skill", "ស្គីល"), ("Projects", "ប្រូជេក"), ("Project", "ប្រូជេក"), ("Connectors", "ខនណិចទ័រ"), ("Connect", "ខនណិច"),
@@ -65,11 +65,11 @@ PRON = [("COUNTIFS", "ខោនធ៍ អ៊ីហ្វ អេស"), ("SUMIFS",
         ("Control", "ខុនត្រូល"), ("SUMIF", "សាំ អ៊ីហ្វ"), ("VLOOKUP", "វី លុកអាប់"), ("COUNTIF", "ខោនធ៍ អ៊ីហ្វ"),
         ("Bot", "បូត"), ("Sheet", "ស៊ីត"), ("AI", "អេអាយ"), ("IF", "អ៊ីហ្វ")]
 
-LETTER = {"A": "អេ", "B": "ប៊ី", "C": "ស៊ី", "D": "ឌី", "E": "អ៊ី", "F": "អែហ្វ", "G": "ជី"}
-NUM = {"2": "ពីរ", "3": "បី", "4": "បួន", "5": "ប្រាំ", "6": "ប្រាំមួយ", "7": "ប្រាំពីរ"}
+LETTER = {"A": "អេ", "B": "ប៊ី", "C": "ស៊ី", "D": "ឌី", "E": "អ៊ី", "F": "អែហ្វ", "G": "ជី", "H": "អេច"}
+NUM = {"1": "មួយ", "8": "ប្រាំបី", "2": "ពីរ", "3": "បី", "4": "បួន", "5": "ប្រាំ", "6": "ប្រាំមួយ", "7": "ប្រាំពីរ"}
 def cellrefs(text):
     import re
-    return re.sub(r"(?<![A-Za-z0-9])([A-G])([2-7])?(?![A-Za-z0-9])", lambda m: LETTER[m.group(1)] + (" " + NUM[m.group(2)] if m.group(2) else ""), text)
+    return re.sub(r"(?<![A-Za-z0-9])([A-H])([1-8])?(?![A-Za-z0-9])", lambda m: LETTER[m.group(1)] + (" " + NUM[m.group(2)] if m.group(2) else ""), text)
 
 def khmerize(text, cells=False):
     import re
