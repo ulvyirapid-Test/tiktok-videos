@@ -10,35 +10,72 @@
  "caption": "IFNA vs IFERROR ខុសគ្នាត្រង់ណា? 🎯 IFNA លាក់តែ #N/A · ឃើញកំហុសពិត · ពេលណាប្រើមួយណា · ចប់ ១២ រូបមន្ត ✅ ភាគ ១២/១២\nរូបមន្តណាទៀត ចង់ឱ្យខ្ញុំបង្រៀន? 👇\n#Excel #IFNA #IFERROR #ExcelKhmer #GoogleSheets #គន្លឹះការងារ #TikTokខ្មែរ",
  "scenes": [
   {
-   "type": "hook",
+   "type": "sheet",
    "bg": "excel",
-   "pulse": true,
-   "cycle": true,
-   "ntfSize": 44,
-   "notify": [
-    {
-     "bot": "🙈 IFERROR",
-     "time": "",
-     "icon": "🛡️",
-     "t": "លាក់*គ្រប់*កំហុស"
-    },
-    {
-     "bot": "🎯 IFNA",
-     "time": "",
-     "icon": "👀",
-     "t": "លាក់តែ *#N/A* · ឃើញរូបមន្តខុស"
-    }
+   "rel": true,
+   "title": "លាក់*តែ* #N/A 🎯",
+   "file": "Sales",
+   "cols": [
+    "B ទំនិញ",
+    "G តម្លៃ"
    ],
-   "ntfAt": [
-    0.03,
-    0.3
+   "rows": [
+    [
+     "កាហ្វេ",
+     ""
+    ],
+    [
+     "តែ",
+     ""
+    ],
+    [
+     "កាហ្វេ",
+     ""
+    ],
+    [
+     "នំ",
+     ""
+    ],
+    [
+     "កាហ្វេ",
+     ""
+    ],
+    [
+     "តែ",
+     ""
+    ],
+    [
+     "ទឹកក្រូច",
+     ""
+    ]
    ],
-   "lines": [
-    {
-     "t": "លាក់*តែ* #N/A 🎯",
-     "cls": "h1"
-    }
+   "formula": "=IFNA(VLOOKUP(B8,Price!A:C,2,FALSE),\n\"រកមិនឃើញ\")",
+   "fAt": 0.3,
+   "fDur": 0.25,
+   "hlAt": 0.6,
+   "rAt": 0.85,
+   "fs": 40,
+   "noteSize": 44,
+   "fill": [
+    2.5,
+    2,
+    2.5,
+    1.5,
+    2.5,
+    2,
+    "រកមិនឃើញ"
    ],
+   "fillCol": 1,
+   "fillBlank": true,
+   "fillAt": 0.7,
+   "hlRows": [
+    8
+   ],
+   "bad": [
+    8
+   ],
+   "fxSize": 38,
+   "note": "",
    "speak": "ចង់លាក់តែ រកមិនឃើញ ហើយនៅតែឃើញរូបមន្តខុស? IFNA ធ្វើបាន! វាលាក់តែកំហុស អិនអេ មិនដូច IFERROR ដែលលាក់គ្រប់កំហុស។"
   },
   {
@@ -47,7 +84,7 @@
    "label": "📐 ជាអ្វី?",
    "text": "`=IFNA(រូបមន្តដើម,`\n`បង្ហាញពេល #N/A)`",
    "sub": "សរសេរ*ដូច* IFERROR\nធ្វើការតែពេល *#N/A*\n[[Excel 2013+]] [[Google Sheets]]",
-   "subSize": 42,
+   "subSize": 44,
    "speak": "IFNA សរសេរដូច IFERROR ដែរ៖ រូបមន្តដើម និងអ្វីដែលត្រូវបង្ហាញ។ ខុសគ្នាត្រង់ថា វាធ្វើការតែពេលមានកំហុស អិនអេ។ IFNA មានក្នុង Excel ពីរពាន់ដប់បី ឡើងទៅ និង Google Sheets។",
    "say": "*IFNA* · ផ្នែកនីមួយៗ"
   },
@@ -97,7 +134,7 @@
    "hlAt": 0.4,
    "rAt": 0.7,
    "fs": 40,
-   "noteSize": 40,
+   "noteSize": 44,
    "fill": [
     2.5,
     2,
@@ -125,7 +162,7 @@
    "type": "compare",
    "bg": "code",
    "neutral": true,
-   "title": "វាយខុស *VLOOKP*",
+   "title": "វាយខុស *VLOOKP*\n`=IFNA(VLOOKP(B2,…),…)`",
    "left": {
     "title": "🙈 IFERROR",
     "items": [
@@ -201,20 +238,20 @@
      ""
     ]
    ],
-   "formula": "=IFNA(E8/D8,\"-\")",
+   "formula": "=IFNA(E2/D2,\"-\")",
    "fAt": 0.04,
    "fDur": 0.22,
    "hlAt": 0.35,
    "rAt": 0.7,
    "fs": 38,
-   "noteSize": 40,
+   "noteSize": 44,
    "fill": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    2.5,
+    2,
+    2.5,
+    1.5,
+    2.5,
+    2,
     "#DIV/0!"
    ],
    "fillCol": 3,
@@ -236,9 +273,19 @@
    "label": "💡 ជ្រើសមួយណា?",
    "text": "🔎 VLOOKUP → *IFNA*",
    "sub": "⚡ XLOOKUP → *ផ្នែកទី ៤*\n➗ គណនា → *IFERROR*",
-   "subSize": 42,
+   "subSize": 44,
    "speak": "គន្លឹះងាយចាំ៖ ពេលរកទិន្នន័យ ដោយ VLOOKUP ប្រើ IFNA។ ពេលគណនា ដូចជាការចែក ប្រើ IFERROR។ ចំណែក XLOOKUP មានពាក្យ បើរកមិនឃើញ ស្រាប់ហើយ។",
    "say": "*IFNA* · គន្លឹះ"
+  },
+  {
+   "type": "tip",
+   "bg": "ram",
+   "label": "🧠 សាកល្បងខ្លួនឯង",
+   "text": "ចេញអ្វី?",
+   "sub": "`=IFNA(VLOOKUP(\"តែ\",Price!A:C,2,FALSE),`\n`\"រកមិនឃើញ\")`\n⏸️ ផ្អាក សាកវាយ…\n✅ ចម្លើយ៖ *2*",
+   "subSize": 44,
+   "speak": "សាកល្បងខ្លួនឯង៖ IFNA ជាមួយ VLOOKUP រកតែ ចេញអ្វី? ផ្អាកវីដេអូ ហើយគិត។ ចម្លើយ គឺពីរដុល្លារ ព្រោះរកឃើញ ដូច្នេះគ្មានអ្វីត្រូវលាក់។",
+   "say": "*IFNA* · សាកល្បង"
   },
   {
    "type": "cta",
