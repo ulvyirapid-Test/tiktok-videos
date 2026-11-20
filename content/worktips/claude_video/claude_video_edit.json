@@ -5,7 +5,7 @@
  "series": "AI កែវីដេអូ · Claude",
  "title": "កែវីដេអូជាមួយ Claude ៨ ជំហាន",
  "topic": "របៀបឱ្យ Claude ធ្វើវីដេអូ ដោយគ្រាន់តែវាយអក្សរ ក្នុងប្រាំបីជំហាន",
- "caption": "វាយអក្សរ ✍️ → បានវីដេអូ MP4 🎬 Claude + Remotion · ៨ ជំហានសម្រាប់អ្នកចាប់ផ្តើម · Save ទុកសាកតាម 📌\nអ្នកចង់ឱ្យ Claude ធ្វើវីដេអូអ្វី? 👇\n#Claude #ClaudeCode #AIVideo #Remotion #រៀនAI #AIសម្រាប់ការងារ #TikTokខ្មែរ",
+ "caption": "វាយអក្សរ ✍️ → បានវីដេអូ MP4 🎬 Claude + Remotion · ៨ ជំហានសម្រាប់អ្នកចាប់ផ្តើម · ផ្ទាំង Code ត្រូវការ Claude Pro ឡើងទៅ · Save ទុកសាកតាម 📌\nអ្នកចង់ឱ្យ Claude ធ្វើវីដេអូអ្វី? 👇\n#Claude #ClaudeCode #AIVideo #Remotion #រៀនAI #AIសម្រាប់ការងារ #TikTokខ្មែរ",
  "scenes": [
   {
    "type": "hook",
@@ -36,7 +36,7 @@
      "t": "✅ `reel.mp4` រួចរាល់"
     }
    ],
-   "speak": "គ្រាន់តែវាយប្រាប់ថា ធ្វើ Reel សាមសិបវិនាទី ពីវីដេអូរបស់ខ្ញុំ ហើយ Claude ធ្វើចេញជា MP4 ឱ្យ ដោយមិនបាច់ចេះកាត់តវីដេអូ។"
+   "speak": "ពេលរៀបចំរួច វាយតែមួយប្រយោគ Claude ធ្វើ Reel សាមសិបវិនាទីជា MP4 ឱ្យ មិនបាច់ចេះកាត់តវីដេអូ។"
   },
   {
    "type": "flow",
@@ -68,51 +68,51 @@
    "bg": "cpu",
    "label": "ជំហាន ១ · ដំឡើង 💻",
    "text": "ដំឡើង *Claude Desktop*",
-   "sub": "🔗 `claude.com/download` → *Sign in*\n🍎 Mac · 🪟 Windows · ទាញយក*ឥតគិតថ្លៃ*\n🪟 Windows៖ ដំឡើង *Git for Windows* សិន\n↻ រួចបិទ-បើកកម្មវិធីឡើងវិញ",
+   "sub": "🔗 `claude.com/download` → *Sign in*\n🍎 Mac · 🪟 Windows · 🐧 Linux (beta)\n💰 ទាញយក*ឥត⁠គិតថ្លៃ*",
    "subSize": 46,
    "say": "ជំហាន ១ · *Claude Desktop*",
-   "speak": "ជំហានទីមួយ ទាញយក Claude Desktop ឥតគិតថ្លៃ ពី claude ដត ខម ស្លាស ដោនឡូដ ហើយ Sign in។ បើប្រើ Windows ដំឡើង Git for Windows សិន រួចបើកកម្មវិធីឡើងវិញ។"
+   "speak": "ជំហានទីមួយ ទាញយក Claude Desktop ឥតគិតថ្លៃ ពី ក្លូដ ដត ខម ស្លាស ដោនឡូដ មានសម្រាប់ Mac, Windows និង Linux បេតា ហើយ Sign in។"
+  },
+  {
+   "type": "checklist",
+   "bg": "storage",
+   "title": "ជំហាន ២ · រៀបចំ Folder 📁 *AI Video Editing*",
+   "items": [
+    "📁 *Assets* — Logo · តន្ត្រី · Font",
+    "📁 *Raw* — វីដេអូដើមរបស់អ្នក",
+    "📁 *Reference* — វីដេអូគំរូ ចង់បាន Style ដូច"
+   ],
+   "note": "ដាក់ឯកសាររបស់អ្នកចូល ✅",
+   "say": "ជំហាន ២ · Folder *៣*",
+   "speak": "ជំហានទីពីរ បង្កើត Folder មួយ ឈ្មោះ AI Video Editing មានបីផ្នែក៖ Assets សម្រាប់ឡូហ្គោ តន្ត្រី និងហ្វន, Raw សម្រាប់វីដេអូដើម និង Reference សម្រាប់វីដេអូគំរូ។ ធ្វើបែបនេះ Claude ដឹងថាឯកសារណាប្រើធ្វើអ្វី។"
   },
   {
    "type": "tip",
    "bg": "google",
-   "label": "ជំហាន ២ · ប្តូរទៅ Code 🧑‍💻",
+   "label": "ជំហាន ៣ · បើក Code 🧑‍💻",
    "text": "[[💬 Chat]] [[📁 Cowork]] [[‹› Code]] 👈",
-   "sub": "ចុច *Code* → *Select folder* ជ្រើស Folder គម្រោង\n✅ Claude បង្កើតឯកសារ · រត់ឧបករណ៍ · Render វីដេអូ\n👑 Code ត្រូវការគម្រោង*បង់លុយ*៖ *Pro* ឡើងទៅ",
+   "sub": "ចុច *Code* → ក្រោមប្រអប់ Prompt ជ្រើស *Local*\n→ *Open folder…* រើស Folder ជំហាន ២\n👑 Code ត្រូវការគម្រោង*បង់លុយ*៖ *Pro* ឡើងទៅ",
    "subSize": 46,
-   "say": "ជំហាន ២ · ផ្ទាំង *Code*",
-   "speak": "ជំហានទីពីរ ក្នុងបីផ្ទាំង Chat, Cowork និង Code ចុចផ្ទាំង Code ហើយជ្រើស Folder គម្រោង។ នៅទីនេះ Claude បង្កើតឯកសារ និង Render វីដេអូបាន។ Code ត្រូវការគម្រោងបង់លុយ ចាប់ពី Pro ឡើងទៅ។"
+   "say": "ជំហាន ៣ · ផ្ទាំង *Code*",
+   "speak": "ជំហានទីបី ក្នុងបីផ្ទាំង Chat, Cowork និង Code ចុចផ្ទាំង Code។ ក្រោមប្រអប់ Prompt ជ្រើស Local រួចចុច Open folder ហើយរើស Folder ដែលបានបង្កើតក្នុងជំហានទីពីរ។ Code ត្រូវការគម្រោងបង់លុយ ចាប់ពី Pro ឡើងទៅ។"
   },
   {
    "type": "code",
    "bg": "code",
-   "title": "ជំហាន ៣ · ដំឡើង *Skills* 🧩",
+   "title": "ជំហាន ៤ · ដំឡើង *Skills* 🧩",
    "file": "Terminal",
    "size": 34,
    "tDur": 4.0,
    "lines": [
     "$ npx skills add remotion-dev/skills",
     "",
-    "✔ remotion-best-practices",
-    "// ច្បាប់ធ្វើវីដេអូដោយកូដ",
-    "// ឱ្យ Claude ធ្វើតាមស្តង់ដារ"
+    "✔ remotion-best-practices …",
+    "// ឬប្រាប់ Claude៖",
+    "// «ដំឡើង Remotion skills ឱ្យខ្ញុំ»"
    ],
    "note": "ត្រូវការ *Node.js* · ងាយបំផុត៖ ប្រាប់ *Claude ដំឡើងឱ្យ*",
-   "say": "ជំហាន ៣ · *Remotion Skills*",
-   "speak": "ជំហានទីបី ដំឡើង Skills របស់ Remotion ដែលបង្រៀន Claude ពីរបៀបធ្វើវីដេអូដោយកូដឱ្យត្រឹមត្រូវ។ ត្រូវមាន Node.js ហើយងាយបំផុត គឺប្រាប់ Claude ឱ្យដំឡើងឱ្យ។"
-  },
-  {
-   "type": "checklist",
-   "bg": "storage",
-   "title": "ជំហាន ៤ · រៀបចំ Folder 📁 *AI Video Editing*",
-   "items": [
-    "📁 *Assets* — Logo · តន្ត្រី · Font",
-    "📁 *Raw* — វីដេអូដើមរបស់អ្នក",
-    "📁 *Reference* — វីដេអូគំរូ ចង់បាន Style ដូច"
-   ],
-   "note": "រួចជ្រើស Folder នេះក្នុង Claude ✅",
-   "say": "ជំហាន ៤ · Folder *៣*",
-   "speak": "ជំហានទីបួន បង្កើត Folder មួយ មានបីផ្នែក៖ Assets សម្រាប់ Logo តន្ត្រី និង Font, Raw សម្រាប់វីដេអូដើម និង Reference សម្រាប់វីដេអូគំរូ។ រួចជ្រើស Folder នេះក្នុង Claude។"
+   "say": "ជំហាន ៤ · *Remotion Skills*",
+   "speak": "ជំហានទីបួន ដំឡើង Skills របស់ Remotion ចូល Folder នោះ ដើម្បីបង្រៀន Claude ពីរបៀបធ្វើវីដេអូដោយកូដ។ ត្រូវមាន Node.js។ វិធីងាយបំផុត គឺប្រាប់ Claude ថា ដំឡើង រីម៉ូសិន ស្គីល ឱ្យខ្ញុំ។"
   },
   {
    "type": "chat",
@@ -124,7 +124,8 @@
    "uDur": 5.0,
    "aDur": 3.0,
    "say": "សំខាន់៖ ឱ្យ *Storyboard* មុនសិន",
-   "speak": "ជំហានទីប្រាំ សរសេរ Prompt ដូចក្នុងរូប ហើយចំណុចសំខាន់ គឺសុំឱ្យ Claude បង្ហាញ Storyboard មុនសិន។ Claude មាន Folder រួចហើយ ទើបដឹងថាត្រូវប្រើឯកសារណា។"
+   "speak": "ជំហានទីប្រាំ សរសេរ Prompt ឧទាហរណ៍៖ ធ្វើ Reel សាមសិបវិនាទី ពីវីដេអូក្នុង Raw ស្ទីលដូច Reference ប្រើឡូហ្គោក្នុង Assets ហើយបង្ហាញ Storyboard ឱ្យខ្ញុំមើលមុនសិន។",
+   "small": 44
   },
   {
    "type": "grid",
@@ -163,11 +164,11 @@
    "stagger": 1.0,
    "items": [
     "Claude បើក *Remotion Studio* មើលក្នុង Browser 👀",
-    "ពេញចិត្ត → ប្រាប់ «*Render ជា MP4*»",
-    "ឯកសារ *MP4* ចេញក្នុង Folder `out` 📦"
+    "ពេញចិត្ត → ប្រាប់ «*Render ជា MP4*»",
+    "ឯកសារ *MP4* ចេញក្នុង Folder `out` 📦\nបើ Claude សុំអនុញ្ញាត → ចុច *Allow* ✅"
    ],
    "say": "ជំហាន ៧ · *Preview* → *MP4*",
-   "speak": "ជំហានទីប្រាំពីរ Claude បើក Remotion Studio ឱ្យអ្នកមើលសាកក្នុង Browser។ ពេញចិត្ត ប្រាប់ថា Render ជា MP4 ហើយឯកសារនឹងចេញក្នុង Folder ឈ្មោះ out។"
+   "speak": "ជំហានទីប្រាំពីរ Claude បើក Remotion Studio ឱ្យអ្នកមើលសាកក្នុង Browser។ ពេញចិត្ត ប្រាប់ថា Render ជា MP4 ហើយឯកសារចេញក្នុង Folder ឈ្មោះ អៅ។ បើ Claude សួរសុំការអនុញ្ញាតរត់ពាក្យបញ្ជា ចុច Allow។"
   },
   {
    "type": "flow",
@@ -198,35 +199,11 @@
    "type": "tip",
    "bg": "alert",
    "label": "⚠️ ត្រូវដឹងមុនចាប់ផ្តើម",
-   "text": "AI អាច!ខុស! · កុំរំពឹងល្អ*ឥតខ្ចោះ*លើកដំបូង",
-   "sub": "📺 មើលវីដេអូនេះមិនគ្រប់ទេ → ត្រូវ*សាកផ្ទាល់*\n📜 Remotion ឥតគិតថ្លៃ៖ *បុគ្គល* · ក្រុមហ៊ុន *≤ ៣ នាក់*\n🏢 ក្រុមហ៊ុន *៤ នាក់ឡើង* → ត្រូវទិញ License",
+   "text": "AI អាច!ខុស! · កុំរំពឹងល្អ*ឥត⁠ខ្ចោះ*លើកដំបូង",
+   "sub": "📺 មើលមិនគ្រប់ → ត្រូវ*សាកផ្ទាល់*\n📜 Remotion ឥត⁠គិតថ្លៃ៖ *បុគ្គល* · ក្រុមហ៊ុន *≤ ៣ នាក់* · អង្គការមិនរកកម្រៃ\n🏢 ក្រុមហ៊ុន *៤ នាក់ឡើង* → ទិញ License\n➕ *ElevenLabs* (សំឡេង · ត្រូវ API key) · *Whisper* (អក្សររត់ · ត្រូវដំឡើង)",
    "subSize": 46,
    "say": "សាកផ្ទាល់ · ពិនិត្យលទ្ធផលជានិច្ច",
-   "speak": "ត្រូវដឹង៖ AI អាចខុស កុំរំពឹងល្អឥតខ្ចោះលើកដំបូង ហើយត្រូវសាកផ្ទាល់ទើបពូកែ។ Remotion ឥតគិតថ្លៃសម្រាប់បុគ្គល និងក្រុមហ៊ុនមិនលើសបីនាក់ ចាប់ពីបួននាក់ឡើង ត្រូវទិញ License។"
-  },
-  {
-   "type": "grid",
-   "bg": "gpu",
-   "title": "ធ្វើបន្ថែមបានទៀត ➕",
-   "items": [
-    {
-     "icon": "🎙️",
-     "t": "ElevenLabs",
-     "s": "សំឡេងអាន (Voiceover)"
-    },
-    {
-     "icon": "💬",
-     "t": "Whisper",
-     "s": "អក្សររត់ (Captions)"
-    },
-    {
-     "icon": "🧩",
-     "t": "Skills ផ្សេងៗ",
-     "s": "ឧបករណ៍ច្រើនទៀត"
-    }
-   ],
-   "say": "ElevenLabs ត្រូវភ្ជាប់*គណនី*របស់អ្នក",
-   "speak": "Claude ក៏ធ្វើការជាមួយ ElevenLabs សម្រាប់សំឡេងអាន Whisper សម្រាប់អក្សររត់ និង Skills ជាច្រើនទៀតបាន។ ElevenLabs ត្រូវភ្ជាប់គណនីរបស់អ្នក។"
+   "speak": "ត្រូវដឹង៖ AI អាចខុស ត្រូវសាកផ្ទាល់ទើបពូកែ។ Remotion ឥតគិតថ្លៃសម្រាប់បុគ្គល និងក្រុមហ៊ុនមិនលើសបីនាក់ ចាប់ពីបួននាក់ឡើងត្រូវទិញ License។ បើភ្ជាប់ ElevenLabs ដោយ API key និងដំឡើង Whisper ទើប Claude អាចបន្ថែមសំឡេងអាន និងអក្សររត់បាន។"
   },
   {
    "type": "cta",
